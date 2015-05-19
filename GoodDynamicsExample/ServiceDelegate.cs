@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using GoodDynamics;
-using MonoTouch.Foundation;
+using Foundation;
 
 namespace GoodDynamicsExample
 {
@@ -10,13 +10,13 @@ namespace GoodDynamicsExample
         {
         }
 
-        public override void WithAttachments(string application, NSObject[] attachments, MonoTouch.Foundation.NSObject parameters, string requestID)
+        public override void WithAttachments(string application, NSObject[] attachments, Foundation.NSObject parameters, string requestID)
         {
 
         }
          
         //Use this method to initiate the App Kinetics service system. This example uses the tranfer-file service.
-        public override void ForService(string application, string service, string version, string method, MonoTouch.Foundation.NSObject parameters, NSObject[] attachments, string requestID)
+        public override void ForService(string application, string service, string version, string method, Foundation.NSObject parameters, NSObject[] attachments, string requestID)
         {
             if (service != "com.good.gdservice.transfer-file")
             {

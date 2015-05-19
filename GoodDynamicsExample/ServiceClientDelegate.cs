@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using GoodDynamics;
-using MonoTouch.Foundation;
+using Foundation;
 
 namespace GoodDynamicsExample
 {

@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 using GoodDynamics;
-using MonoTouch.ObjCRuntime;
+using ObjCRuntime;
 using System.Runtime.InteropServices;
 
 namespace GoodDynamicsExample
@@ -26,8 +26,8 @@ namespace GoodDynamicsExample
         {
             //We need to manually add the missing UIApplicationDelegate protocol to our AppDelegate at runtime.
             //This lets GDiOS.InitializeWithClassNameConformingToUIApplicationDelegate succeed.
-            var p = objc_getProtocol ("UIApplicationDelegate");
-            class_addProtocol (Class.GetHandle (ApplicationDelegateName), p);
+            //var p = objc_getProtocol ("UIApplicationDelegate");
+            //class_addProtocol (Class.GetHandle (ApplicationDelegateName), p);
 
             GDiOS.InitializeWithClassNameConformingToUIApplicationDelegate (ApplicationDelegateName);
 

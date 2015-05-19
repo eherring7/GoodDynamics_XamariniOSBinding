@@ -1,4 +1,4 @@
 using System;
-using MonoTouch.ObjCRuntime;
+using ObjCRuntime;
 
-[assembly: LinkWith ("GD.a", LinkTarget.ArmV7 | LinkTarget.ArmV7s | LinkTarget.Simulator)]
+[assembly: LinkWith ("GD.a", LinkTarget.Arm64 | LinkTarget.ArmV7 | LinkTarget.ArmV7s | LinkTarget.Simulator | LinkTarget.Simulator64)]

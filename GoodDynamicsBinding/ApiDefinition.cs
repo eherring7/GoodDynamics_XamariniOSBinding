@@ -1,9 +1,9 @@
 using System;
 
-using MonoTouch.ObjCRuntime;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using MonoTouch.CoreData;
+using ObjCRuntime;
+using Foundation;
+using UIKit;
+using CoreData;
 
 namespace GoodDynamics {
 
