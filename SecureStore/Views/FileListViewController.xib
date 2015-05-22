@@ -15,11 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-ek-z1Q">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-ek-z1Q">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-HZ-6pf">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuE-HZ-6pf">
                     <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                     <items>
                         <barButtonItem title="Item" id="4Ba-Q4-PWc"/>
@@ -27,6 +27,16 @@
                 </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VQx-ek-z1Q" secondAttribute="trailing" id="4ET-yO-vHo"/>
+                <constraint firstAttribute="trailing" secondItem="fuE-HZ-6pf" secondAttribute="trailing" id="4fj-cD-tiF"/>
+                <constraint firstItem="fuE-HZ-6pf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EUy-FB-YlQ"/>
+                <constraint firstAttribute="bottom" secondItem="fuE-HZ-6pf" secondAttribute="bottom" id="KRD-vA-xiR"/>
+                <constraint firstItem="VQx-ek-z1Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="T1u-w0-RO3"/>
+                <constraint firstItem="VQx-ek-z1Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gks-Uq-TjA"/>
+                <constraint firstItem="fuE-HZ-6pf" firstAttribute="top" secondItem="VQx-ek-z1Q" secondAttribute="bottom" id="kLV-Ld-f8O"/>
+                <constraint firstItem="fuE-HZ-6pf" firstAttribute="top" secondItem="VQx-ek-z1Q" secondAttribute="bottom" id="z4h-JY-rJA"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
         </view>
     </objects>

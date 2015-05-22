@@ -83,7 +83,7 @@ namespace SecureStore
 
         private void StartApplication()
         {
-            Window.RootViewController = new UINavigationController(new MainViewController());
+            Window.RootViewController = new UINavigationController(new FileListViewController());
         }
 
 		public override void OnResignActivation (UIApplication application)
