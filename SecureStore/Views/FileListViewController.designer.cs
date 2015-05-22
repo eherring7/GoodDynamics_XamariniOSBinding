@@ -14,12 +14,20 @@ namespace SecureStore.Views
 	{
 		[Outlet]
 		UIKit.UITableView fileTableList { get; set; }
+
+		[Outlet]
+		UIKit.UIBarButtonItem newDirectoryButton { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (fileTableList != null) {
 				fileTableList.Dispose ();
 				fileTableList = null;
+			}
+
+			if (newDirectoryButton != null) {
+				newDirectoryButton.Dispose ();
+				newDirectoryButton = null;
 			}
 		}
 	}

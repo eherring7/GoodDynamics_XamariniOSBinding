@@ -11,6 +11,8 @@ namespace SecureStore.Views
 {
     public partial class FileListViewController : UIViewController
     {
+        private string currentPath = "/";
+
         public FileListViewController() : base("FileListViewController", null)
         {
         }
@@ -18,16 +20,32 @@ namespace SecureStore.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            newDirectoryButton.Clicked += NewDirectoryButton_Clicked;
 
-            LoadPath("/");
+            LoadPath();
         }
 
-        private void LoadPath(string path)
+        void NewDirectoryButton_Clicked (object sender, EventArgs e)
+        {
+            var alertView = new UIAlertView("Prompt", "Name for new Directory?", null, "Cancel", "Ok");
+            alertView.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+
+            alertView.Clicked += (object s, UIButtonEventArgs ev) => {
+                if (ev.ButtonIndex == 1)
+                {
+                    CreateDirectoryRefreshList(alertView.GetTextField(0).Text);
+                }
+            };
+
+            alertView.Show();
+        }
+
+        private void LoadPath()
         {
             NSError error;
 
-            Title = path;
-            var contents = GDFileSystem.ContentsOfDirectoryAtPath("/", out error);
+            Title = currentPath;
+            var contents = GDFileSystem.ContentsOfDirectoryAtPath(currentPath, out error);
 
             if (error == null)
             {
@@ -44,6 +62,11 @@ namespace SecureStore.Views
                     }).ToArray()
                 );
             }
+        }
+
+        private void CreateDirectoryRefreshDirectory(string newDirectoryName)
+        {
+            GDFileSystem.CreateDirectoryAtPath(
         }
     }
 }
