@@ -1,8 +1,14 @@
 ﻿<Properties StartupItem="RssReader/RssReader.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SecureCommunicationExample/AppDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RssReader/Views/RssListView.cs">
     <Files>
-      <File FileName="SecureCommunicationExample/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="SecureCommunicationExample/Managers/FeedDownloadGDHttp.cs" Line="149" Column="1" />
+      <File FileName="RssReader/Helpers/FeedDownloader.cs" Line="24" Column="12" />
+      <File FileName="RssReader/Views/RssListView.cs" Line="39" Column="9" />
+      <File FileName="RssReader/Sources/FeedTableViewSource.cs" Line="58" Column="74" />
+      <File FileName="RssReader/Delegates/CustomGDHttpRequestDelegate.cs" Line="40" Column="28" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="238" Column="9" />
+      <File FileName="GoodDynamicsBinding/obj/Debug/ios/GoodDynamics/GDDirectByteBuffer.g.cs" Line="76" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

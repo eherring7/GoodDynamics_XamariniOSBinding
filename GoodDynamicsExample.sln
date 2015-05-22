@@ -25,8 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerServices", "ServerSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreetingsServer", "GreetingsServer\GreetingsServer.csproj", "{C77989BC-BD1D-4B2E-81D5-B8DAFEA8D4DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureCommunicationExample", "SecureCommunicationExample\SecureCommunicationExample.csproj", "{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -181,18 +179,6 @@ Global
 		{C77989BC-BD1D-4B2E-81D5-B8DAFEA8D4DA}.Release|iPhone.Build.0 = Release|iPhone
 		{C77989BC-BD1D-4B2E-81D5-B8DAFEA8D4DA}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{C77989BC-BD1D-4B2E-81D5-B8DAFEA8D4DA}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Ad-Hoc|iPhone.ActiveCfg = Release|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Ad-Hoc|iPhone.Build.0 = Release|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.AppStore|iPhone.ActiveCfg = Release|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.AppStore|iPhone.Build.0 = Release|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Debug|iPhone.Build.0 = Debug|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Release|iPhone.ActiveCfg = Release|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Release|iPhone.Build.0 = Release|iPhone
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{F23E139A-7497-42CC-9AFA-8DC7F8B83A4F}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{86507033-229F-4078-9C72-B501A2C26304}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
 		{86507033-229F-4078-9C72-B501A2C26304}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
 		{86507033-229F-4078-9C72-B501A2C26304}.AppStore|iPhone.ActiveCfg = Release|Any CPU

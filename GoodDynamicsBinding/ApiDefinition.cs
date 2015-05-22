@@ -281,7 +281,7 @@ namespace GoodDynamics {
         void  OnStatusChange(GDHttpRequest httpRequest);
 	}
 		
-	[BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Delegates = new string[] {"WeakDelegate"}, Events = new Type[] {typeof(GDHttpRequestDelegate)})]
 	public interface GDHttpRequest{
 
 		[Export ("open:withUrl:withAsync:withUser:withPass:withAuth:")]
@@ -339,7 +339,7 @@ namespace GoodDynamics {
 		bool Send (IntPtr data);
 
 		[Export ("send")]
-		bool SendProp { get; }
+        bool Send();
 
 		[Export ("sendData:withTimeout:")]
 		bool SendData (NSData data, int timeout_s);
@@ -375,13 +375,16 @@ namespace GoodDynamics {
 		bool Close { get; }
 
 		[Export ("abort")]
-		bool Abort { get; }
+        bool Abort();
 
 		[Export ("enablePipelining")]
 		bool EnablePipelining { get; set;}
 
-		[Export ("delegate", ArgumentSemantic.Assign)]
+        [Wrap("WeakDelegate")]
 		GDHttpRequestDelegate Delegate { get; set; }
+
+        [Export ("delegate", ArgumentSemantic.Assign)]
+        NSObject WeakDelegate { get; set;  }
 	}
 
 	[Category, BaseType (typeof (NSUrlCache))]

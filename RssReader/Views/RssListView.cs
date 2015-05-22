@@ -1,0 +1,68 @@
+﻿
+using System;
+
+using Foundation;
+using UIKit;
+using System.Collections.Generic;
+using RssReader.Sources;
+using RssReader.Helpers;
+using RssReader.Models;
+
+namespace RssReader.Views
+{
+    public partial class RssListView : UIViewController
+    {
+        private FeedDownloader _feedDownloader;
+
+        private IList<NewsItem> _items;
+
+        public RssListView(): base("RssListView", null)
+        {
+            _items = new List<NewsItem>();
+            _feedDownloader = new FeedDownloader(_items);
+        }
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            //Set Nav Title
+            NavigationItem.Title = "BBC News";
+
+            //Set the URL
+            //_currentUrl = feed.RssUrl;
+
+            //Add the refresh and save buttons
+            NavigationItem.SetRightBarButtonItems(GetRightBarButtonItems(), false);
+            NavigationItem.SetLeftBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Save, this, null), false);
+
+            var source = new FeedTableViewSource(_items);
+            rssTable.Source = source;
+
+            _feedDownloader.RequestData("http://feeds.bbci.co.uk/news/world/rss.xml");
+        }
+
+        public UIBarButtonItem[] GetRightBarButtonItems()
+        {
+            //Create the list to hold the buttons, which then gets added to the toolbar
+            var buttons = new List<UIBarButtonItem>();
+
+            //Create the stop and refresh buttons
+            var b = new UIBarButtonItem(UIBarButtonSystemItem.Stop, this, null);
+            buttons.Add (b);
+
+            //create a spacer
+            b = new UIBarButtonItem(UIBarButtonSystemItem.FixedSpace, null, null);
+            buttons.Add (b);
+
+            //Create a standard "refresh" button
+            b = new UIBarButtonItem(UIBarButtonSystemItem.Refresh, (s, e) => rssTable.ReloadData());
+            buttons.Add (b);
+
+            //Convert to array before returning
+            return buttons.ToArray();
+
+        }
+    }
+}
+
