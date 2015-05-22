@@ -4,6 +4,7 @@ using UIKit;
 using GoodDynamics;
 using System.Diagnostics;
 using System;
+using RssReader.Views;
 
 namespace RssReader
 {
@@ -48,6 +49,10 @@ namespace RssReader
 			switch (anEvent.Code) {
 			case GDAppResultCode.ErrorNone:
 				//Start your application
+                var rssList = new RssListView();
+                var nav = new UINavigationController(rssList);
+                Window.RootViewController = nav;
+                Window.MakeKeyAndVisible();
 				break;
 
 			default:

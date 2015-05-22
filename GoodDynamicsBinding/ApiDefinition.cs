@@ -237,7 +237,7 @@ namespace GoodDynamics {
 		int BytesUnread { get; }
 
 		[Export ("read:toMaxLength:")]
-		int Read (IntPtr data, int maxLength);
+        int Read (IntPtr data, int maxLength);
 
 		[Export ("unreadDataAsString")]
 		string UnreadDataAsString { get; }
@@ -281,23 +281,23 @@ namespace GoodDynamics {
 	public interface GDHttpRequestDelegate {
 
 		[Export ("onStatusChange:")]
-		void  OnStatusChange(NSObject httpRequest);
+        void  OnStatusChange(GDHttpRequest httpRequest);
 	}
 		
-	[BaseType(typeof(NSObject))]
+    [BaseType(typeof(NSObject), Delegates = new string[] {"WeakDelegate"}, Events = new Type[] {typeof(GDHttpRequestDelegate)})]
 	public interface GDHttpRequest{
 
 		[Export ("open:withUrl:withAsync:withUser:withPass:withAuth:")]
-        bool Open (IntPtr method, IntPtr url, bool isAsync, IntPtr user, IntPtr password, IntPtr auth);
+        bool Open ([PlainString] string method, [PlainString] string url, bool isAsync, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
 
 		[Export ("open:withUrl:withUser:withPass:withAuth:")]
-		bool Open (IntPtr method, IntPtr url, IntPtr user, IntPtr password, IntPtr auth);
+        bool Open ([PlainString] string method, [PlainString] string url, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
 
 		[Export ("open:withUrl:withAsync:")]
-		bool Open (IntPtr method, IntPtr url, bool isAsync);
+        bool Open ([PlainString] string method, [PlainString] string url, bool isAsync);
 
 		[Export ("open:withUrl:")]
-		bool Open (IntPtr method, IntPtr url);
+        bool Open ([PlainString] string method, string url);
 
 		[Export ("disableHostVerification")]
 		bool DisableHostVerification {get;}
@@ -315,19 +315,19 @@ namespace GoodDynamics {
 		void ClearCookies (bool includePersistentStore);
 
 		[Export ("enableHttpProxy:withPort:withUser:withPass:withAuth:")]
-		bool EnableHttpProxy (IntPtr host, int port, IntPtr user, IntPtr password, IntPtr auth);
+        bool EnableHttpProxy ([PlainString] string host, int port, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
 
 		[Export ("enableHttpProxy:withPort:")]
-		bool EnableHttpProxy (IntPtr host, int port);
+        bool EnableHttpProxy ([PlainString] string host, int port);
 
 		[Export ("disableHttpProxy")]
 		bool DisableHttpProxy { get; }
 
 		[Export ("setRequestHeader:withValue:")]
-		bool SetRequestHeader (IntPtr header, IntPtr value);
+        bool SetRequestHeader ([PlainString] string header, [PlainString] string value);
 
 		[Export ("setPostValue:forKey:")]
-		void SetPostValue (IntPtr value, IntPtr key);
+        void SetPostValue ([PlainString] string value, [PlainString] string key);
 
 		[Export ("clearPostValues")]
 		void ClearPostValues ();
@@ -342,7 +342,7 @@ namespace GoodDynamics {
 		bool Send (IntPtr data);
 
 		[Export ("send")]
-		bool SendProp { get; }
+        bool Send();
 
 		[Export ("sendData:withTimeout:")]
 		bool SendData (NSData data, int timeout_s);
@@ -357,10 +357,10 @@ namespace GoodDynamics {
 		bool SendWithFile (string pathAndFileName);
 
 		[Export ("getState")]
-		GDHttpRequest_state_t GetState { get; }
+        GDHttpRequest_state_t GetState { get; }
 
 		[Export ("getResponseHeader:")]
-		IntPtr GetResponseHeader (IntPtr header);
+		IntPtr GetResponseHeader ([PlainString] string header);
 
 		[Export ("getAllResponseHeaders")]
 		IntPtr GetAllResponseHeaders { get;}
@@ -369,7 +369,7 @@ namespace GoodDynamics {
 		int GetStatus { get; }
 
 		[Export ("getStatusText")]
-		IntPtr GetStatusText { get; }
+		[PlainString] string GetStatusText { get; }
 
 		[Export ("getReceiveBuffer")]
 		GDDirectByteBuffer GetReceiveBuffer { get; }
@@ -378,13 +378,16 @@ namespace GoodDynamics {
 		bool Close { get; }
 
 		[Export ("abort")]
-		bool Abort { get; }
+        bool Abort();
 
 		[Export ("enablePipelining")]
 		bool EnablePipelining { get; set;}
 
-		[Export ("delegate", ArgumentSemantic.Assign)]
+        [Wrap("WeakDelegate")]
 		GDHttpRequestDelegate Delegate { get; set; }
+
+        [Export ("delegate", ArgumentSemantic.Assign)]
+        NSObject WeakDelegate { get; set;  }
 	}
 
 	[Category, BaseType (typeof (NSUrlCache))]
