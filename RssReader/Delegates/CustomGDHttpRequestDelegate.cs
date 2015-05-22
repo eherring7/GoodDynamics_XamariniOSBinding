@@ -11,20 +11,16 @@ namespace RssReader.Delegates
 {
     public class CustomGDHttpRequestDelegate: GDHttpRequestDelegate
     {
-        //private CustomNSXMLParserDelegate _xmlDelegate;
-
         private IList<NewsItem> _items;
 
         public CustomGDHttpRequestDelegate(IList<NewsItem> items)
         {
             this._items = items;
         }
-
-
+            
         public override void OnStatusChange(GDHttpRequest httpRequest)
         {
             var state = httpRequest.GetState;
-            var errorDialog = false;
             switch (state)
             {
                 case GDHttpRequest_state_t.OPENED:
@@ -58,50 +54,7 @@ namespace RssReader.Delegates
                         //Must clean up memory manually for Mashalled data or it will stick around forever
                         Marshal.FreeHGlobal(dataPtr.Handle);
                     }
-                    else if ((status == 401) || (status  == 407))
-                    {
-//                        // assuming NTLM authentication, extract headers to determine what the server supports
-//                        var headerData = httpRequest.GetResponseHeader("WWW-Authenticate");
-//                        if (headerData.IndexOf(kAuthNegotiateStr, 0, StringComparison.CurrentCultureIgnoreCase) != -1)
-//                        {
-//                            _authMethod = kAuthNegotiateStr;
-//                            DisplayAuthQueryDialog();
-//                        }
-//                        else if (headerData.IndexOf(kAuthNTLMStr, 0, StringComparison.CurrentCultureIgnoreCase) != -1)
-//                        {
-//                            _authMethod = kAuthNTLMStr;
-//                            DisplayAuthQueryDialog();
-//                        }
-//                        else if (headerData.IndexOf(kAuthDigestStr, 0, StringComparison.CurrentCultureIgnoreCase) != -1)
-//                        {
-//                            _authMethod = kAuthDigestStr;
-//                            DisplayAuthQueryDialog();
-//                        }
-//                        else if (headerData.IndexOf(kAuthBasicStr, 0, StringComparison.CurrentCultureIgnoreCase) != -1)
-//                        {
-//                            _authMethod = kAuthBasicStr;
-//                            DisplayAuthQueryDialog();
-//                        }
-//                        else
-//                        {
-//                            // only the above methods currently supported in this application
-//                            errorDialog = true;
-//                        }
-                    }
-                    else
-                    {
-                        errorDialog = true;
-                    }
                     break;
-            }
-            if(errorDialog)
-            {
-                var err = httpRequest.GetStatusText;
-                if(err != null)
-                {
-                    var dialog = new UIAlertView("Error Fetching File",err, null, "Ok", null);
-                    dialog.Show();
-                }
             }
             UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
         }

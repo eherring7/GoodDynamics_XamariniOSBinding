@@ -10,9 +10,7 @@ namespace RssReader.Models
         public string Date { get; set; }
         public string Link { get; set; }
 
-        public NewsItem()
-        {
-        }
+        public NewsItem(){ }
 
         public NewsItem(string title, string description, string date, string link)
         {

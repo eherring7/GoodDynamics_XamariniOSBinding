@@ -64,15 +64,15 @@ namespace RssReader.Sources
                 cell = new UITableViewCell (UITableViewCellStyle.Subtitle, _cellIdentifier);
             
             cell.SelectionStyle = UITableViewCellSelectionStyle.Gray;
-//
+
             // Set up the cell
             int index = indexPath.Row;
-//
+
             //check the list containing our NewsItems
             var title = Items[index].Title;
             // trim here as we may have some extra whitespace
             var desc = Items[index].Description.Trim();
-//
+
             // add the title and description
             cell.TextLabel.Text = title;
             cell.TextLabel.Lines = 2; // allows the title to wrap to 2 lines
