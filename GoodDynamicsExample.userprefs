@@ -1,6 +1,19 @@
 ﻿<Properties StartupItem="GreetingsClient/GreetingsClient.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GreetingsClient/AppDelegate.cs">
+    <Files>
+      <File FileName="GreetingsClient/ServiceController.cs" Line="24" Column="10" />
+      <File FileName="GreetingsClient/GreetingsClientGDServiceClientDelegate.cs" Line="25" Column="63" />
+      <File FileName="GreetingsClient/GreetingsClientGDServiceDelegate.cs" Line="33" Column="63" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="200" Column="21" />
+      <File FileName="GoodDynamicsBinding/GD.linkwith.cs" Line="5" Column="1" />
+      <File FileName="GreetingsClient/AppDelegate.cs" Line="120" Column="33" />
+      <File FileName="GreetingsClient/RootViewController.cs" Line="121" Column="79" />
+      <File FileName="GreetingsClient/Info.plist" />
+      <File FileName="GreetingsClient/RootViewController.designer.cs" Line="1" Column="1" />
+      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="45" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
