@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Linq;
 using Foundation;
 using System.IO;
+using GoodDynamics;
 
 namespace SecureStore.Manager
 {
     public class FileManager
     {
-        public NSMutableArray SecureDocs;
+        public string[] SecureDocs;
         public string SyncDocFolder;
 
         public FileManager()
@@ -15,7 +17,17 @@ namespace SecureStore.Manager
 
         public NSMutableArray FindSecureDocsAtPath(string path)
         {
-            return new NSMutableArray(0);
+            NSError error;
+            var tempArray = GDFileSystem.ContentsOfDirectoryAtPath(path, out error);
+            if (error == null)
+            {
+                SecureDocs = tempArray.Select(str => str.ToString()).OrderBy(str => str).ToArray();
+            }
+            else
+            {
+                Console.WriteLine("findSecureDocsAtPath error domain=%@ code=%ld userinfo=%@", error.Domain,
+                    (long)error.Code, error.UserInfo.Description);
+            }
         }
 
         public static NSData ReadFile(string filePath)
