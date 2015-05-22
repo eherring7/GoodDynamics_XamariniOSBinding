@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Linq;
 using Foundation;
 using UIKit;
@@ -33,7 +32,7 @@ namespace SecureStore.Views
             alertView.Clicked += (object s, UIButtonEventArgs ev) => {
                 if (ev.ButtonIndex == 1)
                 {
-                    CreateDirectoryRefreshList(alertView.GetTextField(0).Text);
+                    //CreateDirectoryRefreshList(alertView.GetTextField(0).Text);
                 }
             };
 
@@ -66,7 +65,7 @@ namespace SecureStore.Views
 
         private void CreateDirectoryRefreshDirectory(string newDirectoryName)
         {
-            GDFileSystem.CreateDirectoryAtPath(
+            
         }
     }
 }

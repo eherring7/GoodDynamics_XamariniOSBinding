@@ -80,7 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Views\MainViewController.xib" />
     <InterfaceDefinition Include="Views\FileListViewController.xib" />
   </ItemGroup>
   <ItemGroup>
@@ -90,15 +89,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Views\MainViewController.cs" />
-    <Compile Include="Views\MainViewController.designer.cs">
-      <DependentUpon>MainViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\FileListViewController.cs" />
     <Compile Include="Views\FileListViewController.designer.cs">
       <DependentUpon>FileListViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\FileListTableViewSource.cs" />
+    <Compile Include="Manager\FileManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -110,5 +106,6 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Sources\" />
+    <Folder Include="Manager\" />
   </ItemGroup>
 </Project>
