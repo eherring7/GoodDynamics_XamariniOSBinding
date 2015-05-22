@@ -80,6 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Views\MainViewController.xib" />
+    <InterfaceDefinition Include="Views\FileListViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -88,6 +90,15 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\MainViewController.cs" />
+    <Compile Include="Views\MainViewController.designer.cs">
+      <DependentUpon>MainViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileListViewController.cs" />
+    <Compile Include="Views\FileListViewController.designer.cs">
+      <DependentUpon>FileListViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\FileListTableViewSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -95,5 +106,9 @@
       <Project>{5B050DB4-FB76-4EB0-8F99-FAA4DB6B637F}</Project>
       <Name>GoodDynamics.iOS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Sources\" />
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ using UIKit;
 using GoodDynamics;
 using System.Diagnostics;
 using System;
+using SecureStore.Views;
 
 namespace SecureStore
 {
@@ -45,14 +46,16 @@ namespace SecureStore
 
 		private void OnAuthorized(GDAppEvent anEvent)
 		{
-			switch (anEvent.Code) {
-			case GDAppResultCode.ErrorNone:
-				//Start your application
-				break;
+			switch (anEvent.Code)
+            {
+    			case GDAppResultCode.ErrorNone:
+    				//Start your application
+                    StartApplication();
+    				break;
 
-			default:
-				Debug.Assert (false, "Authorized startup with an error");
-				break;
+    			default:
+    				Debug.Assert (false, "Authorized startup with an error");
+    				break;
 			}
 		}
 
@@ -77,6 +80,11 @@ namespace SecureStore
 				break;
 			}
 		}
+
+        private void StartApplication()
+        {
+            Window.RootViewController = new UINavigationController(new MainViewController());
+        }
 
 		public override void OnResignActivation (UIApplication application)
 		{
