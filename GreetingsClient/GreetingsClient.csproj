@@ -82,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="RootViewController~iphone.xib" />
+    <InterfaceDefinition Include="RootViewController~ipad.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -90,6 +92,13 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="ServiceController.cs" />
+    <Compile Include="GreetingsClientGDServiceClientDelegate.cs" />
+    <Compile Include="GreetingsClientGDServiceDelegate.cs" />
+    <Compile Include="RootViewController.cs" />
+    <Compile Include="RootViewController.designer.cs">
+      <DependentUpon>RootViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -127,5 +136,60 @@
     <BundleResource Include="GDAssets.bundle\Splash-Landscape~ipad.png" />
     <BundleResource Include="GDAssets.bundle\Splash-Portrait%402x~ipad.png" />
     <BundleResource Include="GDAssets.bundle\Splash-Portrait~ipad.png" />
+    <BundleResource Include="images\GDLogo.png" />
+    <BundleResource Include="images\GDLogo%402X.png" />
+    <BundleResource Include="images\Good Logo 114x114.png" />
+    <BundleResource Include="images\Good Logo 120x120.png" />
+    <BundleResource Include="images\Good Logo 144x144.png" />
+    <BundleResource Include="images\Good Logo 152x152.png" />
+    <BundleResource Include="images\Good Logo 180x180.png" />
+    <BundleResource Include="images\Good Logo 29x29.png" />
+    <BundleResource Include="images\Good Logo 29x29%402x.png" />
+    <BundleResource Include="images\Good Logo 29x29%403x.png" />
+    <BundleResource Include="images\Good Logo 40x40.png" />
+    <BundleResource Include="images\Good Logo 40x40%402x.png" />
+    <BundleResource Include="images\Good Logo 40x40%403x.png" />
+    <BundleResource Include="images\Good Logo 50x50.png" />
+    <BundleResource Include="images\Good Logo 50x50%402x.png" />
+    <BundleResource Include="images\Good Logo 57x57.png" />
+    <BundleResource Include="images\Good Logo 57x57%402x.png" />
+    <BundleResource Include="images\Good Logo 58x58.png" />
+    <BundleResource Include="images\Good Logo 72x72.png" />
+    <BundleResource Include="images\Good Logo 72x72%402x.png" />
+    <BundleResource Include="images\Good Logo 76x76.png" />
+    <BundleResource Include="images\GoodLogo.png" />
+    <BundleResource Include="images\GoodLogo%402x.png" />
+    <BundleResource Include="images\Splash-568h%402x.png" />
+    <BundleResource Include="images\Splash-Landscape%402x~ipad.png" />
+    <BundleResource Include="images\Splash-Landscape~ipad.png" />
+    <BundleResource Include="images\Splash-Portrait%402x~ipad.png" />
+    <BundleResource Include="images\Splash-Portrait~ipad.png" />
+    <BundleResource Include="images\Splash.png" />
+    <BundleResource Include="images\Splash%402x.png" />
+    <BundleResource Include="images\Splash_iphone_HD4.7_LS%402x.png" />
+    <BundleResource Include="images\Splash_iphone_HD4.7_PT%402x.png" />
+    <BundleResource Include="images\Splash_iphone_HD5.5_LS%403x.png" />
+    <BundleResource Include="images\Splash_iphone_HD5.5_PT%403x.png" />
+    <BundleResource Include="images\icon-144.png" />
+    <BundleResource Include="images\icon-72.png" />
+    <BundleResource Include="images\icon.png" />
+    <BundleResource Include="images\icon%402x.png" />
+    <BundleResource Include="images\settings.png" />
+    <BundleResource Include="images\settings%402x.png" />
+    <BundleResource Include="images\sharearrow.png" />
+    <BundleResource Include="images\launch images\Default-Landscape%402x~ipad.png" />
+    <BundleResource Include="images\launch images\Default-Landscape~ipad.png" />
+    <BundleResource Include="images\launch images\Default-Portrait%402x~ipad.png" />
+    <BundleResource Include="images\launch images\Default-Portrait~ipad.png" />
+    <BundleResource Include="images\launch images\Default.png" />
+    <BundleResource Include="images\launch images\Default%402x.png" />
+    <BundleResource Include="images\launch images\iOS_GD_Icon-76%402x.png" />
+    <BundleResource Include="images\launch images\icon-144.png" />
+    <BundleResource Include="images\launch images\icon-72.png" />
+    <BundleResource Include="images\launch images\icon.png" />
+    <BundleResource Include="images\launch images\icon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
 </Project>

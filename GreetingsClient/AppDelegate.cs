@@ -12,8 +12,11 @@ namespace GreetingsClient
 	[Register ("AppDelegate")]
 	public class AppDelegate : GDiOSDelegate
 	{
+		private bool _started;
+		//private ServiceController _serviceController;
 		// class-level declarations
 		public GDiOS GDLibrary { get; private set; }
+		public NSMutableArray Providers {get; set;}
 
 		public override UIWindow Window {
 			get;
@@ -40,6 +43,16 @@ namespace GreetingsClient
 			case GDAppEventType.NotAuthorized:
 				OnNotAuthorized (anEvent);
 				break;
+			case GDAppEventType.RemoteSettingsUpdate:
+				//handle app config changes
+				break;
+			case GDAppEventType.ServicesUpdate:
+				Debug.WriteLine ("Received Service Update Event");
+				OnServiceUpdate (anEvent);
+				break;
+			default:
+				Debug.WriteLine ("Event Not Handled");
+				break;
 			}
 		}
 
@@ -47,7 +60,18 @@ namespace GreetingsClient
 		{
 			switch (anEvent.Code) {
 			case GDAppResultCode.ErrorNone:
-				//Start your application
+				if (!_started) {
+					_started = true;
+					RootViewController rootController = null;
+					ServiceController serviceController = new ServiceController ();
+					if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone) {
+						rootController = new RootViewController ("RootViewController~iPhone", null, serviceController);
+						Window.RootViewController = rootController;
+					} else {
+						rootController = new RootViewController ("RootViewController~iPad", null, serviceController);
+						Window.RootViewController = rootController;
+					}
+				}
 				break;
 
 			default:
@@ -64,6 +88,7 @@ namespace GreetingsClient
 			case GDAppResultCode.ErrorPushConnectionTimeout:
 			case GDAppResultCode.ErrorSecurityError:
 			case GDAppResultCode.ErrorAppDenied:
+			case GDAppResultCode.ErrorAppVersionNotEntitled:
 			case GDAppResultCode.ErrorBlocked:
 			case GDAppResultCode.ErrorWiped:
 			case GDAppResultCode.ErrorRemoteLockout:
@@ -76,6 +101,23 @@ namespace GreetingsClient
 				Debug.Assert (false, "Unhandled not authorized event");
 				break;
 			}
+		}
+
+		private void OnServiceUpdate(GDAppEvent anEvent)
+		{
+			switch (anEvent.Code) 
+			{
+			case GDAppResultCode.ErrorNone:
+				NSNotificationCenter.DefaultCenter.PostNotificationName ("kServiceConfigDidChangeNotification", null);
+				break;
+			default:
+				break;
+			}
+		}
+
+		private NSArray GetProvidersForService(NSString serviceId)
+		{
+			return GDLibrary.GetServiceProviders (serviceId, null, GDServiceProviderType.GDServiceProviderApplication);
 		}
 
 		public override void OnResignActivation (UIApplication application)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<Properties StartupItem="RssReader/RssReader.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
   <MonoDevelop.Ide.Workbench ActiveDocument="RssReader/Views/RssListView.cs">
@@ -9,6 +10,22 @@
       <File FileName="RssReader/Delegates/CustomGDHttpRequestDelegate.cs" Line="40" Column="28" />
       <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="238" Column="9" />
       <File FileName="GoodDynamicsBinding/obj/Debug/ios/GoodDynamics/GDDirectByteBuffer.g.cs" Line="76" Column="42" />
+=======
+﻿<Properties StartupItem="GreetingsClient/GreetingsClient.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GreetingsClient/AppDelegate.cs">
+    <Files>
+      <File FileName="GreetingsClient/ServiceController.cs" Line="24" Column="10" />
+      <File FileName="GreetingsClient/GreetingsClientGDServiceClientDelegate.cs" Line="25" Column="63" />
+      <File FileName="GreetingsClient/GreetingsClientGDServiceDelegate.cs" Line="33" Column="63" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="200" Column="21" />
+      <File FileName="GoodDynamicsBinding/GD.linkwith.cs" Line="5" Column="1" />
+      <File FileName="GreetingsClient/AppDelegate.cs" Line="120" Column="33" />
+      <File FileName="GreetingsClient/RootViewController.cs" Line="121" Column="79" />
+      <File FileName="GreetingsClient/Info.plist" />
+      <File FileName="GreetingsClient/RootViewController.designer.cs" Line="1" Column="1" />
+      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="45" Column="31" />
+>>>>>>> master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
