@@ -1,15 +1,16 @@
 ﻿using System;
 using UIKit;
 using Foundation;
+using System.IO;
 
 namespace SecureStore.Sources
 {
     public class FileListTableViewSource : UITableViewSource
     {
-        private NSObject[] _directoryContents;
+        private Tuple<string, long>[] _directoryContents;
         private readonly string cellIdentifier = "TableCell";
 
-        public FileListTableViewSource(NSObject[] directoryContents)
+        public FileListTableViewSource(Tuple<string, long>[] directoryContents)
         {
             _directoryContents = directoryContents;
         }
@@ -23,8 +24,9 @@ namespace SecureStore.Sources
             if (cell == null)
                 cell = new UITableViewCell (UITableViewCellStyle.Default, cellIdentifier);
             
-            var obj = _directoryContents[indexPath.Row];
-            cell.TextLabel.Text = obj.ToString();
+            var tuple = _directoryContents[indexPath.Row];
+            cell.TextLabel.Text = string.Format("{0} ({1})",
+                tuple.Item1, tuple.Item2);
 
             return cell;
         }
