@@ -9,6 +9,7 @@ namespace GoodDynamics
 		ErrorProvisioningFailed = -102,
 		ErrorPushConnectionTimeout = -103,
 		ErrorAppDenied = -104,
+		ErrorAppVersionNotEntitled = -105,
 		ErrorIdleLockout = -300,
 		ErrorBlocked = -301,
 		ErrorWiped = -302,
@@ -38,6 +39,11 @@ namespace GoodDynamics
 		RemoteSettingsUpdate = 2,
 		ServicesUpdate = 3,
 		PolicyUpdate = 4
+	}
+
+	public enum GDServiceProviderType{
+		GDServiceProviderApplication = 0,
+		GDServiceProviderServer
 	}
 
 	public enum GDUIColorTheme{

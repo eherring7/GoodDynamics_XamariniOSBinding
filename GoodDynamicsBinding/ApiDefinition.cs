@@ -195,6 +195,9 @@ namespace GoodDynamics {
 		//- (BOOL) showPreferenceUI:(UIViewController *)baseViewController	
 		[Export("showPreferenceUI:")]
 		bool ShowPreferenceUI ([NullAllowed]UIViewController baseViewController);
+
+		[Export("getServiceProvidersFor:andVersion:andType:")]
+		NSArray GetServiceProviders (string serviceId, string version, GDServiceProviderType type);
 	}
 
     [Protocol, BaseType(typeof(UIApplicationDelegate)), Model]
@@ -490,42 +493,6 @@ namespace GoodDynamics {
 
 		[Static, Export ("sendFile:toApplication:withSuccessBlock:")]
 		bool SendFile (string relativeSecureFile, string application, SendFileSuccessBlock block);
-
-		[Field ("GDServicesErrorDomain", "__Internal")]
-		NSString GDServicesErrorDomain { get; }
-
-		[Field ("GDServicesErrorGeneral", "__Internal")]
-		int GDServicesErrorGeneral { get; }
-
-		[Field ("GDServicesErrorApplicationNotFound", "__Internal")]
-		int GDServicesErrorApplicationNotFound { get; }
-
-		[Field ("GDServicesErrorServiceNotFound", "__Internal")]
-		int GDServicesErrorServiceNotFound { get; }
-
-		[Field ("GDServicesErrorServiceVersionNotFound", "__Internal")]
-		int GDServicesErrorServiceVersionNotFound { get; }
-
-		[Field ("GDServicesErrorMethodNotFound", "__Internal")]
-		int GDServicesErrorMethodNotFound { get; }
-
-		[Field ("GDServicesErrorNotAllowed", "__Internal")]
-		int GDServicesErrorNotAllowed { get; }
-
-		[Field ("GDServicesErrorInvalidParams", "__Internal")]
-		int GDServicesErrorInvalidParams { get; }
-
-		[Field ("GDServicesErrorCertificateNotFound", "__Internal")]
-		int GDServicesErrorCertificateNotFound { get; }
-
-		[Field ("GDServicesMethodDisabled", "__Internal")]
-		int GDServicesMethodDisabled { get; }
-
-		[Field ("GDServicesVersionDisabled", "__Internal")]
-		int GDServicesVersionDisabled { get; }
-
-		[Field ("GDServicesServiceDisabled", "__Internal")]
-		int GDServicesServiceDisabled { get; }
 	}
 
     [Protocol, Model, BaseType(typeof(NSObject))]
@@ -572,6 +539,48 @@ namespace GoodDynamics {
 
 		[Export ("delegate", ArgumentSemantic.Assign)]
 		GDServiceDelegate Delegate { [Bind ("getDelegate")] get; set; }
+
+		[Field("MTGDFrontRequestService", "__Internal")]
+		NSString GDFrontRequestService {get;}
+
+		[Field("MTGDFrontRequestMethod", "__Internal")]
+		NSString GDFrontRequestMethod {get;}
+
+		[Field ("MTGDServicesErrorDomain", "__Internal")]
+		NSString GDServicesErrorDomain { get; }
+
+		[Field ("MTGDServicesErrorGeneral", "__Internal")]
+		int GDServicesErrorGeneral { get; }
+
+		[Field ("MTGDServicesErrorApplicationNotFound", "__Internal")]
+		int GDServicesErrorApplicationNotFound { get; }
+
+		[Field ("MTGDServicesErrorServiceNotFound", "__Internal")]
+		int GDServicesErrorServiceNotFound { get; }
+
+		[Field ("MTGDServicesErrorServiceVersionNotFound", "__Internal")]
+		int GDServicesErrorServiceVersionNotFound { get; }
+
+		[Field ("MTGDServicesErrorMethodNotFound", "__Internal")]
+		int GDServicesErrorMethodNotFound { get; }
+
+		[Field ("MTGDServicesErrorNotAllowed", "__Internal")]
+		int GDServicesErrorNotAllowed { get; }
+
+		[Field ("MTGDServicesErrorInvalidParams", "__Internal")]
+		int GDServicesErrorInvalidParams { get; }
+
+		[Field ("MTGDServicesErrorCertificateNotFound", "__Internal")]
+		int GDServicesErrorCertificateNotFound { get; }
+
+		[Field ("MTGDServicesMethodDisabled", "__Internal")]
+		int GDServicesMethodDisabled { get; }
+
+		[Field ("MTGDServicesVersionDisabled", "__Internal")]
+		int GDServicesVersionDisabled { get; }
+
+		[Field ("MTGDServicesServiceDisabled", "__Internal")]
+		int GDServicesServiceDisabled { get; }
 	}
 
     [Protocol, Model, BaseType(typeof(NSObject))]
