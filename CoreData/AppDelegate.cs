@@ -4,6 +4,7 @@ using UIKit;
 using GoodDynamics;
 using System.Diagnostics;
 using System;
+using CoreData.Views;
 
 namespace CoreData
 {
@@ -46,13 +47,17 @@ namespace CoreData
 		private void OnAuthorized(GDAppEvent anEvent)
 		{
 			switch (anEvent.Code) {
-			case GDAppResultCode.ErrorNone:
+                case GDAppResultCode.ErrorNone:
 				//Start your application
-				break;
+                    var prodView = new ProductsView();
+                    var nav = new UINavigationController(prodView);
+                    Window.RootViewController = nav;
+                    Window.MakeKeyAndVisible();
+    				break;
 
-			default:
-				Debug.Assert (false, "Authorized startup with an error");
-				break;
+			    default:
+			        Debug.Assert (false, "Authorized startup with an error");
+				    break;
 			}
 		}
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsView">
+            <connections>
+                <outlet property="goodImage" destination="f2O-FU-Icu" id="DTe-nB-fHd"/>
+                <outlet property="productsTable" destination="3Xv-9J-CE4" id="37W-PT-spc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="kCW-yf-GMq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Xv-9J-CE4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="472"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrk-vD-s4k">
+                    <rect key="frame" x="0.0" y="472" width="320" height="33"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2O-FU-Icu">
+                            <rect key="frame" x="106" y="0.0" width="109" height="33"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="f2O-FU-Icu" secondAttribute="bottom" id="9j2-bq-E2L"/>
+                        <constraint firstAttribute="centerX" secondItem="f2O-FU-Icu" secondAttribute="centerX" id="Ns7-Ns-bf4"/>
+                        <constraint firstItem="f2O-FU-Icu" firstAttribute="top" secondItem="Nrk-vD-s4k" secondAttribute="top" id="kGg-KF-L7w"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Nrk-vD-s4k" secondAttribute="trailing" id="Cw1-4U-wPp"/>
+                <constraint firstAttribute="trailing" secondItem="3Xv-9J-CE4" secondAttribute="trailing" id="H49-Se-8Ud"/>
+                <constraint firstItem="Nrk-vD-s4k" firstAttribute="top" secondItem="3Xv-9J-CE4" secondAttribute="bottom" id="KxX-BY-MWm"/>
+                <constraint firstItem="Nrk-vD-s4k" firstAttribute="top" secondItem="3Xv-9J-CE4" secondAttribute="bottom" id="O4b-q0-Dy6"/>
+                <constraint firstItem="3Xv-9J-CE4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dNO-Ae-nUb"/>
+                <constraint firstItem="3Xv-9J-CE4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j9k-fp-f8p"/>
+                <constraint firstAttribute="bottom" secondItem="Nrk-vD-s4k" secondAttribute="bottom" id="lTx-zx-igt"/>
+                <constraint firstItem="Nrk-vD-s4k" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rug-1B-hWL"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -27,6 +27,7 @@
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -80,6 +81,15 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Views\ProductsView.xib">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Cells\ProductTableViewCell.xib">
+      <DependentUpon>ProductTableViewCell.cs</DependentUpon>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Views\EditProductView.xib">
+      <DependentUpon>EditProductView.cs</DependentUpon>
+    </InterfaceDefinition>
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -88,6 +98,21 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Views\ProductsView.cs" />
+    <Compile Include="Views\ProductsView.designer.cs">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditProductView.cs" />
+    <Compile Include="Views\EditProductView.designer.cs">
+      <DependentUpon>EditProductView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Sources\ProductTableViewSource.cs" />
+    <Compile Include="Cells\ProductTableViewCell.cs" />
+    <Compile Include="Cells\ProductTableViewCell.designer.cs">
+      <DependentUpon>ProductTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\CategoryPickerViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -95,5 +120,17 @@
       <Project>{5B050DB4-FB76-4EB0-8F99-FAA4DB6B637F}</Project>
       <Name>GoodDynamics.iOS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\Images.xcassets\" />
+    <Folder Include="Cells\" />
+    <Folder Include="Sources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CoreDataInitial.sqlite" />
+    <BundleResource Include="Resources\images\GDLogo.png" />
+    <BundleResource Include="Resources\images\GDLogo%402X.png" />
   </ItemGroup>
 </Project>
