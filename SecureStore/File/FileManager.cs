@@ -9,7 +9,6 @@ namespace SecureStore.File
 {
 	public class FileManager
 	{
-		public IList<string> SecureDocs { get; private set; }
 		public string SyncDocFolder { get; private set; }
 
 		public FileManager ()
@@ -25,7 +24,7 @@ namespace SecureStore.File
 
 			if (files.Count > 0)
 			{
-				SecureDocs = files.Select (str => str.ToString ()).OrderBy (str => str).ToList ();
+				return files.Select (str => str.ToString ()).OrderBy (str => str).ToList ();
 			}
 			else
 			{
@@ -36,7 +35,7 @@ namespace SecureStore.File
 				}
 			}
 
-			return SecureDocs;
+            return new List<string>();
 		}
 
 		public FileResult GetFileStat(string filePath)

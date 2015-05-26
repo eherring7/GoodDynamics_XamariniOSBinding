@@ -2,6 +2,7 @@
 using UIKit;
 using SecureStore.File;
 using System.Collections.Generic;
+using Foundation;
 
 namespace SecureStore
 {
@@ -9,13 +10,15 @@ namespace SecureStore
     {
         public FileManager FileManager { get; private set; }
         public IList<string> Datasource { get; private set; }
+        public string CurrentPath { get; private set; }
 
         public Action<string> FolderSelectAction { get; private set; }
 
-        public FileListTableViewSource(IList<string> files, Action<string> folderSelectAction)
+        public FileListTableViewSource(IList<string> files, Action<string> folderSelectAction, string currentPath)
         {
             FileManager = new FileManager();
             Datasource = files;
+            CurrentPath = currentPath;
 
             FolderSelectAction = folderSelectAction;
         }
@@ -51,6 +54,21 @@ namespace SecureStore
         {
             var item = Datasource[indexPath.Row];
             FolderSelectAction(item);
+        }
+
+        public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
+        {
+            if (editingStyle == UITableViewCellEditingStyle.Delete)
+            {
+                string filename = FileManager.FindSecureDocsAtPath(CurrentPath)[indexPath.Row];
+                string filepath = (new NSString(CurrentPath).AppendPathComponent(new NSString(filename))).ToString();
+
+                if (FileManager.RemoveFile(filepath))
+                {
+                    Datasource.RemoveAt(indexPath.Row);
+                    tableView.DeleteRows(new[] { indexPath }, UITableViewRowAnimation.Fade);
+                }
+            }
         }
     }
 }

@@ -94,7 +94,6 @@
     <Compile Include="Views\PathViewController.designer.cs">
       <DependentUpon>PathViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sync\SyncManager.cs" />
     <Compile Include="FileResult.cs" />
     <Compile Include="File\FileUrlProtocol.cs" />
     <Compile Include="Source\FileListTableViewSource.cs" />

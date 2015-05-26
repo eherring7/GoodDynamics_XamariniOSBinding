@@ -33,30 +33,27 @@ namespace SecureStore.Views
 
 			FileManager = new FileManager();
 			RefreshCurrentPath();
-
-			if (CurrentPath == "/") {
-				try {
-					await RefreshContentsAsync ();
-				} catch (Exception ex) {
-					UIAlertView alertView = new UIAlertView ("Error", ex.Message, null, "Ok", null);
-					alertView.Show ();
-				}
-			}
 		}
 
-		async void RefreshButton_Clicked (object sender, EventArgs e)
+		void RefreshButton_Clicked (object sender, EventArgs e)
 		{
-			try {
-				await RefreshContentsAsync ();
-			} catch (Exception ex) {
-				UIAlertView alertView = new UIAlertView ("Error", ex.Message, null, "Ok", null);
-				alertView.Show ();
-			}
+			
 		}
 
 		private void EditButtonPressed(object sender, EventArgs ev)
 		{
 			tableView.SetEditing (true, true);
+
+			NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Done", UIBarButtonItemStyle.Done,
+				new EventHandler (DoneButtonPressed));
+		}
+
+		private void DoneButtonPressed(object sender, EventArgs ev)
+		{
+			tableView.SetEditing(false, false);
+
+			NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Edit", UIBarButtonItemStyle.Plain,
+				new EventHandler (DoneButtonPressed));
 		}
 
 		private void RefreshCurrentPath()
@@ -64,19 +61,8 @@ namespace SecureStore.Views
 			NavigationItem.Title = CurrentPath;
 			var files = FileManager.FindSecureDocsAtPath (CurrentPath);
 
-			var source = new FileListTableViewSource(files, OnFolderSelect);
+			var source = new FileListTableViewSource(files, OnFolderSelect, CurrentPath);
 			tableView.Source = source;
-		}
-
-		private async Task RefreshContentsAsync()
-		{
-			/*var syncManager = new SyncManager ();
-			var files = syncManager.GetFilesToSync ();
-
-			foreach (var file in files)
-			{
-				await syncManager.SyncFileAsync(file);
-			}*/
 		}
 
 		private void OnFolderSelect(string path)
