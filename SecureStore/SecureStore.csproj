@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Views\FileListViewController.xib" />
+    <InterfaceDefinition Include="Views\PathViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -89,12 +89,15 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Views\FileListViewController.cs" />
-    <Compile Include="Views\FileListViewController.designer.cs">
-      <DependentUpon>FileListViewController.cs</DependentUpon>
+    <Compile Include="File\FileManager.cs" />
+    <Compile Include="Views\PathViewController.cs" />
+    <Compile Include="Views\PathViewController.designer.cs">
+      <DependentUpon>PathViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\FileListTableViewSource.cs" />
-    <Compile Include="Manager\FileManager.cs" />
+    <Compile Include="Sync\SyncManager.cs" />
+    <Compile Include="FileResult.cs" />
+    <Compile Include="File\FileUrlProtocol.cs" />
+    <Compile Include="Source\FileListTableViewSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -105,7 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
-    <Folder Include="Sources\" />
-    <Folder Include="Manager\" />
+    <Folder Include="File\" />
+    <Folder Include="Sync\" />
+    <Folder Include="Source\" />
   </ItemGroup>
 </Project>

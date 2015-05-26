@@ -4,6 +4,7 @@ using UIKit;
 using GoodDynamics;
 using System.Diagnostics;
 using System;
+
 using SecureStore.Views;
 
 namespace SecureStore
@@ -83,7 +84,8 @@ namespace SecureStore
 
         private void StartApplication()
         {
-            Window.RootViewController = new UINavigationController(new FileListViewController());
+			Window.RootViewController = new UINavigationController (
+                new SecureStore.Views.PathViewController("/"));
         }
 
 		public override void OnResignActivation (UIApplication application)
