@@ -80,6 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Views\PathViewController.xib" />
+    <InterfaceDefinition Include="Views\FileViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -88,6 +90,18 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="File\FileManager.cs" />
+    <Compile Include="Views\PathViewController.cs" />
+    <Compile Include="Views\PathViewController.designer.cs">
+      <DependentUpon>PathViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileResult.cs" />
+    <Compile Include="File\FileUrlProtocol.cs" />
+    <Compile Include="Source\FileListTableViewSource.cs" />
+    <Compile Include="Views\FileViewController.cs" />
+    <Compile Include="Views\FileViewController.designer.cs">
+      <DependentUpon>FileViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -95,5 +109,11 @@
       <Project>{5B050DB4-FB76-4EB0-8F99-FAA4DB6B637F}</Project>
       <Name>GoodDynamics.iOS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="File\" />
+    <Folder Include="Sync\" />
+    <Folder Include="Source\" />
   </ItemGroup>
 </Project>
