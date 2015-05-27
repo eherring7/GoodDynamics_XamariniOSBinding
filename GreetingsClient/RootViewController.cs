@@ -3,6 +3,7 @@ using System;
 
 using Foundation;
 using UIKit;
+using System.Collections.Generic;
 
 namespace GreetingsClient
 {
@@ -22,7 +23,7 @@ namespace GreetingsClient
 		}
 
 		private ServiceController _serviceController;
-		private NSArray _serviceButtons;
+		private List<ServiceInfo> _serviceButtons;
 
 		public RootViewController () : base ("RootViewController", null)
 		{
@@ -40,6 +41,23 @@ namespace GreetingsClient
 
 		private void ServiceConfigDidChange(NSNotification notification)
 		{
+			ProcessProviderDetails ();
+		}
+
+		private string GetAppID(UIButton button)
+		{
+			string appId = null;
+
+			foreach (var info in _serviceButtons) 
+			{
+				if (info.Button == button) 
+				{
+					appId = info.ApplicationID;
+					break;
+				}
+			}
+
+			return appId;
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -53,14 +71,19 @@ namespace GreetingsClient
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			
-			_serviceButtons = NSArray.FromNSObjects (new ServiceInfo ("com.gd.example.services.dateandtime", btnGetDateTime));
+
+			btnBringToFront.TouchUpInside += btnBringToFront_TouchUpInside;
+			btnGetDateTime.TouchUpInside += btnGetDateAndTime_TouchUpInside;
+			btnGreetMe.TouchUpInside += btnGreetMe_TouchUpInside;
+			btnSendFiles.TouchUpInside += btnSendFiles_TouchUpInside;
+
+			_serviceButtons = new List<ServiceInfo> () {new ServiceInfo ("com.gd.example.services.dateandtime", btnGetDateTime)};
 		}
 			
-		partial void bringToFront_TouchUpInside (Foundation.NSObject sender)
+		void btnBringToFront_TouchUpInside (object sender, EventArgs e)
 		{
 			NSError goodError = null;
-			bool didSendRequest = _serviceController.SendRequest(goodError, ServiceController.ClientRequestType.BringServiceAppToFront, "com.good.gd.example.services.greetings.server");
+			bool didSendRequest = _serviceController.SendRequest(out goodError, ServiceController.ClientRequestType.BringServiceAppToFront, "com.good.gd.example.services.greetings.server");
 
 			if(!didSendRequest)
 			{
@@ -68,10 +91,11 @@ namespace GreetingsClient
 			}
 		}
 			
-		partial void getDateAndTime_TouchUpInside (Foundation.NSObject sender)
+		void btnGetDateAndTime_TouchUpInside (object sender, EventArgs e)
 		{
 			NSError goodError = null;
-			bool didSendRequest = _serviceController.SendRequest(goodError, ServiceController.ClientRequestType.GetDateAndTime, "com.good.gd.example.services.greetings.server");
+
+			bool didSendRequest = _serviceController.SendRequest(out goodError, ServiceController.ClientRequestType.GetDateAndTime, GetAppID(btnGetDateTime));
 
 			if(!didSendRequest)
 			{
@@ -79,10 +103,10 @@ namespace GreetingsClient
 			}
 		}
 			
-		partial void greetMe_TouchUpInside (Foundation.NSObject sender)
+		void btnGreetMe_TouchUpInside (object sender, EventArgs e)
 		{
 			NSError goodError = null;
-			bool didSendRequest = _serviceController.SendRequest(goodError, ServiceController.ClientRequestType.GreetMe, "com.good.gd.example.services.greetings.server");
+			bool didSendRequest = _serviceController.SendRequest(out goodError, ServiceController.ClientRequestType.GreetMe, "com.good.gd.example.services.greetings.server");
 
 			if(!didSendRequest)
 			{
@@ -90,10 +114,10 @@ namespace GreetingsClient
 			}
 		}
 			
-		partial void sendFiles_TouchUpInside (Foundation.NSObject sender)
+		void btnSendFiles_TouchUpInside (object sender, EventArgs e)
 		{
 			NSError goodError = null;
-			bool didSendRequest = _serviceController.SendRequest(goodError, ServiceController.ClientRequestType.SendFiles, "com.good.gd.example.services.greetings.server");
+			bool didSendRequest = _serviceController.SendRequest(out goodError, ServiceController.ClientRequestType.SendFiles, "com.good.gd.example.services.greetings.server");
 
 			if(!didSendRequest)
 			{
@@ -103,7 +127,7 @@ namespace GreetingsClient
 
 		private void ShowErrorAlert(NSError error)
 		{
-			UIAlertView errorAlert = new UIAlertView ("An Error Occurred.", (NSString)error.ValueForKey (NSError.LocalizedDescriptionKey), null, "OK", null);
+			UIAlertView errorAlert = new UIAlertView ("An Error Occurred.", error.LocalizedDescription, null, "OK", null);
 			errorAlert.Show ();
 		}
 
@@ -119,6 +143,27 @@ namespace GreetingsClient
 		private void ProcessProviderDetails()
 		{
 			AppDelegate appDel = (AppDelegate)UIApplication.SharedApplication.Delegate;
+
+			foreach(var info in _serviceButtons)
+			{
+				var providers = appDel.GetProvidersForService (new NSString(info.ServiceID));
+
+				if (providers.Count > 0) 
+				{
+					info.Button.Enabled = true;
+					info.Button.Alpha = 1.0f;
+
+					GoodDynamics.GDServiceProvider appService = providers.GetItem<GoodDynamics.GDServiceProvider> (0);
+					info.ApplicationID = appService.Identifier;
+				} 
+				else 
+				{
+					info.Button.Enabled = false;
+					info.Button.Alpha = 0.4f;
+
+					info.ApplicationID = null;
+				}
+			}
 		}
 	}
 }

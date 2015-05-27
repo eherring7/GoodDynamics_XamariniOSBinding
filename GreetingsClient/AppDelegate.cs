@@ -65,10 +65,10 @@ namespace GreetingsClient
 					RootViewController rootController = null;
 					ServiceController serviceController = new ServiceController ();
 					if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone) {
-						rootController = new RootViewController ("RootViewController~iPhone", null, serviceController);
+						rootController = new RootViewController ("RootViewController~iphone", null, serviceController);
 						Window.RootViewController = rootController;
 					} else {
-						rootController = new RootViewController ("RootViewController~iPad", null, serviceController);
+						rootController = new RootViewController ("RootViewController~ipad", null, serviceController);
 						Window.RootViewController = rootController;
 					}
 				}
@@ -115,7 +115,7 @@ namespace GreetingsClient
 			}
 		}
 
-		private NSArray GetProvidersForService(NSString serviceId)
+		public NSArray GetProvidersForService(NSString serviceId)
 		{
 			return GDLibrary.GetServiceProviders (serviceId, null, GDServiceProviderType.GDServiceProviderApplication);
 		}

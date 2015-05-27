@@ -22,6 +22,34 @@ namespace GoodDynamics {
 		[Export ("versionId", ArgumentSemantic.Retain)]
 		string VersionId { get; set; }
 	}
+
+	[BaseType (typeof(NSObject))]
+	public interface GDServiceProvider
+	{
+		[Export("identifier", ArgumentSemantic.Retain)]
+		string Identifier { get; set;}
+
+		[Export("version", ArgumentSemantic.Retain)]
+		string Version {get;set;}
+
+		[Export("name", ArgumentSemantic.Retain)]
+		string Name {get;set;}
+
+		[Export("address", ArgumentSemantic.Retain)]
+		string Address {get;set;}
+
+		[Export("icon", ArgumentSemantic.Retain)]
+		UIImage Icon {get;set;}
+
+		[Export("iconPending", ArgumentSemantic.Retain)]
+		bool IconPending {get;set;}
+
+		[Export("serverCluster", ArgumentSemantic.Retain)]
+		NSArray ServerCluster {get;set;}
+
+		[Export("services", ArgumentSemantic.Retain)]
+		NSArray Services {get;set;}
+	}
 	
 	public delegate void SendFileSuccessBlock(NSError error);
 	
@@ -509,7 +537,7 @@ namespace GoodDynamics {
 	public interface GDServiceClient {
 
 		[Static, Export ("sendTo:withService:withVersion:withMethod:withParams:withAttachments:bringServiceToFront:requestID:error:")]
-		bool SendTo (string application, string service, string version, string method, NSObject parameters, NSObject[] attachments, GDTForegroundOption option, out string requestID, out NSError error);
+		bool SendTo ([NullAllowed] string application, string service, string version, string method, [NullAllowed] NSObject parameters, [NullAllowed] NSObject[] attachments, GDTForegroundOption option, out string requestID, out NSError error);
 
 		[Static, Export ("bringToFront:error:")]
 		bool BringToFront (string application, out NSError error);
