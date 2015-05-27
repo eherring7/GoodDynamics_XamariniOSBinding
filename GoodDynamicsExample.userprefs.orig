@@ -1,3 +1,14 @@
+<<<<<<< HEAD:GoodDynamicsExample.userprefs
+﻿<Properties StartupItem="SecureStore/SecureStore.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GreetingsClient/AppDelegate.cs">
+    <Files>
+      <File FileName="GoodDynamicsBinding/GD.linkwith.cs" Line="1" Column="1" />
+      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="1" Column="1" />
+      <File FileName="GreetingsClient/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="57" Column="36" />
+      <File FileName="SecureStore/AppDelegate.cs" Line="39" Column="11" />
+=======
 <<<<<<< HEAD
 ﻿<Properties StartupItem="RssReader/RssReader.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
@@ -26,6 +37,7 @@
       <File FileName="GreetingsClient/RootViewController.designer.cs" Line="1" Column="1" />
       <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="45" Column="31" />
 >>>>>>> master
+>>>>>>> e84342604a73ae1ef6c4ba0d1b3d75f3d96dad25:GoodDynamicsExample.userprefs.orig
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
