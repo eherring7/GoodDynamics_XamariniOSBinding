@@ -56,8 +56,9 @@ namespace SecureStore
         public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
         {
             var item = Datasource[indexPath.Row];
+            var path = new NSString(CurrentPath).AppendPathComponent(new NSString(item)).ToString();
 
-            var result = FileManager.GetFileStat(item);
+            var result = FileManager.GetFileStat(path);
             if (result.IsFolder)
                 FolderSelectAction(item);
             else

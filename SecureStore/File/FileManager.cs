@@ -43,7 +43,7 @@ namespace SecureStore.File
 			GDFileStat fileStat = new GDFileStat();
 			NSError error;
 
-			if (GDFileSystem.GetFileStat(filePath, fileStat, out error))
+            if (GDFileSystem.GetFileStat(filePath, ref fileStat, out error))
 			{
 				return new FileResult()
 				{
@@ -119,7 +119,7 @@ namespace SecureStore.File
             return result;
         }
 
-        public NSData ReadFile(string fileName, ref NSError error)
+        public NSData ReadFile(string fileName, NSError error)
         {
             return GDFileSystem.ReadFromFile(fileName, out error);
         }

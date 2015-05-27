@@ -28,7 +28,10 @@ namespace SecureStore
             NavigationController.NavigationBar.Translucent = false;
 
             NSError error = null;
-            //var contents = FileManager.ReadFile(FilePath, out error)
+            var contents = FileManager.ReadFile(FilePath, error).ToString();
+
+            Title = new NSString(FilePath).LastPathComponent.ToString();
+            fileContentsView.Text = contents;
         }
     }
 }

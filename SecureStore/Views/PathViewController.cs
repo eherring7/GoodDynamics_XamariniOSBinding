@@ -19,13 +19,20 @@ namespace SecureStore.Views
 			CurrentPath = startingPath;
 		}
 
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            tableView.DeselectRow(tableView.IndexPathForSelectedRow, false);
+        }
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			
 			// Perform any additional setup after loading the view, typically from a nib.
 			tableView.RowHeight = 50.0f;
-			tableView.AllowsSelectionDuringEditing = true;
+			tableView.AllowsSelectionDuringEditing = false;
 
             NavigationController.NavigationBar.Translucent = false;
             NavigationController.NavigationBar.Opaque = true;
