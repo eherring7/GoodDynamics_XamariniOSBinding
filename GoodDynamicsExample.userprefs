@@ -1,11 +1,8 @@
 ﻿<Properties StartupItem="SecureStore/SecureStore.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SecureStore/Source/FileListTableViewSource.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SecureStore/Views/PathViewController.cs">
     <Files>
-      <File FileName="SecureStore/Views/PathViewController.cs" Line="67" Column="58" />
-      <File FileName="SecureStore/File/FileManager.cs" Line="120" Column="1" />
-      <File FileName="SecureStore/File/FileUrlProtocol.cs" Line="1" Column="1" />
-      <File FileName="SecureStore/Source/FileListTableViewSource.cs" Line="6" Column="22" />
+      <File FileName="SecureStore/Views/PathViewController.cs" Line="32" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

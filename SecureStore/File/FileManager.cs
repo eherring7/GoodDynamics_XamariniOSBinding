@@ -77,7 +77,7 @@ namespace SecureStore.File
 			return GDFileSystem.FileExistsAtPath(filePath, isDirectory);
 		}
 
-        public bool CreateDirectory(string path, bool withIntermediateDirectories, NSDictionary attributes, ref NSError error)
+        public bool CreateDirectory(string path, bool withIntermediateDirectories, NSDictionary attributes, NSError error)
 		{
             return GDFileSystem.CreateDirectoryAtPath(path, withIntermediateDirectories, attributes, out error);
 		}

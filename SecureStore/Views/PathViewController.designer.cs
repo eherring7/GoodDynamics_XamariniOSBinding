@@ -13,7 +13,10 @@ namespace SecureStore.Views
 	partial class PathViewController
 	{
 		[Outlet]
-		UIKit.UIBarButtonItem refreshButton { get; set; }
+		UIKit.UIBarButtonItem addDirectoryButton { get; set; }
+
+		[Outlet]
+		UIKit.UIBarButtonItem addFileButton { get; set; }
 
 		[Outlet]
 		UIKit.UITableView tableView { get; set; }
@@ -25,9 +28,14 @@ namespace SecureStore.Views
 				tableView = null;
 			}
 
-			if (refreshButton != null) {
-				refreshButton.Dispose ();
-				refreshButton = null;
+			if (addDirectoryButton != null) {
+				addDirectoryButton.Dispose ();
+				addDirectoryButton = null;
+			}
+
+			if (addFileButton != null) {
+				addFileButton.Dispose ();
+				addFileButton = null;
 			}
 		}
 	}

@@ -18,7 +18,7 @@ namespace SecureStore.Views
 			CurrentPath = startingPath;
 		}
 
-		public override async void ViewDidLoad ()
+		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			
@@ -26,21 +26,47 @@ namespace SecureStore.Views
 			tableView.RowHeight = 50.0f;
 			tableView.AllowsSelectionDuringEditing = true;
 
+            NavigationController.NavigationBar.Translucent = false;
+            NavigationController.NavigationBar.Opaque = true;
 			NavigationItem.RightBarButtonItem = new UIBarButtonItem ("Edit", UIBarButtonItemStyle.Plain,
 				new EventHandler (EditButtonPressed));
 
-			refreshButton.Clicked += RefreshButton_Clicked;
+			addDirectoryButton.Clicked += AddDirectoryButton_Clicked;
 
 			FileManager = new FileManager();
 			RefreshCurrentPath();
 		}
 
-		void RefreshButton_Clicked (object sender, EventArgs e)
+		void AddDirectoryButton_Clicked (object sender, EventArgs e)
 		{
-			
+			UIAlertView alertView = new UIAlertView("New Directory", string.Empty, null,
+				"Ok", new[] { "Cancel" });
+			alertView.Title = "Name the directory";
+			alertView.CancelButtonIndex = 1;
+			alertView.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+			alertView.Clicked += NewDirectoryAlertView_Clicked;
+
+			alertView.Show();
 		}
 
-		private void EditButtonPressed(object sender, EventArgs ev)
+		void NewDirectoryAlertView_Clicked (object sender, UIButtonEventArgs e)
+		{
+			if (e.ButtonIndex == 1)
+				return;
+
+			var directoryName = ((UIAlertView)sender).GetTextField(0).Text;
+			var newPath = new NSString(CurrentPath).AppendPathComponent(new NSString(directoryName)).ToString();
+
+			NSError error = null;
+			FileManager.CreateDirectory(newPath, true, new NSDictionary(), error);
+
+			InvokeOnMainThread(() =>
+				{
+					tableView.ReloadData();
+				});
+		}
+
+		void EditButtonPressed(object sender, EventArgs ev)
 		{
 			tableView.SetEditing (true, true);
 
@@ -48,7 +74,7 @@ namespace SecureStore.Views
 				new EventHandler (DoneButtonPressed));
 		}
 
-		private void DoneButtonPressed(object sender, EventArgs ev)
+		void DoneButtonPressed(object sender, EventArgs ev)
 		{
 			tableView.SetEditing(false, false);
 
@@ -56,7 +82,7 @@ namespace SecureStore.Views
 				new EventHandler (DoneButtonPressed));
 		}
 
-		private void RefreshCurrentPath()
+		void RefreshCurrentPath()
 		{
 			NavigationItem.Title = CurrentPath;
 			var files = FileManager.FindSecureDocsAtPath (CurrentPath);
@@ -65,7 +91,7 @@ namespace SecureStore.Views
 			tableView.Source = source;
 		}
 
-		private void OnFolderSelect(string path)
+		void OnFolderSelect(string path)
 		{
 			var currentPath = new NSString(CurrentPath);
 			var newPath = currentPath.AppendPathComponent(new NSString(path));
