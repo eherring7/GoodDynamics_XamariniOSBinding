@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="AppKinetics-SaveEditClient/AppKinetics-SaveEditClient.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GoodDynamicsBinding/StructsAndEnums.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppKinetics-SaveEditClient/ServiceController.cs">
     <Files>
-      <File FileName="SecureStore/Views/PathViewController.cs" Line="52" Column="13" />
-      <File FileName="SecureStore/Sql/SqlHelper.cs" Line="19" Column="18" />
-      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="93" Column="3" />
-      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="26" Column="3" />
+      <File FileName="AppKinetics-SaveEditClient/AppDelegate.cs" Line="57" Column="1" />
+      <File FileName="AppKinetics-SaveEditClient/ServiceController.cs" Line="87" Column="1" />
+      <File FileName="AppKinetics-SaveEditClient/RootViewController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

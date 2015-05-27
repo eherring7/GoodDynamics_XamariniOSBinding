@@ -43,7 +43,7 @@ namespace AppKineticsSaveEditClient
 
             var filePath = (NSString)attachments.ElementAtOrDefault(0);
             GDFileSystem.RemoveItemAtPath(filePath, out error);
-            if (error)
+            if (error != null)
             {
                 Console.WriteLine("Cant delete old file - {0}", error.LocalizedDescription);
             }
@@ -74,15 +74,12 @@ namespace AppKineticsSaveEditClient
         void ShowFile(string filePath, string application)
         {
             NSDictionary dictionary = new NSDictionary();
-            dictionary.SetValueForKey("kApplicationIDKey", application);
-            dictionary.SetValueForKey("kFilePathKey", filePath);
+            dictionary.SetValueForKey(new NSString("kApplicationIDKey"), new NSString(application));
+            dictionary.SetValueForKey(new NSString("kFilePathKey"), new NSString(filePath));
 
-            var notification = new NSNotification();
-            notification.Name = "openFileForEdit";
-            notification.Object = this;
-            notification.UserInfo = dictionary;
+            // todo: fix this portion
 
-            NSNotificationCenter.DefaultCenter.PostNotification(notification);
+            //NSNotificationCenter.DefaultCenter.PostNotification(notification);
         }
     }
 }
