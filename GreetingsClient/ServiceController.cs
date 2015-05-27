@@ -9,9 +9,9 @@ namespace GreetingsClient
 {
 	public class ServiceControllerDelegate
 	{
-		public void ShowAlert(string reply)
+		public void ShowAlert(string title, string reply)
 		{
-			UIAlertView view = new UIAlertView ("Error", reply, null, "OK", null);
+			UIAlertView view = new UIAlertView (title, reply, null, "OK", null);
 			view.Show ();
 		}
 	}

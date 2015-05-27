@@ -19,6 +19,7 @@ namespace GreetingsClient
 			{
 				Button = button;
 				ServiceID = serviceId;
+				ApplicationID = "com.good.gd.example.services.greetings.server";
 			}
 		}
 

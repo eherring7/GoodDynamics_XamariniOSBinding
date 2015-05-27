@@ -530,10 +530,10 @@ namespace GoodDynamics {
 	public interface GDServiceClientDelegate {
 
 		[Export ("GDServiceClientDidReceiveFrom:withParams:withAttachments:correspondingToRequestID:")]
-		void WithParams (string application, NSObject parameters, NSObject [] attachments, string requestID);
+		void DidRecieveFrom (string application, NSObject parameters, NSObject [] attachments, string requestID);
 
 		[Export ("GDServiceClientDidFinishSendingTo:withAttachments:withParams:correspondingToRequestID:")]
-		void WithAttachments (string application, NSObject [] attachments, NSObject parameters, string requestID);
+		void DidFinishSendingTo (string application, NSObject [] attachments, NSObject parameters, string requestID);
 	}
 
 	[BaseType(typeof(NSObject))]
@@ -563,7 +563,7 @@ namespace GoodDynamics {
 	public interface GDService {
 
 		[Static, Export ("replyTo:withParams:bringClientToFront:withAttachments:requestID:error:")]
-		bool ReplyTo (string application, NSObject parameters, GDTForegroundOption option, NSObject[] attachments, string requestID, out NSError error);
+		bool ReplyTo (string application, [NullAllowed] NSObject parameters, GDTForegroundOption option, [NullAllowed] NSObject[] attachments, string requestID, out NSError error);
 
 		[Static, Export ("bringToFront:error:")]
 		bool BringToFront (string application, out NSError error);
