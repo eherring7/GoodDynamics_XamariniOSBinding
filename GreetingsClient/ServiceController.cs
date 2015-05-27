@@ -9,9 +9,9 @@ namespace GreetingsClient
 {
 	public class ServiceControllerDelegate
 	{
-		public void ShowAlert(string reply)
+		public void ShowAlert(string title, string reply)
 		{
-			UIAlertView view = new UIAlertView ("Error", reply, null, "OK", null);
+			UIAlertView view = new UIAlertView (title, reply, null, "OK", null);
 			view.Show ();
 		}
 	}
@@ -91,42 +91,43 @@ namespace GreetingsClient
 			return false;
 		}
 
-		public bool SendRequest(NSError error, ClientRequestType type, string appId)
+		public bool SendRequest(out NSError error, ClientRequestType type, string appId)
 		{
 			bool result = false;
 			switch (type) 
 			{
 			case ClientRequestType.GreetMe:
-				result = SendGreetMeRequest (error, appId);
+				result = SendGreetMeRequest (out error, appId);
 				break;
 			case ClientRequestType.BringServiceAppToFront:
-				result = BringServiceAppToFront (error, appId);
+				result = BringServiceAppToFront (out error, appId);
 				break;
 			case ClientRequestType.SendFiles:
-				result = SendFilesRequest (error, appId);
+				result = SendFilesRequest (out error, appId);
 				break;
 			case ClientRequestType.GetDateAndTime:
-				result = SendGetDateAndTimeRequest (error, appId);
+				result = SendGetDateAndTimeRequest (out error, appId);
 				break;
 			default:
+				error = null;
 				break;
 			}
 
 			return result;
 		}
 
-		public bool SendGreetMeRequest(NSError error, string appId)
+		public bool SendGreetMeRequest(out NSError error, string appId)
 		{
 			string requestId;
 			return GDServiceClient.SendTo (appId, kGreetingsServiceId, "1.0.0", "greetMe", null, null, GDTForegroundOption.EPreferMeInForeground, out requestId, out error);
 		}
 
-		public bool BringServiceAppToFront(NSError error, string appId)
+		public bool BringServiceAppToFront(out NSError error, string appId)
 		{
 			return GDServiceClient.BringToFront (appId, out error);
 		}
 
-		public bool SendFilesRequest(NSError error, string appId)
+		public bool SendFilesRequest(out NSError error, string appId)
 		{
 			string filename1 = "first.txt";
 			NSData data1 = new NSString ("This is first.txt, the first test file to send.").Encode (NSStringEncoding.UTF8);
@@ -136,6 +137,7 @@ namespace GreetingsClient
 			if (!written) 
 			{
 				Debug.WriteLine (String.Format ("Error writing to {0}", filename1));
+				error = null;
 				return false;
 			}
 
@@ -148,6 +150,7 @@ namespace GreetingsClient
 			if (!written) 
 			{
 				Debug.WriteLine (String.Format ("Error writing to {0}", filename2));
+				error = null;
 				return false;
 			}
 
@@ -156,7 +159,7 @@ namespace GreetingsClient
 			return GDServiceClient.SendTo (appId, kGreetingsServiceId, "1.0.0", "sendFiles", null, files, GDTForegroundOption.EPreferPeerInForeground, out requestId, out error);
 		}
 
-		public bool SendGetDateAndTimeRequest(NSError error, string appId)
+		public bool SendGetDateAndTimeRequest(out NSError error, string appId)
 		{
 			string requestId;
 			return GDServiceClient.SendTo (appId, kDateAndTimeServiceId, "1.0.0", "getDateAndTime", null, null, GDTForegroundOption.EPreferMeInForeground, out requestId, out error);

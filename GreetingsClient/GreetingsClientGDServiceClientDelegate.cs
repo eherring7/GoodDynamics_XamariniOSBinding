@@ -16,21 +16,22 @@ namespace GreetingsClient
 			ServiceController = controller;
 		}
 
-		public override void WithAttachments (string application, NSObject[] attachments, Foundation.NSObject parameters, string requestID)
+		public override void DidFinishSendingTo (string application, NSObject[] attachments, Foundation.NSObject parameters, string requestID)
 		{
 		}
 
-		public override void WithParams (string application, Foundation.NSObject parameters, NSObject[] attachments, string requestID)
+		public override void DidRecieveFrom (string application, Foundation.NSObject parameters, NSObject[] attachments, string requestID)
 		{
-			if(parameters != null && (parameters.GetType() == typeof(string) || parameters.GetType() == typeof(NSError)))
+			if(parameters != null && (parameters.GetType() == typeof(NSString) || parameters.GetType() == typeof(NSMutableString) || parameters.GetType() == typeof(NSError)))
 			{
-				string message = String.Empty;
-				if (parameters.GetType () == typeof(string)) {
-					message = (NSString)parameters;
-				} else {
+				NSString message = null;
+				message = parameters as NSString;
+				string title = "Success!";
+				if (message == null) {
+					title = "Error!";
 					message = (NSString)((NSError)parameters).ValueForKey (NSError.LocalizedDescriptionKey);
 				}
-				ServiceController.Delegate.ShowAlert (message);
+				ServiceController.Delegate.ShowAlert (title, message);
 			}
 		}
 			

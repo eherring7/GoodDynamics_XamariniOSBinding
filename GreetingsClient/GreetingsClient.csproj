@@ -62,7 +62,7 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchProfiling>true</MtouchProfiling>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Gregory Gammon (TH2MPLCDAX)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchSdkVersion>8.3</MtouchSdkVersion>
     <MtouchExtraArgs>-cxx --gcc_flags="-stdlib=libstdc++ -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/armv7s.sdk/bin"</MtouchExtraArgs>
@@ -70,6 +70,7 @@
     <MtouchLink>Full</MtouchLink>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignProvision>d3c76401-5a55-4168-898a-a4ca36dc68c2</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -86,8 +87,8 @@
     <InterfaceDefinition Include="RootViewController~ipad.xib" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

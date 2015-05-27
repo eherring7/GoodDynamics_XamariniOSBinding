@@ -12,8 +12,11 @@ namespace GreetingsServer
 	[Register ("AppDelegate")]
 	public class AppDelegate : GDiOSDelegate
 	{
+		private bool _started;
+		//private ServiceController _serviceController;
 		// class-level declarations
 		public GDiOS GDLibrary { get; private set; }
+		public NSMutableArray Providers {get; set;}
 
 		public override UIWindow Window {
 			get;
@@ -40,6 +43,15 @@ namespace GreetingsServer
 			case GDAppEventType.NotAuthorized:
 				OnNotAuthorized (anEvent);
 				break;
+			case GDAppEventType.RemoteSettingsUpdate:
+				//handle app config changes
+				break;
+			case GDAppEventType.ServicesUpdate:
+				Debug.WriteLine ("Received Service Update Event");
+				break;
+			default:
+				Debug.WriteLine ("Event Not Handled");
+				break;
 			}
 		}
 
@@ -47,7 +59,18 @@ namespace GreetingsServer
 		{
 			switch (anEvent.Code) {
 			case GDAppResultCode.ErrorNone:
-				//Start your application
+				if (!_started) {
+					_started = true;
+					RootViewController rootController = null;
+					ServiceController serviceController = new ServiceController ();
+					if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone) {
+						rootController = new RootViewController ("RootViewController~iphone", null, serviceController);
+						Window.RootViewController = rootController;
+					} else {
+						rootController = new RootViewController ("RootViewController~ipad", null, serviceController);
+						Window.RootViewController = rootController;
+					}
+				}
 				break;
 
 			default:
@@ -64,6 +87,7 @@ namespace GreetingsServer
 			case GDAppResultCode.ErrorPushConnectionTimeout:
 			case GDAppResultCode.ErrorSecurityError:
 			case GDAppResultCode.ErrorAppDenied:
+			case GDAppResultCode.ErrorAppVersionNotEntitled:
 			case GDAppResultCode.ErrorBlocked:
 			case GDAppResultCode.ErrorWiped:
 			case GDAppResultCode.ErrorRemoteLockout:

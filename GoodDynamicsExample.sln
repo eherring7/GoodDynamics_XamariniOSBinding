@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodDynamicsExample", "GoodDynamicsExample\GoodDynamicsExample.csproj", "{29816159-A35D-4D3A-B58B-F852A4D10D42}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodDynamics.iOS", "GoodDynamicsBinding\GoodDynamics.iOS.csproj", "{5B050DB4-FB76-4EB0-8F99-FAA4DB6B637F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreetingsClient", "GreetingsClient\GreetingsClient.csproj", "{C68B1AA5-93D2-4FC6-9D18-2C5C5ABD4AAE}"
@@ -71,18 +69,6 @@ Global
 		{1B94DFC2-2EFB-4C0A-9123-D9CA15384D86}.Release|iPhone.Build.0 = Release|iPhone
 		{1B94DFC2-2EFB-4C0A-9123-D9CA15384D86}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{1B94DFC2-2EFB-4C0A-9123-D9CA15384D86}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Debug|iPhone.Build.0 = Debug|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Release|iPhone.ActiveCfg = Release|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Release|iPhone.Build.0 = Release|iPhone
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{29816159-A35D-4D3A-B58B-F852A4D10D42}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{42487EC3-5539-4692-8B60-4C1ED33DCD4C}.Ad-Hoc|iPhone.ActiveCfg = Release|iPhone
 		{42487EC3-5539-4692-8B60-4C1ED33DCD4C}.Ad-Hoc|iPhone.Build.0 = Release|iPhone
 		{42487EC3-5539-4692-8B60-4C1ED33DCD4C}.AppStore|iPhone.ActiveCfg = Release|iPhone
