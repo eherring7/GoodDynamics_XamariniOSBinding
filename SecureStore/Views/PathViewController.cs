@@ -5,6 +5,7 @@ using Foundation;
 using UIKit;
 using SecureStore.File;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace SecureStore.Views
 {
@@ -32,16 +33,52 @@ namespace SecureStore.Views
 				new EventHandler (EditButtonPressed));
 
 			addDirectoryButton.Clicked += AddDirectoryButton_Clicked;
+            addFileButton.Clicked += AddFileButton_Clicked;
 
 			FileManager = new FileManager();
 			RefreshCurrentPath();
 		}
 
+        void AddFileButton_Clicked (object sender, EventArgs e)
+        {
+            UIAlertView alertView = new UIAlertView("New File", string.Empty, null,
+                                        "Ok", new[] { "Cancel" });
+            
+            alertView.CancelButtonIndex = 1;
+            alertView.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+            alertView.Clicked += AddFileAlertView_Clicked;
+
+            alertView.Show();
+        }
+
+        void AddFileAlertView_Clicked(object sender, UIButtonEventArgs e)
+        {
+            if (e.ButtonIndex == 1)
+                return;
+
+            var newFileName = ((UIAlertView)sender).GetTextField(0).Text;
+            var newPath = new NSString(CurrentPath).AppendPathComponent(new NSString(newFileName)).ToString();
+
+            if (FileManager.FileExists(newPath, false))
+            {
+                InvokeOnMainThread(() =>
+                    {
+                        new UIAlertView("Error", "File Exists", null, "Ok", null).Show();
+                    });
+            }
+
+            FileManager.CreateFile(newPath);
+
+            InvokeOnMainThread(() => {
+                RefreshCurrentPath();
+                tableView.ReloadData();
+            });
+        }
+
 		void AddDirectoryButton_Clicked (object sender, EventArgs e)
 		{
 			UIAlertView alertView = new UIAlertView("New Directory", string.Empty, null,
 				"Ok", new[] { "Cancel" });
-			alertView.Title = "Name the directory";
 			alertView.CancelButtonIndex = 1;
 			alertView.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
 			alertView.Clicked += NewDirectoryAlertView_Clicked;
@@ -62,7 +99,8 @@ namespace SecureStore.Views
 
 			InvokeOnMainThread(() =>
 				{
-					tableView.ReloadData();
+                    RefreshCurrentPath();
+                    tableView.ReloadData();
 				});
 		}
 
@@ -85,8 +123,9 @@ namespace SecureStore.Views
 		void RefreshCurrentPath()
 		{
 			NavigationItem.Title = CurrentPath;
-			var files = FileManager.FindSecureDocsAtPath (CurrentPath);
+            tableView.Source = new FileListTableViewSource(new List<string>(), null, string.Empty);
 
+			var files = FileManager.FindSecureDocsAtPath (CurrentPath);
 			var source = new FileListTableViewSource(files, OnFolderSelect, CurrentPath);
 			tableView.Source = source;
 		}
