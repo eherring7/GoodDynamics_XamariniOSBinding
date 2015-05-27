@@ -22,7 +22,7 @@ namespace CoreData.Views
             if (_product == null)
             {
                 //This is a new Product
-                this._product = Product.CreateNewBook(this._context);
+                //this._product = Product.CreateNewBook(this._context);
                 this.isNewProduct = true;
             }
         }

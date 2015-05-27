@@ -94,7 +94,6 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="Resources\initialData.db" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -130,10 +129,9 @@
     <Folder Include="Sources\" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\CoreDataInitial.sqlite" />
     <BundleResource Include="Resources\images\GDLogo.png" />
     <BundleResource Include="Resources\images\GDLogo%402X.png" />
-    <BundleResource Include="Resources\initialData.sqlite" />
     <BundleResource Include="Models\CoreData.xcdatamodel\contents" />
+    <BundleResource Include="Resources\initialSeedData.sqlite" />
   </ItemGroup>
 </Project>

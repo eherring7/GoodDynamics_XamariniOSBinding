@@ -26,19 +26,19 @@ namespace CoreData.Views
             goodImage.ContentMode = UIViewContentMode.ScaleAspectFit;
             var tempList = new List<Product>();
 
-            var prod = Product.CreateNewBook(_context);
+            Product prod = new Product(_context);
             prod.Name = "Bananas";
             prod.Category = ProductCategory.Food;
             prod.Price = 0.79f;
             tempList.Add(prod);
 
-            prod = Product.CreateNewBook(_context);
+            prod = new Product(_context);
             prod.Name = "T-Shirt";
             prod.Category = ProductCategory.Clothing;
             prod.Price = 10.01f;
             tempList.Add(prod);
 
-            prod = Product.CreateNewBook(_context);
+            prod = new Product(_context);
             prod.Name = "Headphones";
             prod.Category = ProductCategory.Electronic;
             prod.Price = 71.98f;

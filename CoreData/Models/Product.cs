@@ -12,15 +12,58 @@ namespace CoreData.Models
         Other
     }
 
-    public class Product:NSManagedObject
+    public class Product
     {
-        public nfloat Price { get; set;}
-        public string Name { get; set;}
-        public nint Quantity { get; set;}
-        public ProductCategory Category { get; set;}
+        private NSManagedObject _managedObject;
 
-        public Product(NSEntityDescription entity, NSManagedObjectContext context):base(entity, context)
+        public nfloat Price
+        { 
+            get
+            {
+                return (nfloat)_managedObject.ValueForKey("Price");
+            }
+            set
+            {
+                _managedObject.SetValueForKey(new NSNumber(value), new NSString("Price"));
+            }
+        }
+        public string Name
+        { 
+            get
+            {
+                return _managedObject.ValueForKey("Name").ToString();
+            }
+            set
+            {
+                _managedObject.SetValueForKey(new NSString(value), new NSString("Name"));
+            }
+        }
+        public nint Quantity
+        { 
+            get
+            {
+                return (nint)_managedObject.ValueForKey("Quantity").ToInt32();
+            }
+            set
+            {
+                _managedObject.SetValueForKey(new NSNumber(value), new NSString("Quantity"));
+            }
+        }
+        public ProductCategory Category
+        { 
+            get
+            {
+                return (ProductCategory)_managedObject.ValueForKey("Category").ToInt32();
+            }
+            set
+            {
+                _managedObject.SetValueForKey(new NSNumber((int)value), new NSString("Category"));
+            }
+        }
+
+        public Product(NSManagedObjectContext context)
         {
+            this._managedObject = CreateNewBook(context);
         }
 
         public static NSString EntityName()
@@ -28,9 +71,9 @@ namespace CoreData.Models
             return new NSString("Product");
         }
 
-        public static Product CreateNewBook(NSManagedObjectContext context)
+        public static NSManagedObject CreateNewBook(NSManagedObjectContext context)
         {
-            return (Product) NSEntityDescription.InsertNewObjectForEntityForName(EntityName(), context);
+            return (NSManagedObject) NSEntityDescription.InsertNewObjectForEntityForName(EntityName(), context);
         }
     }
 }
