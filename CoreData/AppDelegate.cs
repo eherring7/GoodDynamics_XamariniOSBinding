@@ -14,12 +14,16 @@ namespace CoreData
 	public class AppDelegate : GDiOSDelegate
 	{
 		// class-level declarations
+        private NSPersistentStoreCoordinator _persistentStoreCoordinator;
+        private NSManagedObjectContext _context;
+
 		public GDiOS GDLibrary { get; private set; }
 
 		public override UIWindow Window {
 			get;
 			set;
 		}
+
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
@@ -49,7 +53,11 @@ namespace CoreData
 			switch (anEvent.Code) {
                 case GDAppResultCode.ErrorNone:
 				//Start your application
-                    var prodView = new ProductsView();
+                    _persistentStoreCoordinator = PersistentStoreCoordinator();
+                    _context = new NSManagedObjectContext () {
+                        PersistentStoreCoordinator = _persistentStoreCoordinator
+                    };
+                    var prodView = new ProductsView(_context);
                     var nav = new UINavigationController(prodView);
                     Window.RootViewController = nav;
                     Window.MakeKeyAndVisible();
@@ -113,6 +121,89 @@ namespace CoreData
 		{
 			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
 		}
+
+        // Returns the persistent store coordinator (GDPersistentStoreCoordinator) for the application.
+        // If the coordinator doesn't already exist, it is created and the application's store added to it.
+        public NSPersistentStoreCoordinator PersistentStoreCoordinator()
+        {
+            if (_persistentStoreCoordinator != null)
+            {
+                return _persistentStoreCoordinator;
+            }
+
+            _persistentStoreCoordinator = new GDPersistentStoreCoordinator();
+            var path = NSBundle.PathForResourceAbsolute("initialData", "sqlite", NSBundle.MainBundle.ResourcePath);
+            var bundleURL = NSUrl.FromString(path);
+            NSUrl storeURL = null;
+            bool exists = true;
+            NSString storeType = null;
+            var keys = new NSObject[]{NSPersistentStoreCoordinator.MigratePersistentStoresAutomaticallyOption, NSPersistentStoreCoordinator.InferMappingModelAutomaticallyOption, NSPersistentStoreCoordinator.ReadOnlyPersistentStoreOption };
+            var objects = new NSObject[]{NSNumber.FromBoolean(true),NSNumber.FromBoolean(true),NSNumber.FromBoolean(true) };
+            NSDictionary bundleOptions = NSDictionary.FromObjectsAndKeys(objects, keys);
+            keys = new NSObject[]{NSPersistentStoreCoordinator.MigratePersistentStoresAutomaticallyOption, NSPersistentStoreCoordinator.InferMappingModelAutomaticallyOption};
+            objects = new NSObject[]{ NSNumber.FromBoolean(true), NSNumber.FromBoolean(true) };
+            NSDictionary options = NSDictionary.FromObjectsAndKeys(objects, keys);
+
+            storeURL = ApplicationDocumentsDirectory().Append("CoreData.sqlite", true);
+            exists = NSFileManager.DefaultManager.FileExists(storeURL.Path);
+            if (!exists)
+            {
+                storeURL = NSUrl.FromString("CoreData.sqlite");
+                exists = GDFileSystem.FileExistsAtPath(storeURL.Path, false);
+                storeType = GDPersistentStoreCoordinator.GDEncryptedIncrementalStoreType;
+            }
+            _persistentStoreCoordinator.PerformAndWait(() => UpdateDatabaseWithPersistantStoreCoordinator(_persistentStoreCoordinator,
+                storeType, storeURL, bundleURL,bundleOptions, options, exists));
+            return _persistentStoreCoordinator;
+        }
+
+        public void UpdateDatabaseWithPersistantStoreCoordinator(NSPersistentStoreCoordinator persistentStoreCoordinator,
+                        NSString storeType, NSUrl storeURL, NSUrl bundleURL, NSDictionary bundleOptions, NSDictionary options,
+                        bool DatabaseExists)
+        {
+            NSError error = null;
+            if (!DatabaseExists)
+            {
+                persistentStoreCoordinator.AddPersistentStoreWithType(NSPersistentStoreCoordinator.SQLiteStoreType ,null,bundleURL,options, out error);
+                if (error != null)
+                {
+                    throw new Exception(error.ToString());
+                }
+                error = null;
+                persistentStoreCoordinator.MigratePersistentStore(persistentStoreCoordinator.PersistentStoreForUrl(storeURL),storeURL,options,storeType, out error);
+                if (error != null)
+                {
+                    throw new Exception(error.ToString());
+                }
+            }
+            else
+            {
+                error = null;
+                persistentStoreCoordinator.AddPersistentStoreWithType(storeType, null, storeURL, options, out error);
+                if (error != null)
+                {
+                    /*
+                     Replace this implementation with code to handle the error appropriately.
+
+                     Typical reasons for an error here include:
+                     * The persistent store is not accessible;
+                     * The schema for the persistent store is incompatible with current managed object model.
+                     Check the error message to determine what the actual problem was.
+                     cd
+                     
+                     If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
+                     */
+                    throw new Exception(error.ToString());
+                }
+            }
+        }
+        // Returns the URL to the application's Documents directory.
+        public NSUrl ApplicationDocumentsDirectory()
+        {
+            return NSFileManager.DefaultManager.GetUrls(NSSearchPathDirectory.DocumentDirectory,NSSearchPathDomain.User)[0];
+        }
+
+
 	}
 }
 

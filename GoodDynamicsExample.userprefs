@@ -1,26 +1,17 @@
 ﻿<Properties StartupItem="CoreData/CoreData.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CoreData/Models/Product.cs">
     <Files>
-      <File FileName="RssReader/Helpers/FeedDownloader.cs" Line="1" Column="1" />
-      <File FileName="RssReader/Views/RssListView.cs" Line="1" Column="1" />
-      <File FileName="RssReader/Sources/FeedTableViewSource.cs" Line="1" Column="1" />
-      <File FileName="RssReader/Delegates/LogAlertViewDelegate.cs" Line="1" Column="1" />
-      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="134" Column="27" />
-      <File FileName="CoreData/AppDelegate.cs" Line="54" Column="1" />
-      <File FileName="CoreData/Views/AboutView.cs" Line="1" Column="1" />
-      <File FileName="CoreData/Views/SettingsView.cs" Line="1" Column="1" />
-      <File FileName="CoreData/Views/PickManagedObjectsView.cs" Line="18" Column="36" />
-      <File FileName="CoreData/Views/EditingView.cs" Line="1" Column="1" />
-      <File FileName="CoreData/Views/RootView.cs" Line="37" Column="91" />
-      <File FileName="CoreData/Main.cs" Line="19" Column="2" />
+      <File FileName="CoreData/Views/EditProductView.cs" Line="1" Column="1" />
+      <File FileName="CoreData/Sources/CategoryPickerViewModel.cs" Line="1" Column="1" />
+      <File FileName="CoreData/Views/ProductsView.cs" Line="1" Column="1" />
+      <File FileName="CoreData/AppDelegate.cs" Line="158" Column="34" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="1" Column="1" />
+      <File FileName="CoreData/Models/Product.cs" Line="24" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/wmpdev/Documents/Projects/GoodDynamics_XamariniOSBinding/CoreData/AppDelegate.cs" line="48" column="1" />
-      <Breakpoint file="/Users/wmpdev/Documents/Projects/GoodDynamics_XamariniOSBinding/CoreData/AppDelegate.cs" line="73" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <DisabledProjects>

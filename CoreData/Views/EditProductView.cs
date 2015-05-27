@@ -13,15 +13,17 @@ namespace CoreData.Views
     {
         private Product _product;
         private bool isNewProduct = false;
+        private NSManagedObjectContext _context;
 
-        public EditProductView(Product product): base("EditProductView", null)
+        public EditProductView(Product product, NSManagedObjectContext context): base("EditProductView", null)
         {
-            _product = product;
+            this._context = context;
+            this._product = product;
             if (_product == null)
             {
                 //This is a new Product
-                _product = new Product();
-                isNewProduct = true;
+                this._product = Product.CreateNewBook(this._context);
+                this.isNewProduct = true;
             }
         }
 
