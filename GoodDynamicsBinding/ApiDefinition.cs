@@ -95,6 +95,9 @@ namespace GoodDynamics {
 	[BaseType (typeof (NSPersistentStoreCoordinator))]
 	public interface GDPersistentStoreCoordinator {
 
+        [Export("initWithManagedObjectModel:")]
+        IntPtr Constructor (NSManagedObjectModel managedObjectModel);
+
 		[Field ("GDEncryptedBinaryStoreType", "__Internal")]
 		NSString GDEncryptedBinaryStoreType { get; }
 
