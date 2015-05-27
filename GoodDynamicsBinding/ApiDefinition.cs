@@ -90,7 +90,7 @@ namespace GoodDynamics {
 		bool MoveFileToSecureContainer (string absoluteFilenameWithPath, out NSError error);
 
 		[Static, Export ("getFileStat:to:error:")]
-		bool GetFileStat (string filePath, GDFileStat filestat, out NSError error);
+		bool GetFileStat (string filePath, ref GDFileStat filestat, out NSError error);
 
 		[Static, Export ("removeItemAtPath:error:")]
 		bool RemoveItemAtPath (string filePath, out NSError error);
