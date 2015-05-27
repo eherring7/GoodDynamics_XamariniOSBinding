@@ -81,6 +81,7 @@
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
     <InterfaceDefinition Include="Views\PathViewController.xib" />
+    <InterfaceDefinition Include="Views\FileViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -97,6 +98,10 @@
     <Compile Include="FileResult.cs" />
     <Compile Include="File\FileUrlProtocol.cs" />
     <Compile Include="Source\FileListTableViewSource.cs" />
+    <Compile Include="Views\FileViewController.cs" />
+    <Compile Include="Views\FileViewController.designer.cs">
+      <DependentUpon>FileViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

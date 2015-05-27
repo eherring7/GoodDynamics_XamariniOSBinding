@@ -13,14 +13,17 @@ namespace SecureStore
         public string CurrentPath { get; private set; }
 
         public Action<string> FolderSelectAction { get; private set; }
+        public Action<string> FileSelectAction { get; private set; }
 
-        public FileListTableViewSource(IList<string> files, Action<string> folderSelectAction, string currentPath)
+        public FileListTableViewSource(IList<string> files, Action<string> folderSelectAction,
+            Action<string> fileSelectAction, string currentPath)
         {
             FileManager = new FileManager();
             Datasource = files;
             CurrentPath = currentPath;
 
             FolderSelectAction = folderSelectAction;
+            FileSelectAction = fileSelectAction;
         }
 
         public override nint NumberOfSections(UITableView tableView)
@@ -53,7 +56,12 @@ namespace SecureStore
         public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
         {
             var item = Datasource[indexPath.Row];
-            FolderSelectAction(item);
+
+            var result = FileManager.GetFileStat(item);
+            if (result.IsFolder)
+                FolderSelectAction(item);
+            else
+                FileSelectAction(item);
         }
 
         public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)

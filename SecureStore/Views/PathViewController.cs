@@ -123,21 +123,28 @@ namespace SecureStore.Views
 		void RefreshCurrentPath()
 		{
 			NavigationItem.Title = CurrentPath;
-            tableView.Source = new FileListTableViewSource(new List<string>(), null, string.Empty);
 
-			var files = FileManager.FindSecureDocsAtPath (CurrentPath);
-			var source = new FileListTableViewSource(files, OnFolderSelect, CurrentPath);
+            var files = FileManager.FindSecureDocsAtPath (CurrentPath);
+			var source = new FileListTableViewSource(files, OnFolderSelect, OnFileSelect, CurrentPath);
 			tableView.Source = source;
 		}
 
-		void OnFolderSelect(string path)
+		void OnFolderSelect(string directoryName)
 		{
 			var currentPath = new NSString(CurrentPath);
-			var newPath = currentPath.AppendPathComponent(new NSString(path));
+			var newPath = currentPath.AppendPathComponent(new NSString(directoryName));
 
 			NavigationController.PushViewController(new PathViewController(
 					newPath.ToString()), true);
 		}
+
+        void OnFileSelect(string fileName)
+        {
+            var currentPath = new NSString(CurrentPath);
+            var newPath = currentPath.AppendPathComponent(new NSString(fileName)).ToString();
+
+            NavigationController.PushViewController(new FileViewController(newPath), true);
+        }
 	}
 }
 
