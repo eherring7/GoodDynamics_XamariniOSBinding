@@ -134,5 +134,6 @@
     <BundleResource Include="Resources\images\GDLogo.png" />
     <BundleResource Include="Resources\images\GDLogo%402X.png" />
     <BundleResource Include="Resources\initialData.sqlite" />
+    <BundleResource Include="Models\CoreData.xcdatamodel\contents" />
   </ItemGroup>
 </Project>

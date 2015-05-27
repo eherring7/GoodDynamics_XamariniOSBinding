@@ -5,6 +5,7 @@ using GoodDynamics;
 using System.Diagnostics;
 using System;
 using CoreData.Views;
+using CoreData.Models;
 
 namespace CoreData
 {
@@ -16,6 +17,56 @@ namespace CoreData
 		// class-level declarations
         private NSPersistentStoreCoordinator _persistentStoreCoordinator;
         private NSManagedObjectContext _context;
+
+        private NSManagedObjectModel _managedObjectModel;
+        public NSManagedObjectModel ManagedObjectModel
+        {
+            get{
+                if (_managedObjectModel != null) {
+                    return _managedObjectModel;
+                }
+
+                var name = new NSAttributeDescription()
+                {
+                    Name = "Name",
+                    AttributeType = NSAttributeType.String,
+                    Optional = false
+                };
+
+                var price = new NSAttributeDescription()
+                {
+                    Name = "Price",
+                    AttributeType = NSAttributeType.Double,
+                    Optional = false
+                };
+
+                var quantity = new NSAttributeDescription()
+                {
+                    Name = "Quantity",
+                    AttributeType = NSAttributeType.Integer32,
+                    Optional = false
+                };
+                var category = new NSAttributeDescription()
+                {
+                    Name = "Category",
+                    AttributeType = NSAttributeType.Integer32,
+                    Optional = false
+                };
+            
+                var product = new NSEntityDescription()
+                {
+                    Name = "Product",
+                    Properties = new NSPropertyDescription[] { name, price, quantity, category }
+                };
+                product.ManagedObjectClassName = Product.EntityName();
+
+                _managedObjectModel = new NSManagedObjectModel()
+                {
+                    Entities = new NSEntityDescription[] { product }
+                };
+                return _managedObjectModel;
+            }
+        }
 
 		public GDiOS GDLibrary { get; private set; }
 
@@ -131,7 +182,7 @@ namespace CoreData
                 return _persistentStoreCoordinator;
             }
 
-            _persistentStoreCoordinator = new GDPersistentStoreCoordinator();
+            _persistentStoreCoordinator = new GDPersistentStoreCoordinator(ManagedObjectModel);
             var path = NSBundle.PathForResourceAbsolute("initialData", "sqlite", NSBundle.MainBundle.ResourcePath);
             var bundleURL = NSUrl.FromString(path);
             NSUrl storeURL = null;
@@ -144,7 +195,7 @@ namespace CoreData
             objects = new NSObject[]{ NSNumber.FromBoolean(true), NSNumber.FromBoolean(true) };
             NSDictionary options = NSDictionary.FromObjectsAndKeys(objects, keys);
 
-            storeURL = ApplicationDocumentsDirectory().Append("CoreData.sqlite", true);
+            storeURL = ApplicationDocumentsDirectory().Append("CoreData.sqlite", false);
             exists = NSFileManager.DefaultManager.FileExists(storeURL.Path);
             if (!exists)
             {
