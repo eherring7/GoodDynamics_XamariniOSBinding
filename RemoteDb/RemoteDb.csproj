@@ -23,10 +23,11 @@
     <MtouchLink>Full</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchExtraArgs>-cxx --registrar:static --linkskip=Xamarin.iOS --linkskip=System.Core --linkskip=System --linkskip=mscorelib --gcc_flags="-stdlib=libstdc++ -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/i386.sdk/bin"</MtouchExtraArgs>
+    <MtouchExtraArgs>-cxx --registrar:static --linkskip=Xamarin.iOS --linkskip=System.Core --linkskip=System --linkskip=mscorelib --gcc_flags="-stdlib=libstdc++ -lz -lsqlite3.0 -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/i386.sdk/bin"</MtouchExtraArgs>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -61,13 +62,14 @@
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchProfiling>true</MtouchProfiling>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Gregory Gammon (77H7267XUJ)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchExtraArgs>-cxx --gcc_flags="-stdlib=libstdc++ -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/armv7s.sdk/bin"</MtouchExtraArgs>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>Full</MtouchLink>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignProvision>1ea0f2fc-6ed3-418e-8429-bbb69192b83a</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="RootViewController~iphone.xib" />
+    <InterfaceDefinition Include="RootViewController~ipad.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -88,6 +92,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="RemoteDBSettings.cs" />
+    <Compile Include="RootViewController.cs" />
+    <Compile Include="RootViewController.designer.cs">
+      <DependentUpon>RootViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GDSqlite3.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

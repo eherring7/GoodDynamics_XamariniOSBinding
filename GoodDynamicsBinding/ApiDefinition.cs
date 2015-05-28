@@ -226,6 +226,22 @@ namespace GoodDynamics {
 
 		[Export("getServiceProvidersFor:andVersion:andType:")]
 		NSArray GetServiceProviders (string serviceId, string version, GDServiceProviderType type);
+
+		[Field("MTGDAppConfigKeyServers", "__Internal")]
+		NSString GDAppConfigKeyServers { get; }
+
+		[Field("MTGDAppConfigKeyConfig", "__Internal")]
+		NSString GDAppConfigKeyConfig {get;}
+
+		[Field("MTGDAppConfigKeyCopyPasteOn", "__Internal")]
+		NSString GDAppConfigKeyCopyPasteOn {get;}
+
+		[Field("MTGDAppConfigKeyDetailedLogsOn", "__Internal")]
+		NSString GDAppConfigKeyDetailedLogsOn {get;}
+
+		[Field("MTGDAppConfigKeyUserId", "__Internal")]
+		NSString GDAppConfigKeyUserId {get;}
+
 	}
 
     [Protocol, BaseType(typeof(UIApplicationDelegate)), Model]

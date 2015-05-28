@@ -4,6 +4,7 @@ using UIKit;
 using GoodDynamics;
 using System.Diagnostics;
 using System;
+using System.Text;
 
 namespace RemoteDb
 {
@@ -14,6 +15,8 @@ namespace RemoteDb
 	{
 		// class-level declarations
 		public GDiOS GDLibrary { get; private set; }
+		private RemoteDBSettings _dbSettings;
+		private bool _started;
 
 		public override UIWindow Window {
 			get;
@@ -40,6 +43,9 @@ namespace RemoteDb
 			case GDAppEventType.NotAuthorized:
 				OnNotAuthorized (anEvent);
 				break;
+			case GDAppEventType.RemoteSettingsUpdate:
+				OnRemoteSettingsUpdated ();
+				break;
 			}
 		}
 
@@ -47,7 +53,17 @@ namespace RemoteDb
 		{
 			switch (anEvent.Code) {
 			case GDAppResultCode.ErrorNone:
-				//Start your application
+				if (!_started) {
+					_started = true;
+					RootViewController rootController = null;
+					if (UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone) {
+						rootController = new RootViewController ("RootViewController~iphone", null);
+						Window.RootViewController = rootController;
+					} else {
+						rootController = new RootViewController ("RootViewController~ipad", null);
+						Window.RootViewController = rootController;
+					}
+				}
 				break;
 
 			default:
@@ -76,6 +92,128 @@ namespace RemoteDb
 				Debug.Assert (false, "Unhandled not authorized event");
 				break;
 			}
+		}
+
+		private void ShowAlert(GDAppEvent e)
+		{
+			UIAlertView alertView = new UIAlertView ("An error has occurred", e.Message, null, "OK", null);
+			alertView.Show ();
+		}
+
+		private void OnRemoteSettingsUpdated()
+		{
+			NSDictionary settings = GDLibrary.GetApplicationConfig ();
+
+			NSString appConfig = (NSString)settings.ValueForKey (GDiOS.GDAppConfigKeyConfig);
+			NSNumber copyPasteOn = (NSNumber)settings.ValueForKey (GDiOS.GDAppConfigKeyCopyPasteOn);
+			NSNumber detailedLogsOn = (NSNumber)settings.ValueForKey (GDiOS.GDAppConfigKeyDetailedLogsOn);
+			NSString userEmail = (NSString)settings.ValueForKey (GDiOS.GDAppConfigKeyUserId);
+
+			GDAppServer firstServer = null;
+			NSArray allServers = (NSArray)settings.ValueForKey (GDiOS.GDAppConfigKeyServers);
+			if (allServers != null && allServers.Count > 0) 
+			{
+				firstServer = allServers.GetItem<GDAppServer> (0);
+			}
+
+			NSString server = null;
+			NSNumber port = null;
+			NSNumber priority = null;
+
+			if (firstServer != null) 
+			{
+				if (firstServer.Server != null) 
+				{
+					server = new NSString(firstServer.Server);
+					Console.Write (String.Format ("Server Host: {0}", server));
+				}
+				if (firstServer.Port != null) 
+				{
+					port = firstServer.Port;
+					Console.WriteLine (String.Format ("Server Port: {0}", port.NIntValue));
+				}
+				if (firstServer.Priority != null) 
+				{
+					priority = firstServer.Priority;
+					Console.WriteLine (String.Format ("Server Priority: {0}", priority.NIntValue));
+				}
+			}
+
+			bool result = StoreRemoteSettings (server, port, priority, appConfig, copyPasteOn, detailedLogsOn, userEmail);
+
+			if (!result) 
+			{
+				Console.WriteLine ("Error storing settings");
+			}
+
+			ShowCurrentSettings ();
+		}
+
+		private bool StoreRemoteSettings(NSString serverHost, NSNumber port, NSNumber priority, NSString config, NSNumber cpOn, NSNumber dlOn, NSString email)
+		{
+			if (_dbSettings == null) 
+			{
+				_dbSettings = new RemoteDBSettings ();
+			}
+
+			int portInt = port == null ? 0 : port.Int32Value;
+			int priorityInt = priority == null ? 0 : priority.Int32Value;
+			bool result = _dbSettings.UpdateRemoteSettings (serverHost, portInt, priorityInt, config, cpOn.Int32Value, dlOn.Int32Value, email);
+
+			return result;
+		}
+
+		private void ShowCurrentSettings()
+		{
+			if (_dbSettings == null) 
+			{
+				_dbSettings = new RemoteDBSettings ();
+			}
+
+			NSDictionary settings = _dbSettings.GetConfigSettings ();
+
+			NSString config = (NSString)settings.ValueForKey (GDiOS.GDAppConfigKeyConfig);
+			NSNumber copyPasteOn = (NSNumber)settings.ValueForKey (GDiOS.GDAppConfigKeyCopyPasteOn);
+			NSNumber detailedLogsOn = (NSNumber)settings.ValueForKey (GDiOS.GDAppConfigKeyDetailedLogsOn);
+			NSString userEmail = (NSString)settings.ValueForKey (GDiOS.GDAppConfigKeyUserId);
+
+			GDAppServer firstServer = (GDAppServer)settings.ValueForKey (GDiOS.GDAppConfigKeyServers);
+
+			StringBuilder builder = new StringBuilder ();
+			if (firstServer != null) 
+			{
+				if (!string.IsNullOrWhiteSpace (firstServer.Server)) 
+				{
+					builder.AppendLine (String.Format ("Server Host: {0}", firstServer.Server));
+				}
+				if (firstServer.Port != null) 
+				{
+					builder.AppendLine (String.Format ("Server Port: {0}", firstServer.Port.Int32Value));
+				}
+				if (firstServer.Priority != null) 
+				{
+					builder.AppendLine (String.Format ("Server Priority: {0}", firstServer.Priority.Int32Value));
+				}
+				if (config != null) 
+				{
+					builder.AppendLine (String.Format ("Config: {0}", config));
+				}
+				if (copyPasteOn != null) 
+				{
+					builder.AppendLine (String.Format ("Data Leakage Security Policy: {0}", copyPasteOn.Int32Value));
+				}
+				if (detailedLogsOn != null) 
+				{
+					builder.AppendLine (String.Format ("Logging Level: {0}", detailedLogsOn.Int32Value));
+				}
+				if (userEmail != null) 
+				{
+					builder.AppendLine (String.Format ("User Email: {0}", userEmail));
+				}
+			}
+
+			UIAlertView alertView = new UIAlertView ("App Config Change", builder.ToString (), null, "OK", null);
+			alertView.Show ();
 		}
 
 		public override void OnResignActivation (UIApplication application)

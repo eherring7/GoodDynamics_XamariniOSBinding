@@ -1,16 +1,34 @@
-﻿<Properties StartupItem="GreetingsClient/GreetingsClient.csproj">
+﻿<Properties StartupItem="RemoteDb/RemoteDb.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GreetingsServer/GreetingsServerGDServiceDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RemoteDb/RemoteDBSettings.cs">
     <Files>
-      <File FileName="GreetingsServer/AppDelegate.cs" Line="50" Column="55" />
-      <File FileName="GreetingsServer/ServiceController.cs" Line="22" Column="30" />
-      <File FileName="GreetingsServer/RootViewController.cs" Line="10" Column="3" />
-      <File FileName="GreetingsClient/GreetingsClientGDServiceDelegate.cs" Line="20" Column="3" />
-      <File FileName="GreetingsServer/GreetingsServerGDServiceDelegate.cs" Line="65" Column="42" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="204" Column="3" />
+      <File FileName="GoodDynamicsBinding/GD.linkwith.cs" Line="4" Column="163" />
+      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="11" Column="3" />
+      <File FileName="RemoteDb/RemoteDBSettings.cs" Line="62" Column="32" />
+      <File FileName="RssReader/Delegates/CustomGDHttpRequestDelegate.cs" Line="45" Column="37" />
+      <File FileName="RemoteDb/AppDelegate.cs" Line="105" Column="1" />
+      <File FileName="RemoteDb/RootViewController.cs" Line="16" Column="1" />
+      <File FileName="RemoteDb/Info.plist" />
+      <File FileName="RemoteDb/GDSqlite3.cs" Line="1680" Column="90" />
+      <File FileName="RemoteDb/Main.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/GreetingsClient/RootViewController.cs" line="150" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/GreetingsServer/GreetingsServerGDServiceDelegate.cs" line="104" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/GreetingsServer/GreetingsServerGDServiceDelegate.cs" line="30" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/AppDelegate.cs" line="105" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/RemoteDBSettings.cs" line="117" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/RemoteDBSettings.cs" line="30" column="53" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/RemoteDBSettings.cs" line="66" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/GDSqlite3.cs" line="105" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/GDSqlite3.cs" line="112" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/GDSqlite3.cs" line="979" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/RemoteDBSettings.cs" line="70" column="1" />
+      <Breakpoint file="/Users/ggammon/Developer/GoodDynamics_XamariniOSBinding/RemoteDb/GDSqlite3.cs" line="1684" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <DisabledProjects>

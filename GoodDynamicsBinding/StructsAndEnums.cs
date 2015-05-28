@@ -3,6 +3,22 @@ using System.Runtime.InteropServices;
 
 namespace GoodDynamics
 {
+	public static class Sqlite3Enc
+	{
+		// extern int sqlite3enc_open (const char * filename, sqlite3 ** ppDb);
+		[DllImport ("__Internal", EntryPoint="sqlite3enc_open")]
+		public static extern int sqlite3enc_open (IntPtr filename, out IntPtr ppDb);
+
+		// extern int sqlite3enc_open_v2 (const char * zFilename, sqlite3 ** ppDb, int flags, const char * zVfs);
+		[DllImport ("__Internal", EntryPoint="sqlite3enc_open_v2")]
+		public static extern int sqlite3enc_open_v2 (IntPtr zFilename, out IntPtr ppDb, int flags, IntPtr zVfs);
+
+		// extern int sqlite3enc_import (const char * srcFilename, const char * destFilename);
+		[DllImport ("__Internal", EntryPoint="sqlite3enc_import")]
+		public static extern int sqlite3enc_import (IntPtr srcFilename, IntPtr destFilename);
+	}
+
+
 	public enum GDAppResultCode{
 		ErrorNone = 0,
 		ErrorActivationFailed = -101,
