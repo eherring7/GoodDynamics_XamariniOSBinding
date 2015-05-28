@@ -14,7 +14,6 @@ namespace CoreData.Views
     public partial class ProductsView : UIViewController
     {
         #region Accessors
-        private NSFetchedResultsController _fetchController;
         private NSPersistentStoreCoordinator _storeCoordinator;
         private NSManagedObjectModel _managedObjectModel;
         private NSManagedObjectContext _context;
@@ -114,31 +113,7 @@ namespace CoreData.Views
                 return _context;
             }
         }
-
-        NSFetchedResultsController FetchController
-        {
-            get
-            {
-                if (_fetchController == null)
-                {
-                    NSError error = null;
-                    NSFetchRequest request = new NSFetchRequest();
-                    request.Entity = NSEntityDescription.EntityForName("Product", Context);
-                    //request.AffectedStores = StoreCoordinator.PersistentStores;
-
-                    request.SortDescriptors = new []{ new NSSortDescriptor("name", true) }; 
-                    //request.FetchBatchSize = 100;
-                    request.ResultType = NSFetchRequestResultType.ManagedObject;
-                    _fetchController = new NSFetchedResultsController(request, Context, string.Empty, string.Empty);
-                    _fetchController.Delegate = new FetchedResultsDelegate(Products);
-                    if (_fetchController.PerformFetch (out error)) {
-                        if (error != null)
-                            Console.WriteLine (string.Format ("Unresolved error {0}", error.LocalizedDescription));
-                    }
-                }
-                return _fetchController;
-            }
-        }
+            
         #endregion
 
         public ProductsView(): base("ProductsView", null)
@@ -153,25 +128,6 @@ namespace CoreData.Views
             goodImage.Image = new UIImage("images/GDLogo");
             goodImage.ContentMode = UIViewContentMode.ScaleAspectFit;
             FetchCoreData();
-//
-//            Product prod = new Product(_context);
-//            prod.Name = "Bananas";
-//            prod.Category = ProductCategory.Food;
-//            prod.Price = 0.79f;
-//            _products.Add(prod);
-//
-//            prod = new Product(_context);
-//            prod.Name = "T-Shirt";
-//            prod.Category = ProductCategory.Clothing;
-//            prod.Price = 10.01f;
-            //            _products.Add(prod);
-//
-//            prod = new Product(_context);
-//            prod.Name = "Headphones";
-//            prod.Category = ProductCategory.Electronic;
-//            prod.Price = 71.98f;
-            //            _products.Add(prod);
-
             var source = new ProductTableViewSource(Products);
             source.OnRowSelected += (s, e) => ToProductEditMode(e.Product, false);
             productsTable.Source = source;
@@ -192,7 +148,7 @@ namespace CoreData.Views
 
         private void ToProductEditMode(Product p, bool isNew)
         {
-            var newProductView = new EditProductView(p, isNew);
+            var newProductView = new EditProductView(p, Context, isNew);
             NavigationController.PushViewController(newProductView, true);
         }
 
@@ -206,13 +162,7 @@ namespace CoreData.Views
             Products = new List<Product>();
             foreach (var r in results)
             {
-                var Product = new Product(Context);
-                Product.Name = ((NSString)r.ValueForKey(new NSString("Name"))).ToString();
-                Product.Price = ((NSNumber)r.ValueForKey(new NSString("Price"))).NFloatValue;
-                Product.Quantity = ((NSNumber)r.ValueForKey(new NSString("Quantity"))).NIntValue;
-                ;
-                Product.Category = (ProductCategory)((NSNumber)r.ValueForKey(new NSString("Category"))).Int32Value;
-                Products.Add(Product);
+                Products.Add(new Product((NSManagedObject)r));
             }
             productsTable.ReloadData();
             //Context.ExecuteFetchRequest(FetchController.FetchRequest, out error);
@@ -235,7 +185,7 @@ namespace CoreData.Views
                     throw new Exception(error.ToString());
                 }
                 error = null;
-                persistentStoreCoordinator.MigratePersistentStore(persistentStoreCoordinator.PersistentStoreForUrl(bundleUrl),storeURL,options,storeType, out error);
+                persistentStoreCoordinator.MigratePersistentStore(persistentStoreCoordinator.PersistentStoreForUrl(bundleUrl),storeURL,null,storeType, out error);
                 if (error != null)
                 {
                     throw new Exception(error.ToString());
@@ -244,7 +194,7 @@ namespace CoreData.Views
             else
             {
                 error = null;
-                persistentStoreCoordinator.AddPersistentStoreWithType(storeType, null, storeURL, options, out error);
+                persistentStoreCoordinator.AddPersistentStoreWithType(storeType, null, storeURL, null, out error);
                 if (error != null)
                 {
                     throw new Exception(error.ToString());

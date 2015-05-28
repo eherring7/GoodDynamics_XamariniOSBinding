@@ -64,9 +64,16 @@ namespace CoreData.Models
             }
         }
 
+        //New Product
         public Product(NSManagedObjectContext context)
         {
             this._managedObject = CreateNewBook(context);
+        }
+
+        //Wrapper for existing Product
+        public Product(NSManagedObject managedObject)
+        {
+            this._managedObject = managedObject;
         }
 
         public static NSString EntityName()
@@ -74,7 +81,7 @@ namespace CoreData.Models
             return new NSString("Product");
         }
 
-        public static NSManagedObject CreateNewBook(NSManagedObjectContext context)
+        private static NSManagedObject CreateNewBook(NSManagedObjectContext context)
         {
             return (NSManagedObject) NSEntityDescription.InsertNewObjectForEntityForName(EntityName(), context);
         }

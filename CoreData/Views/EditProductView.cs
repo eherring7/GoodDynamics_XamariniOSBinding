@@ -13,11 +13,11 @@ namespace CoreData.Views
     {
         private Product _product;
         private bool isNewProduct = false;
-        //private NSManagedObjectContext _context;
+        private NSManagedObjectContext _context;
 
-        public EditProductView(Product product, bool isNewProduct = false): base("EditProductView", null)
+        public EditProductView(Product product, NSManagedObjectContext context, bool isNewProduct = false): base("EditProductView", null)
         {
-            //this._context = context;
+            this._context = context;
             this._product = product;
             this.isNewProduct = isNewProduct;
         }
@@ -72,6 +72,8 @@ namespace CoreData.Views
             _product.Name = nameField.Text;
             _product.Price = (nfloat) Double.Parse(priceField.Text);
             _product.Quantity = (nint) Int32.Parse(quantityField.Text);
+            NSError error = null;
+            _context.Save(out error);
         }
 
         private void HandleEditButtonPressed(object sender, EventArgs e)
