@@ -94,6 +94,10 @@
     <Compile Include="RootViewController.designer.cs">
       <DependentUpon>RootViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="sendClick.cs" />
+    <Compile Include="sendClick.designer.cs">
+      <DependentUpon>sendClick.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

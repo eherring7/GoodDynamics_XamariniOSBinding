@@ -49,6 +49,16 @@ namespace AppKineticsSaveEditClient
             }
         }
 
+        public bool SendSaveEditFileRequest(out NSError error, string appId, NSDictionary parameters,
+            string[] attachments, string method)
+        {
+            var requestId = string.Empty;
+            return GDServiceClient.SendTo(appId, "com.good.gdservice.save-edited-file", "1.0.0.0",
+                method, parameters, attachments.Select(a => new NSString(a)).ToArray(),
+                GDTForegroundOption.EPreferPeerInForeground,
+                out requestId, out error);
+        }
+
         bool ParamsValid(NSObject parameters)
         {
             if (parameters is NSError)
@@ -77,9 +87,8 @@ namespace AppKineticsSaveEditClient
             dictionary.SetValueForKey(new NSString("kApplicationIDKey"), new NSString(application));
             dictionary.SetValueForKey(new NSString("kFilePathKey"), new NSString(filePath));
 
-            // todo: fix this portion
-
-            //NSNotificationCenter.DefaultCenter.PostNotification(notification);
+            NSNotificationCenter.DefaultCenter.PostNotificationName(
+                "kShowServiceAlert", (NSObject)this);
         }
     }
 }

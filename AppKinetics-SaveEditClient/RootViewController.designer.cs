@@ -14,8 +14,28 @@ namespace AppKineticsSaveEditClient
 	[Register ("RootViewController")]
 	partial class RootViewController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton sendButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITextView theTextView { get; set; }
+
+		[Action ("SendClick:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void SendClick (UIButton sender);
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (sendButton != null) {
+				sendButton.Dispose ();
+				sendButton = null;
+			}
+			if (theTextView != null) {
+				theTextView.Dispose ();
+				theTextView = null;
+			}
 		}
 	}
 }
