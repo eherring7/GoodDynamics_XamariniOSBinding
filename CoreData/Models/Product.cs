@@ -20,7 +20,8 @@ namespace CoreData.Models
         { 
             get
             {
-                return (nfloat)_managedObject.ValueForKey("Price");
+                var num = (NSNumber)ObjCRuntime.Runtime.GetNSObject(_managedObject.ValueForKey("Price"));
+                return num.NFloatValue;
             }
             set
             {
@@ -31,7 +32,7 @@ namespace CoreData.Models
         { 
             get
             {
-                return _managedObject.ValueForKey("Name").ToString();
+                return (NSString)ObjCRuntime.Runtime.GetNSObject(_managedObject.ValueForKey("Name"));
             }
             set
             {
@@ -42,7 +43,8 @@ namespace CoreData.Models
         { 
             get
             {
-                return (nint)_managedObject.ValueForKey("Quantity").ToInt32();
+                var num = (NSNumber)ObjCRuntime.Runtime.GetNSObject(_managedObject.ValueForKey("Quantity"));
+                return num.NIntValue;
             }
             set
             {
@@ -53,7 +55,8 @@ namespace CoreData.Models
         { 
             get
             {
-                return (ProductCategory)_managedObject.ValueForKey("Category").ToInt32();
+                var num = (NSNumber)ObjCRuntime.Runtime.GetNSObject(_managedObject.ValueForKey("Category"));
+                return (ProductCategory) num.Int32Value;
             }
             set
             {

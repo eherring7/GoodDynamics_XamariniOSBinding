@@ -13,18 +13,13 @@ namespace CoreData.Views
     {
         private Product _product;
         private bool isNewProduct = false;
-        private NSManagedObjectContext _context;
+        //private NSManagedObjectContext _context;
 
-        public EditProductView(Product product, NSManagedObjectContext context): base("EditProductView", null)
+        public EditProductView(Product product, bool isNewProduct = false): base("EditProductView", null)
         {
-            this._context = context;
+            //this._context = context;
             this._product = product;
-            if (_product == null)
-            {
-                //This is a new Product
-                //this._product = Product.CreateNewBook(this._context);
-                this.isNewProduct = true;
-            }
+            this.isNewProduct = isNewProduct;
         }
 
         public override void ViewDidLoad()
@@ -41,6 +36,7 @@ namespace CoreData.Views
                 NavigationItem.SetHidesBackButton(true, true);
                 NavigationItem.RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Done, HandleDoneButtonPressed);
                 categoryBoarder.Hidden = true;
+                _product.Category = 0;//Set to first in list
             }
             else
             {
