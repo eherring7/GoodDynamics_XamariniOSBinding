@@ -553,10 +553,10 @@ namespace GoodDynamics {
 	public interface GDServiceDelegate {
 
 		[Export ("GDServiceDidReceiveFrom:forService:withVersion:forMethod:withParams:withAttachments:forRequestID:")]
-		void ForService (string application, string service, string version, string method, NSObject parameters, NSObject [] attachments, string requestID);
+		void DidReceiveFrom (string application, string service, string version, string method, NSObject parameters, NSObject [] attachments, string requestID);
 
 		[Export ("GDServiceDidFinishSendingTo:withAttachments:withParams:correspondingToRequestID:")]
-		void WithAttachments (string application, NSObject [] attachments, NSObject parameters, string requestID);
+		void DidFinishSending (string application, NSObject [] attachments, NSObject parameters, string requestID);
 	}
 
 	[BaseType(typeof(NSObject))]

@@ -23,10 +23,11 @@
     <MtouchLink>Full</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchExtraArgs>-cxx --gcc_flags="-stdlib=libstdc++ -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/i386.sdk/bin"</MtouchExtraArgs>
+    <MtouchExtraArgs>-cxx --registrar:static --linkskip=Xamarin.iOS --linkskip=System.Core --linkskip=System --linkskip=mscorelib --gcc_flags="-stdlib=libstdc++ -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/i386.sdk/bin"</MtouchExtraArgs>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -80,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="Storyboards\MainStoryboard.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -88,6 +90,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoodServiceDelegate.cs" />
+    <Compile Include="IMainController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -95,5 +103,8 @@
       <Project>{5B050DB4-FB76-4EB0-8F99-FAA4DB6B637F}</Project>
       <Name>GoodDynamics.iOS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Storyboards\" />
   </ItemGroup>
 </Project>

@@ -1,14 +1,19 @@
-﻿<Properties StartupItem="AppKinetics-SaveEditClient/AppKinetics-SaveEditClient.csproj">
+﻿<Properties StartupItem="AppKinetics-SaveEditService/AppKinetics-SaveEditService.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppKinetics-SaveEditClient/ServiceController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppKinetics-SaveEditService/GoodServiceDelegate.cs">
     <Files>
-      <File FileName="AppKinetics-SaveEditClient/AppDelegate.cs" Line="57" Column="1" />
-      <File FileName="AppKinetics-SaveEditClient/ServiceController.cs" Line="87" Column="1" />
-      <File FileName="AppKinetics-SaveEditClient/RootViewController.cs" Line="1" Column="1" />
+      <File FileName="AppKinetics-SaveEditService/ViewController.cs" Line="26" Column="66" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="556" Column="12" />
+      <File FileName="AppKinetics-SaveEditService/GoodServiceDelegate.cs" Line="71" Column="14" />
+      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="70" Column="28" />
+      <File FileName="AppKinetics-SaveEditService/IMainController.cs" Line="8" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/xximjasonxx/Projects/GoodDynamics_XamariniOSBinding/AppKinetics-SaveEditClient/RootViewController.cs" line="18" column="1" />
+      <Breakpoint file="/Users/xximjasonxx/Projects/GoodDynamics_XamariniOSBinding/AppKinetics-SaveEditClient/AppDelegate.cs" line="28" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
