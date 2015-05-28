@@ -4,6 +4,8 @@ using UIKit;
 using GoodDynamics;
 using System.Diagnostics;
 using System;
+using CoreData.Views;
+using CoreData.Models;
 
 namespace CoreData
 {
@@ -12,13 +14,14 @@ namespace CoreData
 	[Register ("AppDelegate")]
 	public class AppDelegate : GDiOSDelegate
 	{
-		// class-level declarations
+
 		public GDiOS GDLibrary { get; private set; }
 
 		public override UIWindow Window {
 			get;
 			set;
 		}
+
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
@@ -46,13 +49,17 @@ namespace CoreData
 		private void OnAuthorized(GDAppEvent anEvent)
 		{
 			switch (anEvent.Code) {
-			case GDAppResultCode.ErrorNone:
+                case GDAppResultCode.ErrorNone:
 				//Start your application
-				break;
+                    var prodView = new ProductsView();
+                    var nav = new UINavigationController(prodView);
+                    Window.RootViewController = nav;
+                    Window.MakeKeyAndVisible();
+    				break;
 
-			default:
-				Debug.Assert (false, "Authorized startup with an error");
-				break;
+			    default:
+			        Debug.Assert (false, "Authorized startup with an error");
+				    break;
 			}
 		}
 
@@ -108,6 +115,7 @@ namespace CoreData
 		{
 			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
 		}
+
 	}
 }
 

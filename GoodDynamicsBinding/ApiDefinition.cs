@@ -95,6 +95,9 @@ namespace GoodDynamics {
 	[BaseType (typeof (NSPersistentStoreCoordinator))]
 	public interface GDPersistentStoreCoordinator {
 
+        [Export("initWithManagedObjectModel:")]
+        IntPtr Constructor (NSManagedObjectModel managedObjectModel);
+
 		[Field ("GDEncryptedBinaryStoreType", "__Internal")]
 		NSString GDEncryptedBinaryStoreType { get; }
 
@@ -145,7 +148,7 @@ namespace GoodDynamics {
 		NSObject [] ContentsOfDirectoryAtPath (string path, out NSError error);
 
 		[Static, Export ("fileExistsAtPath:isDirectory:")]
-		bool FileExistsAtPath (string path, bool isDirectory);
+        bool FileExistsAtPath (string path, bool isDirectory);
 
 		[Static, Export ("moveItemAtPath:toPath:error:")]
 		bool MoveItemAtPath (string srcPath, string dstPath, out NSError error);

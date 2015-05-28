@@ -1,5 +1,6 @@
 ﻿using UIKit;
 using GoodDynamics;
+using System;
 
 namespace CoreData
 {
