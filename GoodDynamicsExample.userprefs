@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="AppKinetics-SaveEditClient/AppKinetics-SaveEditClient.csproj">
+﻿<Properties StartupItem="GreetingsClient/GreetingsClient.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
   <MonoDevelop.Ide.Workbench ActiveDocument="AppKinetics-SaveEditClient/Main.cs">
     <Files>
