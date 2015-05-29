@@ -21,11 +21,14 @@ namespace AppKineticsSaveEditService
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            NavigationController.NavigationBar.Opaque = true;
+            NavigationController.NavigationBar.Translucent = false;
+            Title = "Save Edit Service";
 
             GoodService = new GDService();
             GoodService.Delegate = new GoodServiceDelegate(this);
 
-            //doneButton.Clicked += DoneButton_Clicked;
+            doneButton.Clicked += DoneButton_Clicked;
         }
 
         void DoneButton_Clicked (object sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace AppKineticsSaveEditService
                 return;
             }
 
-            /*NSError error = null;
+            NSError error = null;
             var paths = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User,
                             true);
             var documentPathForFile = new NSString(paths[0]).AppendPathComponent(
@@ -45,17 +48,39 @@ namespace AppKineticsSaveEditService
             GDFileSystem.WriteToFile(NSData.FromString(textView.Text, NSStringEncoding.UTF8), documentPathForFile,
                 out error);
 
-            if (error != null)
+            if (error == null)
             {
-                
-            }*/
+                var urlString = string.Format("{0}.sc2://", _application);
+                var testUrl = new NSUrl(urlString);
+                if (!UIApplication.SharedApplication.CanOpenUrl(testUrl))
+                {
+                    Console.WriteLine("Client is not installed");
+                    return;
+                }
+
+                bool replyResult = GDService.ReplyTo(_application, null, GDTForegroundOption.EPreferPeerInForeground,
+                                       new[] { new NSString(documentPathForFile) }, _requestId, out error);
+
+                if (!replyResult)
+                    Console.WriteLine("Failed to get Reply");
+
+                if (error != null)
+                {
+                    Console.WriteLine("Failed to Reply: {0} {1:d} {2}", error.Domain, error.Code,
+                        error.LocalizedDescription);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Failed to write data to secure storage: {0}", error.LocalizedDescription);
+            }
         }
 
         #region IMainController implementation
 
         public void ShowText(string text)
         {
-            //textView.Text = text;
+            textView.Text = text;
         }
 
         public void SetApplication(string application)
