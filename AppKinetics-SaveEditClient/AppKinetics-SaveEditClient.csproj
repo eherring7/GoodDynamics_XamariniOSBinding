@@ -102,4 +102,7 @@
       <Name>GoodDynamics.iOS</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="DataFile.txt" />
+  </ItemGroup>
 </Project>

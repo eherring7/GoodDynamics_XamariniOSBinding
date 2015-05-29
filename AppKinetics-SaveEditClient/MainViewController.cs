@@ -4,6 +4,7 @@ using System;
 using Foundation;
 using UIKit;
 using GoodDynamics;
+using System.Linq;
 
 namespace AppKineticsSaveEditClient
 {
@@ -25,22 +26,16 @@ namespace AppKineticsSaveEditClient
             var contents = fileData.ToString(NSStringEncoding.UTF8);
             Console.WriteLine("Contents: {0}", contents);
 
-            theTextView.Text = contents;
+            sendButton.Clicked += SendButton_Clicked;
+            textView.Text = contents;
 
             NSNotificationCenter.DefaultCenter.AddObserver(new NSString("openFileForEdit"), HandleFileForEditNotification, (NSObject)this);
             NSNotificationCenter.DefaultCenter.AddObserver(new NSString("kShowServiceAlert"), HandleShowServiceAlertError, (NSObject)this);
         }
 
-        public override void ViewDidUnload()
+        void SendButton_Clicked (object sender, EventArgs e)
         {
-            base.ViewDidUnload();
-
-            NSNotificationCenter.DefaultCenter.RemoveObserver(this);
-        }
-
-        partial void SendClick(UIButton sender)
-        {
-            var text = theTextView.Text;
+            var text = textView.Text;
             Console.WriteLine("TextView Text: {0}", text);
 
             var appDelegate = ((AppDelegate)UIApplication.SharedApplication.Delegate);
@@ -64,6 +59,13 @@ namespace AppKineticsSaveEditClient
             var documentPathForFile = SaveTextViewToFile();
             SendFile(documentPathForFile, appDetail, appDelegate.ServiceController);
             Console.WriteLine("Sent File to {0}", appDetail.GetItem<GDServiceProvider>(0).Identifier);
+        }
+
+        public override void ViewDidUnload()
+        {
+            base.ViewDidUnload();
+
+            NSNotificationCenter.DefaultCenter.RemoveObserver(this);
         }
 
         void HandleFileForEditNotification(NSNotification notification)
@@ -91,7 +93,7 @@ namespace AppKineticsSaveEditClient
         {
             NSError error = null;
 
-            var fileData = NSData.FromString(theTextView.Text);
+            var fileData = NSData.FromString(textView.Text);
             var paths = NSSearchPath.GetDirectories(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, true);
             var documentDirectory = paths.ElementAt(0);
             var documentPathForFile = new NSString(documentDirectory).AppendPathComponent(new NSString("DataFile.txt")).ToString();

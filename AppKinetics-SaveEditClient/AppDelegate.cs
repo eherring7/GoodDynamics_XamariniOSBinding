@@ -53,6 +53,7 @@ namespace AppKineticsSaveEditClient
 				    //Start your application
                     IsStarted = true;
                     ServiceController = new ServiceController();
+                    Window.RootViewController = new MainViewController();
                     break;
 
     			default:
