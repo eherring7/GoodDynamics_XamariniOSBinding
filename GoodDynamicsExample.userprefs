@@ -1,17 +1,10 @@
-﻿<Properties StartupItem="RemoteDb/RemoteDb.csproj">
+﻿<Properties StartupItem="AppKinetics-SaveEditClient/AppKinetics-SaveEditClient.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RemoteDb/RemoteDBSettings.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppKinetics-SaveEditClient/Main.cs">
     <Files>
-      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="204" Column="3" />
-      <File FileName="GoodDynamicsBinding/GD.linkwith.cs" Line="4" Column="163" />
-      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="11" Column="3" />
-      <File FileName="RemoteDb/RemoteDBSettings.cs" Line="62" Column="32" />
-      <File FileName="RssReader/Delegates/CustomGDHttpRequestDelegate.cs" Line="45" Column="37" />
-      <File FileName="RemoteDb/AppDelegate.cs" Line="105" Column="1" />
-      <File FileName="RemoteDb/RootViewController.cs" Line="16" Column="1" />
-      <File FileName="RemoteDb/Info.plist" />
-      <File FileName="RemoteDb/GDSqlite3.cs" Line="1680" Column="90" />
-      <File FileName="RemoteDb/Main.cs" Line="1" Column="1" />
+      <File FileName="AppKinetics-SaveEditClient/MainViewController.cs" Line="18" Column="10" />
+      <File FileName="AppKinetics-SaveEditClient/Main.cs" Line="15" Column="1" />
+      <File FileName="AppKinetics-SaveEditClient/AppDelegate.cs" Line="64" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

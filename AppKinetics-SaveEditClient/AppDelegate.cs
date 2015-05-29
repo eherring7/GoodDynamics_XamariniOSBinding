@@ -15,6 +15,9 @@ namespace AppKineticsSaveEditClient
 		// class-level declarations
 		public GDiOS GDLibrary { get; private set; }
 
+        public ServiceController ServiceController { get; set; }
+        public bool IsStarted { get; set; }
+
 		public override UIWindow Window {
 			get;
 			set;
@@ -46,13 +49,16 @@ namespace AppKineticsSaveEditClient
 		private void OnAuthorized(GDAppEvent anEvent)
 		{
 			switch (anEvent.Code) {
-			case GDAppResultCode.ErrorNone:
-				//Start your application
-				break;
+                case GDAppResultCode.ErrorNone:
+				    //Start your application
+                    IsStarted = true;
+                    ServiceController = new ServiceController();
+                    Window.RootViewController = new MainViewController();
+                    break;
 
-			default:
-				Debug.Assert (false, "Authorized startup with an error");
-				break;
+    			default:
+    				Debug.Assert (false, "Authorized startup with an error");
+    				break;
 			}
 		}
 
