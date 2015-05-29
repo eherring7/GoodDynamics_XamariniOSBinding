@@ -1,13 +1,11 @@
 // WARNING
 //
-// This file has been generated automatically by Xamarin Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Xamarin Studio to store outlets and
+// actions made in the UI designer. If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 using Foundation;
-using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace AppKineticsSaveEditClient
 {
@@ -15,23 +13,21 @@ namespace AppKineticsSaveEditClient
 	partial class RootViewController
 	{
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton sendButton { get; set; }
+		UIKit.UIButton sendButton { get; set; }
 
 		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UITextView theTextView { get; set; }
+		UIKit.UITextView theTextView { get; set; }
 
 		[Action ("SendClick:")]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void SendClick (UIButton sender);
-
+		partial void SendClick (UIKit.UIButton sender);
+		
 		void ReleaseDesignerOutlets ()
 		{
 			if (sendButton != null) {
 				sendButton.Dispose ();
 				sendButton = null;
 			}
+
 			if (theTextView != null) {
 				theTextView.Dispose ();
 				theTextView = null;
