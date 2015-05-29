@@ -47,6 +47,8 @@ namespace AppKineticsSaveEditService
             Console.WriteLine("Received Text: {0}", text);
 
             _mainController.ShowText(text);
+            _mainController.SetApplication(application);
+            _mainController.SetRequestId(requestID);
         }
 
         void ReportError(string application, string requestID, string message, int code)

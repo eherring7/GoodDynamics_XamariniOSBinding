@@ -1,12 +1,12 @@
 ﻿<Properties StartupItem="AppKinetics-SaveEditService/AppKinetics-SaveEditService.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6.8.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppKinetics-SaveEditService/GoodServiceDelegate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppKinetics-SaveEditService/ViewController.cs">
     <Files>
-      <File FileName="AppKinetics-SaveEditService/ViewController.cs" Line="26" Column="66" />
-      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="556" Column="12" />
-      <File FileName="AppKinetics-SaveEditService/GoodServiceDelegate.cs" Line="71" Column="14" />
-      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="70" Column="28" />
-      <File FileName="AppKinetics-SaveEditService/IMainController.cs" Line="8" Column="34" />
+      <File FileName="AppKinetics-SaveEditService/ViewController.cs" Line="21" Column="43" />
+      <File FileName="GoodDynamicsBinding/ApiDefinition.cs" Line="1" Column="1" />
+      <File FileName="AppKinetics-SaveEditService/GoodServiceDelegate.cs" Line="51" Column="32" />
+      <File FileName="GoodDynamicsBinding/StructsAndEnums.cs" Line="1" Column="1" />
+      <File FileName="AppKinetics-SaveEditService/Main.cs" Line="15" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

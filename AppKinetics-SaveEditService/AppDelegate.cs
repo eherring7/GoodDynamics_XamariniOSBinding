@@ -4,6 +4,7 @@ using UIKit;
 using GoodDynamics;
 using System.Diagnostics;
 using System;
+using AppKineticsSaveEditService;
 
 namespace AppKineticsSaveEditClient
 {
@@ -46,13 +47,14 @@ namespace AppKineticsSaveEditClient
 		private void OnAuthorized(GDAppEvent anEvent)
 		{
 			switch (anEvent.Code) {
-			case GDAppResultCode.ErrorNone:
-				//Start your application
-				break;
+			    case GDAppResultCode.ErrorNone:
+				    //Start your application
+                    Window.RootViewController = new UINavigationController(new MainViewController());
+				    break;
 
-			default:
-				Debug.Assert (false, "Authorized startup with an error");
-				break;
+			    default:
+				    Debug.Assert (false, "Authorized startup with an error");
+				    break;
 			}
 		}
 
