@@ -17,9 +17,9 @@ namespace GreetingsClient
 			ServiceController = serviceController;
 		}
 
-		public override async void ForService (string application, string service, string version, string method, Foundation.NSObject parameters, NSObject[] attachments, string requestID)
-		{
-			await ProcessRequestForApplication(application, service, version, method, parameters, attachments, requestID);
+        public override async void DidReceiveFrom(string application, string service, string version, string method, NSObject parameters, NSObject[] attachments, string requestID)
+        {
+            await ProcessRequestForApplication(application, service, version, method, parameters, attachments, requestID);
 		}
 
 		async Task ProcessRequestForApplication (string application, string service, string version, string method, Foundation.NSObject parameters, NSObject[] attachments, string requestID)

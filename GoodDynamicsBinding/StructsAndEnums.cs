@@ -87,5 +87,16 @@ namespace GoodDynamics
 		GDAuthTokenErrNotSupported = -2,
 		GDAuthTokenErrRetry = -1
 	}
+
+    public enum GDServicesError {
+        GDServicesErrorGeneral,
+        GDServicesErrorApplicationNotFound,
+        GDServicesErrorServiceNotFound,
+        GDServicesErrorServiceVersionNotFound,
+        GDServicesErrorMethodNotFound,
+        GDServicesErrorNotAllowed,
+        GDServicesErrorInvalidParams,
+        GDServicesErrorCertificateNotFound
+    }
 }
 
