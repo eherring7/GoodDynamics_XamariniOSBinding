@@ -66,12 +66,14 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Field ("MTGDServicesErrorGeneral", "__Internal")]
 		int GDServicesErrorGeneral { get; }
+
 		/**< A general Inter-Container Communication error occurred.*/
 
 		/// <summary>
 		/// </summary>
 		[Static, Field ("MTGDServicesErrorApplicationNotFound", "__Internal")]
 		int GDServicesErrorApplicationNotFound { get; }
+
 		/**< The service consumer sent a request to an application that could not be
 		 * found on the device.
 		 */
@@ -80,6 +82,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Field ("MTGDServicesErrorServiceNotFound", "__Internal")]
 		int GDServicesErrorServiceNotFound { get; }
+
 		/**< The service consumer sent a request that specified a service that is not
 		 * supported by the service provider.
 		 */
@@ -88,6 +91,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Field ("MTGDServicesErrorServiceVersionNotFound", "__Internal")]
 		int GDServicesErrorServiceVersionNotFound { get; }
+
 		/**< The service consumer sent a request that specified a service version that
 		 * is not supported by the service provider.
 		 */
@@ -700,7 +704,7 @@ namespace GoodDynamics
 
 		/// <summary>
 		/// </summary>
-		[Field ("MTGDEncryptedBinaryStoreType", "__Internal")]
+		[Field ("GDEncryptedBinaryStoreType", "__Internal")]
 		NSString GDEncryptedBinaryStoreType { get; }
 
 		/**< Specify the encrypted binary store type.
@@ -708,7 +712,7 @@ namespace GoodDynamics
 		
 		/// <summary>
 		/// </summary>
-		[Field ("MTGDEncryptedBinaryStoreErrorDomain", "__Internal")]
+		[Field ("GDEncryptedBinaryStoreErrorDomain", "__Internal")]
 		NSString GDEncryptedBinaryStoreErrorDomain { get; }
 
 		/**< Specify the encrypted binary store type error domain.
@@ -716,7 +720,7 @@ namespace GoodDynamics
 		
 		/// <summary>
 		/// </summary>
-		[Field ("MTGDEncryptedIncrementalStoreType", "__Internal")]
+		[Field ("GDEncryptedIncrementalStoreType", "__Internal")]
 		NSString GDEncryptedIncrementalStoreType { get; }
 
 		/**< Specify the encrypted incremental store type.
@@ -724,7 +728,7 @@ namespace GoodDynamics
 
 		/// <summary>
 		/// </summary>
-		[Field ("MTGDEncryptedIncrementalStoreErrorDomain", "__Internal")]
+		[Field ("GDEncryptedIncrementalStoreErrorDomain", "__Internal")]
 		NSString GDEncryptedIncrementalStoreErrorDomain { get; }
 		/**< Specify the encrypted incremental store type error domain.
 		 */
@@ -1108,7 +1112,7 @@ namespace GoodDynamics
 		 * does not already exist.
 		 */
 		 
-	 	/// <summary>
+		/// <summary>
 		/// </summary>
 		[Static, Export ("contentsOfDirectoryAtPath:error:")]
 		NSObject [] ContentsOfDirectoryAtPath (string path, out NSError error);
@@ -3836,6 +3840,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("disablePeerVerification")]
 		bool DisablePeerVerification { get; }
+
 		/**< Security option: Disable SSL/TLS authenticity verification.
 		 * Call this function to disable certificate authenticity
 		 * verification, when making an HTTPS request.
@@ -3883,6 +3888,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("disableFollowLocation")]
 		bool DisableFollowLocation { get; }
+
 		/**< Disable automatic following of redirections.
 		 * Call this function to disable automatic following of redirections.
 		 * When automatic following is disabled, the application must handle redirection
@@ -3911,6 +3917,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("disableCookieHandling")]
 		bool DisableCookieHandling { get; }
+
 		/**< Disable automatic handling of cookies.
 		 * Call this function to disable automatic cookie handling.
 		 * When automatic handling is disabled, the application must store and process
@@ -3933,6 +3940,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("clearCookies:")]
 		void ClearCookies (bool includePersistentStore);
+
 		/**< Delete automatically stored cookies.
 		 * \deprecated
 		 * This function is deprecated and will be removed in a future release. Cookies
@@ -3961,6 +3969,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("enableHttpProxy:withPort:withUser:withPass:withAuth:")]
 		bool EnableHttpProxy ([PlainString] string host, int port, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
+
 		/**< Configure and enable an HTTP proxy (all parameters).
 		 * Call this function to configure an HTTP proxy address and credentials,
 		 * and enable connection through the proxy.
@@ -4007,6 +4016,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("enableHttpProxy:withPort:")]
 		bool EnableHttpProxy ([PlainString] string host, int port);
+
 		/**< Configure and enable an HTTP proxy without authentication.
 		 * Call this function to configure an HTTP proxy address and credentials,
 		 * and enable connection through the proxy.
@@ -4021,6 +4031,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("disableHttpProxy")]
 		bool DisableHttpProxy { get; }
+
 		/**< Disable HTTP proxy.
 		 * Call this function to disable connection through an HTTP proxy.
 		 *
@@ -4038,6 +4049,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("setRequestHeader:withValue:")]
 		bool SetRequestHeader ([PlainString] string header, [PlainString] string value);
+
 		/**< Add an HTTP Header Field.
 		 * Call this function to add a Header Field to the HTTP request. This is for
 		 * standard HTTP Header Fields such as "Authorization".
@@ -4065,6 +4077,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("setPostValue:forKey:")]
 		void SetPostValue ([PlainString] string value, [PlainString] string key);
+
 		/**< Add a name/value pair for a "POST" request.
 		 * Call this function to add a name/value pair to the HTTP request.
 		 * The request method must be "POST".
@@ -4089,6 +4102,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("clearPostValues")]
 		void ClearPostValues ();
+
 		/**< Clear all name/value pairs.
 		 * Call this function to remove all name/value pairs from the HTTP request.
 		 * Name/value pairs would have been added with the <TT>setPostValue</TT>
@@ -4108,6 +4122,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("send:withLength:withTimeout:")]
 		bool Send (IntPtr data, uint len, int timeout_s);
+
 		/**< Send the HTTP request (all parameters).
 		 * Call this function to send the HTTP request to the server.
 		 *
@@ -4170,6 +4185,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("send:withTimeout:")]
 		bool Send (IntPtr data, int timeout_s);
+
 		/**< Send the HTTP request with null-terminated body and specified time out.
 		 * Call this function to send an HTTP request with body,
 		 * and specified time out. The body must be null-terminated.
@@ -4181,6 +4197,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("send:")]
 		bool Send (IntPtr data);
+
 		/**< Send the HTTP request with null-terminated body.
 		 * Call this function to send an HTTP request with body,
 		 * and the default time out setting. The body must be null-terminated.
@@ -4192,6 +4209,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("send")]
 		bool Send ();
+
 		/**< Send the HTTP request without body (e.g.\ "GET" method).
 		 * Call this function to send an HTTP request that has no body, for
 		 * example a "GET" method request, using the default time out setting.
@@ -4207,6 +4225,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("sendData:withTimeout:")]
 		bool SendData (NSData data, int timeout_s);
+
 		/**< Send the HTTP request with NSData body and specified time out.
 		 * Call this function to send an HTTP request with body,
 		 * and specified time out.
@@ -4219,6 +4238,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("sendData:")]
 		bool SendData (NSData data);
+
 		/**< Send the HTTP request with NSData body.
 		 * Call this function to send an HTTP request with body,
 		 * and the default time out setting.
@@ -4231,6 +4251,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("sendWithFile:withTimeout:")]
 		bool SendWithFile (string pathAndFileName, double timeoutSeconds);
+
 		/**< Send the HTTP request with file contents as body, with specified time out.
 		 * Call this function to use the open HTTP request to upload a file. The HTTP
 		 * request's method will be overridden to "PUT" unless it is a custom method. A
@@ -4262,6 +4283,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("sendWithFile:")]
 		bool SendWithFile (string pathAndFileName);
+
 		/**< Send the HTTP request with file contents as body, with default time out.
 		 * Call this function to send the HTTP request, reading the body of the request
 		 * from a file, with the default time out setting.
@@ -4273,6 +4295,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("getState")]
 		GDHttpRequestState GetState { get; }
+
 		/**< Get the ready state of the HTTP request.
 		 * This function returns the ready state of the HTTP Request. See the
 		 * <TT>GDHttpRequestState</TT> documentation for a list of values
@@ -4290,6 +4313,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("getResponseHeader:")]
 		IntPtr GetResponseHeader ([PlainString] string header);
+
 		/**< Get a specified HTTP response header.
 		 * Call this function to obtain a specific HTTP response header. (Compare
 		 * \ref GetAllResponseHeaders.)
@@ -4316,6 +4340,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("getAllResponseHeaders")]
 		IntPtr GetAllResponseHeaders { get; }
+
 		/**< Get all HTTP response headers.
 		 * Call this function to obtain all HTTP response headers. (Compare
 		 * \ref GetResponseHeader:.)
@@ -4338,6 +4363,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("getStatus")]
 		int GetStatus { get; }
+
 		/**< Get the numeric HTTP response status, or 0 (zero) if an error occurred.
 		 * Call this function to determine the success or failure of the HTTP
 		 * request.
@@ -4397,6 +4423,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("getStatusText")]
 		[PlainString] string GetStatusText { get; }
+
 		/**< Get the textual HTTP response status, as sent by the server,
 		 * or details of error if \ref getStatus returns 0.
 		 * This function returns the status message received from the HTTP
@@ -4440,6 +4467,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("getReceiveBuffer")]
 		GDDirectByteBuffer GetReceiveBuffer { get; }
+
 		/**< Get HTTP response data.
 		 * Call this function to obtain the response data, i.e. the body of the HTTP
 		 * response.
@@ -4475,6 +4503,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("close")]
 		bool Close { get; }
+
 		/**< Close connection and reset disabled options.
 		 * Call this function to force closure of all connections that were used by the
 		 * HTTP request, after the request has completed.
@@ -4510,6 +4539,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("abort")]
 		bool Abort ();
+
 		/**< Cancel the request.
 		 * Call this function to cancel the HTTP request.
 		 * Any response data that had been received will be discarded.
@@ -4536,6 +4566,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("enablePipelining")]
 		bool EnablePipelining { get; set; }
+
 		/**< Enable and disable HTTP pipelining of the request.
 		 * Set this property to enable and disable HTTP pipelining on the associated
 		 * request.
@@ -4557,6 +4588,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Wrap ("WeakDelegate")]
 		GDHttpRequestDelegate Delegate { get; set; }
+
 		/**< Delegated event-handling.
 		 * The GD HTTP Request object can work asynchronously, at the option of the
 		 * application. See <TT>isAsync</TT> under the <TT>Open</TT> function, above.
@@ -4604,6 +4636,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("setMaxCacheFileAge:")]
 		void MaxCacheFileAge (double age);
+
 		/**< Set the default maximum age of cached files.
 		 * Call this function to set a default maximum age for cached files.
 		 * The default maximum age will be used where it is less than the maximum age
@@ -4620,6 +4653,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("setMaxCacheFileSize:")]
 		void MaxCacheFileSize (int fileSize);
+
 		/**< Set the maximum permitted size of a cached file.
 		 * Call this function to set the maximum permitted size of a cached file.
 		 * If not set, a default maximum of 1 megabyte will be used.
@@ -4640,9 +4674,9 @@ namespace GoodDynamics
 		 *                 bytes.
 		 */
 		 
-		 [Export ("maxCacheFileSize")]
-		 int MaxCacheFileSize();
-		 /**< Get the maximum permitted size of a cached file.
+		[Export ("maxCacheFileSize")]
+		int MaxCacheFileSize ();
+		/**< Get the maximum permitted size of a cached file.
 		 * Call this function to get the maximum permitted size of a cached file.
 		 *
 		 * This function returns the limit for a single file, not for the size of the
@@ -4846,6 +4880,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Export ("enableSecureCommunication")]
 		void EnableSecureCommunication ();
+
 		/**< Enable access across the enterprise firewall via the URL Loading System.
 		 * Call this function to enable, or re-enable, access across the enterprise
 		 * firewall via the URL Loading System.
@@ -4866,6 +4901,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Export ("disableSecureCommunication")]
 		void DisableSecureCommunication ();
+
 		/**< Disable access across the enterprise firewall via the URL Loading System.
 		 * Call this function to disable access across the enterprise firewall via the
 		 * URL Loading System.
@@ -4878,11 +4914,11 @@ namespace GoodDynamics
 		 * \ref GDHttpRequest.
 		 */
 		 
-		 /// <summary>
-		 /// </summary>
-		 [Static, Export ("isSecureCommunicationEnabled")]
-		 bool IsSecureCommunicationEnabled();
-		 /**< Check whether access across the enterprise firewall via the URL Loading
+		/// <summary>
+		/// </summary>
+		[Static, Export ("isSecureCommunicationEnabled")]
+		bool IsSecureCommunicationEnabled ();
+		/**< Check whether access across the enterprise firewall via the URL Loading
 		 *   System is enabled.
 		 * Call this function to check whether access across the enterprise firewall via
 		 * the URL Loading System is enabled.
@@ -4920,6 +4956,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Export ("clearCredentialsForMethod:")]
 		void ClearCredentialsForMethod (string method);
+
 		/**< Clear cached authentication credentials.
 		 * Call this function to clear the cached credentials for a particular
 		 * authentication method, or to clear for all methods.
@@ -5164,6 +5201,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Export ("sharedConnection")]
 		NSObject SharedConnection { get; }
+
 		/**< Get a reference to the Push Connection object.
 		 * This function returns a reference to the Push Connection object.
 		 *
@@ -5177,6 +5215,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("connect")]
 		void Connect ();
+
 		/**< Initiate connection to the overall Push Channel service.
 		 * Call this function to establish, or re-establish, the Push
 		 * Channel connection with the Good Dynamics proxy infrastructure Network
@@ -5200,6 +5239,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("disconnect")]
 		void Disconnect ();
+
 		/**< Terminate the connection to the Push Channel service.
 		 * Call this function to terminate the Push Channel connection with
 		 * the Good Dynamics proxy infrastructure Network Operation Center (NOC).
@@ -5214,6 +5254,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("isConnected")]
 		bool IsConnected { get; }
+
 		/**< Get state of the connection to the Push Channel service.
 		 * This function returns the current status of the Push
 		 * Channel connection.
@@ -5377,6 +5418,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("onChannelOpen:")]
 		void OnChannelOpen (string token);
+
 		/**< Channel opened callback.
 		 * This callback will be invoked when the associated Push Channel is
 		 * opened in the Good Dynamics proxy infrastructure. See 
@@ -5404,6 +5446,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("onChannelMessage:")]
 		void OnChannelMessage (string data);
+
 		/**< Push Channel notification callback.
 		 * This callback will be invoked when a Push Channel notification is
 		 * received on the associated Push Channel. The message will have been sent by the
@@ -5440,6 +5483,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("onChannelClose:")]
 		void OnChannelClose (string data);
+
 		/**< Channel closed callback.
 		 * This callback will be invoked when the associated Push Channel is
 		 * closed.
@@ -5473,6 +5517,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("onChannelError:")]
 		void OnChannelError (int error);
+
 		/**< Generic channel error callback.
 		 * This callback is invoked when a permanent error condition is encountered on
 		 * the associated Push Channel.
@@ -5786,6 +5831,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("connect")]
 		void Connect ();
+
 		/**< Connect Push Channel.
 		 * Call this function to open the Push Channel.
 		 * This function can only be called when the channel is not open.
@@ -5812,6 +5858,7 @@ namespace GoodDynamics
 
 		[Export ("disconnect")]
 		void Disconnect ();
+
 		/**< Disconnect Push Channel.
 		 * Call this function to initiate permanent disconnection of the
 		 * Push Channel. This function can only be called when the channel is open.
@@ -6084,6 +6131,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Static, Export ("canSendFileToGFE")]
 		bool CanSendFileToGFE { get; }
+
 		/**< Check possibility of sending files to Good for Enterprise.
 		 * Call this function to check if it is currently possible to send files to
 		 * the Good for Enterprise email and PIM application.
@@ -6099,6 +6147,7 @@ namespace GoodDynamics
 
 		[Static, Export ("canSendFileToApplication:")]
 		bool CanSendFileToApplication (string application);
+
 		/**< Check possibility of sending files to Good for Enterprise, specified as an
 		 * application.
 		 * Call this function to check if it is currently possible to send files to
@@ -6123,6 +6172,7 @@ namespace GoodDynamics
 
 		[Static, Export ("sendFileToGFE:withSuccessBlock:")]
 		bool SendFileToGFE (string relativeSecureFile, SendFileSuccessBlock block);
+
 		/**< Send a file to Good for Enterprise.
 		 * Call this function to send a file to the Good for Enterprise (GFE) email
 		 * and PIM application using the Secure Documents API.
@@ -6147,6 +6197,7 @@ namespace GoodDynamics
 
 		[Static, Export ("sendFile:toApplication:withSuccessBlock:")]
 		bool SendFile (string relativeSecureFile, string application, SendFileSuccessBlock block);
+
 		/**< Send a file to Good for Enterprise by specifying the application.
 		 * Call this function to send a file to a specified application, using the
 		 * Secure Documents API.
@@ -6176,7 +6227,7 @@ namespace GoodDynamics
 		 */
 		
 		/// <summary>
-	    /// </summary>
+		/// </summary>
 		[Field ("kGDSecureDocsScheme", "__Internal")]
 		NSString GDSecureDocsScheme { get; set; }
 		/**< URL scheme for the Secure Documents API, for use with openURL.
@@ -6531,7 +6582,7 @@ namespace GoodDynamics
 	{
 
 		[Export ("GDServiceDidReceiveFrom:forService:withVersion:forMethod:withParams:withAttachments:forRequestID:")]
-		void DidRecieveFrom (string application, string service, string version, string method, NSObject parameters, NSObject[] attachments, string requestID);
+		void DidReceiveFrom (string application, string service, string version, string method, NSObject parameters, NSObject[] attachments, string requestID);
 
 		/**< Good Inter-Container Communication service request callback.
 		 * This callback is invoked when a service request is sent to the
@@ -7200,6 +7251,7 @@ namespace GoodDynamics
 		/// </summary>
 		[Export ("onGDAuthTokenSuccess:")]
 		void OnGDAuthTokenSuccess (string gdAuthToken);
+
 		/**< Successful token request callback.
 		 * This callback will be invoked when a new GD Auth token has been
 		 * generated. Token generation is always in response to a call to the
@@ -7339,6 +7391,7 @@ namespace GoodDynamics
 
 		[Export ("getGDAuthToken:serverName:")]
 		void GetGDAuthToken (string challenge, string serverName);
+
 		/**< Good Dynamics Authentication Token request.
 		 * Call this function to request a new GD Auth token. Pass the
 		 * challenge string and server name as parameters.
@@ -7371,6 +7424,7 @@ namespace GoodDynamics
 
 		[Export ("gdAuthDelegate", ArgumentSemantic.Assign)]
 		GDAuthTokenDelegate GdAuthDelegate { [Bind ("getGDAuthDelegate")] get; [Bind ("setGDAuthDelegate:")] set; }
+
 		/**< Delegated event-handling.
 		 * GD Auth token requests are asynchronous. When a request succeeds or fails, a
 		 * callback in the application code is invoked by the Good Dynamics Runtime.

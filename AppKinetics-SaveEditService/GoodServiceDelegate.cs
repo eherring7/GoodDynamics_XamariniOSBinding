@@ -4,102 +4,96 @@ using Foundation;
 
 namespace AppKineticsSaveEditService
 {
-    public class GoodServiceDelegate : GDServiceDelegate
-    {
-        private readonly IMainController _mainController;
-        private string _application;
-        private string _requestId;
+	public class GoodServiceDelegate : GDServiceDelegate
+	{
+		private readonly IMainController _mainController;
+		private string _application;
+		private string _requestId;
 
-        public GoodServiceDelegate(IMainController mainController)
-        {
-            _mainController = mainController;
-        }
+		public GoodServiceDelegate (IMainController mainController)
+		{
+			_mainController = mainController;
+		}
 
-        public override void DidReceiveFrom(string application, string service, string version, string method, NSObject parameters,
-            NSObject[] attachments, string requestID)
-        {
-            if (string.Compare(service, "com.good.gdservice.save-edited-file", true) != 0)
-            {
-                ReportError(application, requestID, string.Format("Service Not Found: {0}", service),
-                    (int)GDServicesError.GDServicesErrorServiceNotFound);
 
-                return;
-            }
+		public override void DidReceiveFrom (string application, string service, string version, string method, NSObject parameters, NSObject[] attachments, string requestID)
+		{
+			if (string.Compare (service, "com.good.gdservice.save-edited-file", true) != 0) {
+				ReportError (application, requestID, string.Format ("Service Not Found: {0}", service),
+					(int)ICCErrorConstants.GDServicesErrorServiceNotFound);
 
-            if (string.Compare(method, "openFileForEdit", true) != 0)
-            {
-                ReportError(application, requestID, string.Format("Method not found: {0}", method),
-                    (int)GDServicesError.GDServicesErrorMethodNotFound);
+				return;
+			}
 
-                return;
-            }
+			if (string.Compare (method, "openFileForEdit", true) != 0) {
+				ReportError (application, requestID, string.Format ("Method not found: {0}", method),
+					(int)ICCErrorConstants.GDServicesErrorMethodNotFound);
 
-            if (attachments.Length != 1)
-            {
-                ReportError(application, requestID, "Should be one attachement", (int)GDServicesError.GDServicesErrorInvalidParams);
-                return;
-            }
+				return;
+			}
 
-            _application = application;
-            _requestId = requestID;
+			if (attachments.Length != 1) {
+				ReportError (application, requestID, "Should be one attachement", (int)ICCErrorConstants.GDServicesErrorInvalidParams);
+				return;
+			}
 
-            var text = ExtractReceivedDataFromAttachments(attachments);
-            Console.WriteLine("Received Text: {0}", text);
+			_application = application;
+			_requestId = requestID;
 
-            _mainController.ShowText(text);
-            _mainController.SetApplication(application);
-            _mainController.SetRequestId(requestID);
-        }
+			var text = ExtractReceivedDataFromAttachments (attachments);
+			Console.WriteLine ("Received Text: {0}", text);
 
-        void ReportError(string application, string requestID, string message, int code)
-        {
-            var localizedKey = NSError.LocalizedDescriptionKey;
-            NSError error = null;
-            NSDictionary userInfo = new NSDictionary();
-            userInfo.SetValueForKey(new NSString(message), localizedKey);
+			_mainController.ShowText (text);
+			_mainController.SetApplication (application);
+			_mainController.SetRequestId (requestID);
+		}
 
-            NSError replyParams = new NSError(GDService.GDServicesErrorDomain, code, userInfo);
+		void ReportError (string application, string requestID, string message, int code)
+		{
+			var localizedKey = NSError.LocalizedDescriptionKey;
+			NSError error = null;
+			NSDictionary userInfo = new NSDictionary ();
+			userInfo.SetValueForKey (new NSString (message), localizedKey);
 
-            bool replyResult = GDService.ReplyTo(application, replyParams, GDTForegroundOption.ENoForegroundPreference,
-                                   null, requestID, out error);
+			NSError replyParams = new NSError (ICCErrorConstants.GDServicesErrorDomain, code, userInfo);
 
-            if (!replyResult)
-                Console.WriteLine("ReplyTo returned false");
+			bool replyResult = GDService.ReplyTo (application, replyParams, GDTForegroundOption.ENoForegroundPreference,
+				                   null, requestID, out error);
 
-            if (error != null)
-            {
-                Console.WriteLine("GDServiceReceiveFrom failed to reply: {0} {1:d} {2}",
-                    error.Domain, error.Code, error.LocalizedDescription);
-            }
-        }
+			if (!replyResult)
+				Console.WriteLine ("ReplyTo returned false");
 
-        string ExtractReceivedDataFromAttachments(NSObject[] attachments)
-        {
-            var localFilePath = new NSString(attachments[0].ToString());
-            Console.WriteLine("Local File Path: {0}", localFilePath);
+			if (error != null) {
+				Console.WriteLine ("GDServiceReceiveFrom failed to reply: {0} {1:d} {2}",
+					error.Domain, error.Code, error.LocalizedDescription);
+			}
+		}
 
-            if (!GDFileSystem.FileExistsAtPath(localFilePath, false))
-            {
-                ReportError(_application, _requestId, "Attachment was not found",
-                    (int)GDServicesError.GDServicesErrorInvalidParams);
+		string ExtractReceivedDataFromAttachments (NSObject[] attachments)
+		{
+			var localFilePath = new NSString (attachments [0].ToString ());
+			Console.WriteLine ("Local File Path: {0}", localFilePath);
 
-                return string.Empty;
-            }
+			if (!GDFileSystem.FileExistsAtPath (localFilePath, false)) {
+				ReportError (_application, _requestId, "Attachment was not found",
+					(int)GDServicesError.GDServicesErrorInvalidParams);
 
-            NSError error = null;
-            NSData attachmentData = GDFileSystem.ReadFromFile(localFilePath, out error);
+				return string.Empty;
+			}
 
-            if (error != null)
-            {
-                var description = string.Format("Error Reading attachement: {0} {1}",
-                                      localFilePath, error.LocalizedDescription);
+			NSError error = null;
+			NSData attachmentData = GDFileSystem.ReadFromFile (localFilePath, out error);
 
-                ReportError(_application, _requestId, description, (int)GDServicesError.GDServicesErrorInvalidParams);
-                return string.Empty;
-            }
+			if (error != null) {
+				var description = string.Format ("Error Reading attachement: {0} {1}",
+					                  localFilePath, error.LocalizedDescription);
 
-            return new NSString(attachmentData.ToString(), NSStringEncoding.UTF8).ToString();
-        }
-    }
+				ReportError (_application, _requestId, description, (int)GDServicesError.GDServicesErrorInvalidParams);
+				return string.Empty;
+			}
+
+			return new NSString (attachmentData.ToString (), NSStringEncoding.UTF8).ToString ();
+		}
+	}
 }
 

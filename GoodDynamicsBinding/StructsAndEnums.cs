@@ -7,19 +7,20 @@ namespace GoodDynamics
 	public static class Sqlite3Enc
 	{
 		// extern int sqlite3enc_open (const char * filename, sqlite3 ** ppDb);
-		[DllImport ("__Internal", EntryPoint="sqlite3enc_open")]
+		[DllImport ("__Internal", EntryPoint = "sqlite3enc_open")]
 		public static extern int sqlite3enc_open (IntPtr filename, out IntPtr ppDb);
 
 		// extern int sqlite3enc_open_v2 (const char * zFilename, sqlite3 ** ppDb, int flags, const char * zVfs);
-		[DllImport ("__Internal", EntryPoint="sqlite3enc_open_v2")]
+		[DllImport ("__Internal", EntryPoint = "sqlite3enc_open_v2")]
 		public static extern int sqlite3enc_open_v2 (IntPtr zFilename, out IntPtr ppDb, int flags, IntPtr zVfs);
 
 		// extern int sqlite3enc_import (const char * srcFilename, const char * destFilename);
-		[DllImport ("__Internal", EntryPoint="sqlite3enc_import")]
+		[DllImport ("__Internal", EntryPoint = "sqlite3enc_import")]
 		public static extern int sqlite3enc_import (IntPtr srcFilename, IntPtr destFilename);
 	}
 
-	public enum GDAppResultCode{
+	public enum GDAppResultCode
+	{
 		ErrorNone = 0,
 		ErrorActivationFailed = -101,
 		ErrorProvisioningFailed = -102,
@@ -41,7 +42,8 @@ namespace GoodDynamics
 	 * \see \link GDFileSystem.GetFileStat GetFileStat\endlink
 	 */
 	[StructLayout (LayoutKind.Sequential)]
-	public struct GDFileStat{
+	public struct GDFileStat
+	{
 		public int fileLen;
 		/**< File size in bytes */
 
@@ -66,7 +68,8 @@ namespace GoodDynamics
 	* notified. The \ref GDAppEvent.Type property will always take one of these
 	* values.
 	*/
-	public enum GDAppEventType{
+	public enum GDAppEventType
+	{
 		Authorized = 0,
 		/**< Either the user has been authorized to access the application and its
 	     * data, following authorization processing, or a condition that caused
@@ -116,6 +119,7 @@ namespace GoodDynamics
 	     * received.\ See also \link GDiOS.IsUsingDataPlan IsUsingDataPlan (GDiOS)\endlink.
 	     */
 	}
+
 	/** \}
  	*/
 
@@ -124,28 +128,20 @@ namespace GoodDynamics
 	 * query is being issued. The <TT>serviceProviderType</TT> parameter of the
 	 *  \link GDiOS.GetServiceProvidersFor GetServiceProvidersFor:  (GDiOS)\endlink function always takes one of these values.
 	 */
-	public enum GDServiceProviderType{
+	public enum GDServiceProviderType
+	{
 		GDServiceProviderApplication = 0,
 		/**< Application-based service. */
 		GDServiceProviderServer
 		/**< Server-based service. */
 	}
 
-	public enum GDUIColorTheme{
+	public enum GDUIColorTheme
+	{
 		DarkGrayTheme,
 		MediumGrayTheme,
 		WhiteTheme
 	}
-
-	public enum GDHttpRequest_state_t : uint {
-		UNSENT = 0,
-		OPENED = 1,
-		SENT = 2,
-		HEADERS_RECEIVED = 3,
-		LOADING = 4,
-		DONE = 5
-	}
-
 
 	/**
 	 * \addtogroup gdfilesystemerrordomain GDFileSystem Error Domain
@@ -154,7 +150,8 @@ namespace GoodDynamics
 	 *
 	 * \{
 	 */
-	public enum GDFileSystemErr : uint {
+	public enum GDFileSystemErr : uint
+	{
 		GDFileSystemErrPathDoesntExist = 100,
 		GDFileSystemErrIOError = 101,
 		GDFileSystemErrPermissionError = 102,
@@ -173,11 +170,13 @@ namespace GoodDynamics
 	* 
 	* \{
 	*/
-	public enum GDTForegroundOption{
+	public enum GDTForegroundOption
+	{
 		EPreferMeInForeground,
 		EPreferPeerInForeground,
 		ENoForegroundPreference
 	}
+
 	/** \}
 	 */
 
@@ -188,8 +187,9 @@ namespace GoodDynamics
 	* \link GDSocketDelegate::onErr:inSocket: GDSocketDelegate::onErr:\endlink
 	* callback always takes one of these values.
 	*/
-	public enum GDSocketErrorType{
-		GDSocketErrorNone=0,
+	public enum GDSocketErrorType
+	{
+		GDSocketErrorNone = 0,
 		/**< No error.
 		 * This value is a placeholder for when the socket operation succeeded. The
 		 * error parameter never takes this value.
@@ -216,7 +216,8 @@ namespace GoodDynamics
 	 * \{
 	 */
 
-	public enum GDAuthTokenErr {
+	public enum GDAuthTokenErr
+	{
 		GDAuthTokenErrNotSupported = -2,
 		/**< The version of the Good Dynamics servers installed at the enterprise
 	     * does not support the Good Dynamics Authentication Token mechanism.
@@ -227,6 +228,7 @@ namespace GoodDynamics
 	     * could succeed.
 	     */
 	}
+
 	/** \}
  	*/
 
@@ -240,7 +242,8 @@ namespace GoodDynamics
 	 * (The XHR state names have been prefixed with <TT>GDHttpRequest_</TT> and
 	 * the standard values used.)
 	 */
-	public enum GDHttpRequestState{
+	public enum GDHttpRequestState
+	{
 		GDHttpRequestUnsent = 0,
 		/**< Prior to the request being opened. */
 		GDHttpRequestOpened = 1,
@@ -255,15 +258,16 @@ namespace GoodDynamics
 		/**< All data has been received, or a permanent error has been encountered. */
 	}
 
-    public enum GDServicesError {
-        GDServicesErrorGeneral,
-        GDServicesErrorApplicationNotFound,
-        GDServicesErrorServiceNotFound,
-        GDServicesErrorServiceVersionNotFound,
-        GDServicesErrorMethodNotFound,
-        GDServicesErrorNotAllowed,
-        GDServicesErrorInvalidParams,
-        GDServicesErrorCertificateNotFound
-    }
+	public enum GDServicesError
+	{
+		GDServicesErrorGeneral,
+		GDServicesErrorApplicationNotFound,
+		GDServicesErrorServiceNotFound,
+		GDServicesErrorServiceVersionNotFound,
+		GDServicesErrorMethodNotFound,
+		GDServicesErrorNotAllowed,
+		GDServicesErrorInvalidParams,
+		GDServicesErrorCertificateNotFound
+	}
 }
 

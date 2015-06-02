@@ -26,20 +26,16 @@ namespace GreetingsServer
 			GDService.Delegate = new GreetingsServerGDServiceDelegate (this);
 		}
 
-		public bool ConsumeFrontRequestService(string serviceID, string application, string method, string version)
+		public bool ConsumeFrontRequestService (string serviceID, string application, string method, string version)
 		{
-			if (serviceID.Equals (GoodDynamics.GDService.GDFrontRequestService) && version.Equals ("1.0.0.0")) 
-			{
-				if (method.Equals (GoodDynamics.GDService.GDFrontRequestMethod)) 
-				{
+			if (serviceID.Equals (GoodDynamics.ICCMiscConstants.GDFrontRequestService) && version.Equals ("1.0.0.0")) {
+				if (method.Equals (GoodDynamics.ICCMiscConstants.GDFrontRequestMethod)) {
 					NSError error = null;
 					GDService.BringToFront (application, out error);
-				} 
-				else 
-				{
+				} else {
 					NSDictionary errorDetail = new NSDictionary ();
-					errorDetail.SetValueForKey (new NSString(kMethodNotImplementedDescription), NSError.LocalizedDescriptionKey);
-					NSError serviceError = new NSError (GDService.GDServicesErrorDomain, GDService.GDServicesErrorMethodNotFound, errorDetail); 
+					errorDetail.SetValueForKey (new NSString (kMethodNotImplementedDescription), NSError.LocalizedDescriptionKey);
+					NSError serviceError = new NSError (ICCErrorConstants.GDServicesErrorDomain, ICCErrorConstants.GDServicesErrorMethodNotFound, errorDetail); 
 					SendErrorTo (application, serviceError);
 				}
 				return true;
@@ -47,14 +43,12 @@ namespace GreetingsServer
 			return false;
 		}
 
-		public void SendErrorTo(string application, NSError error)
+		public void SendErrorTo (string application, NSError error)
 		{
 			NSError goodError = null;
 			bool didSendErrorResponse = GDService.ReplyTo (application, error, GDTForegroundOption.EPreferPeerInForeground, null, null, out goodError);
-			if (!didSendErrorResponse) 
-			{
-				if (goodError != null) 
-				{
+			if (!didSendErrorResponse) {
+				if (goodError != null) {
 					UIAlertView alert = new UIAlertView ("Error", goodError.LocalizedDescription, null, "OK", null);
 					alert.Show ();
 				}
