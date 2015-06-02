@@ -254,5 +254,16 @@ namespace GoodDynamics
 		GDHttpRequestDone = 5
 		/**< All data has been received, or a permanent error has been encountered. */
 	}
+
+    public enum GDServicesError {
+        GDServicesErrorGeneral,
+        GDServicesErrorApplicationNotFound,
+        GDServicesErrorServiceNotFound,
+        GDServicesErrorServiceVersionNotFound,
+        GDServicesErrorMethodNotFound,
+        GDServicesErrorNotAllowed,
+        GDServicesErrorInvalidParams,
+        GDServicesErrorCertificateNotFound
+    }
 }
 

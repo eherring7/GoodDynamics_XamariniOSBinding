@@ -1,6 +1,7 @@
 ﻿using System;
 using GoodDynamics;
 using Foundation;
+using System.Linq;
 
 namespace AppKineticsSaveEditClient
 {
@@ -21,16 +22,73 @@ namespace AppKineticsSaveEditClient
 
             if (!AttachmentsValid(attachments))
                 return;
+
+            var filePath = (NSString)attachments.ElementAtOrDefault(0);
+            if (string.Compare(filePath.PathExtension, ".txt", true) != 0)
+            {
+                Console.WriteLine("Invalid Extension - only txt supported");
+                return;
+            }
+
+            ShowFile(filePath, application);
+        }
+
+        public override void DidFinishSendingTo(string application, NSObject[] attachments, NSObject parameters, string requestID)
+        {
+            Console.WriteLine("Send Finished");
+
+            NSError error = null;
+            if (!AttachmentsValid(attachments))
+                return;
+
+            var filePath = (NSString)attachments.ElementAtOrDefault(0);
+            GDFileSystem.RemoveItemAtPath(filePath, out error);
+            if (error != null)
+            {
+                Console.WriteLine("Cant delete old file - {0}", error.LocalizedDescription);
+            }
+        }
+
+        public bool SendSaveEditFileRequest(out NSError error, string appId, NSDictionary parameters,
+            string[] attachments, string method)
+        {
+            var requestId = string.Empty;
+            return GDServiceClient.SendTo(appId, "com.good.gdservice.save-edited-file", "1.0.0.0",
+                method, parameters, attachments.Select(a => new NSString(a)).ToArray(),
+                GDTForegroundOption.EPreferPeerInForeground,
+                out requestId, out error);
         }
 
         bool ParamsValid(NSObject parameters)
         {
-            throw new NotImplementedException();
+            if (parameters is NSError)
+            {
+                Console.WriteLine("Service sent an error");
+                return false;
+            }
+
+            return true;
         }
 
         bool AttachmentsValid(NSObject[] attachments)
         {
-            throw new NotImplementedException();
+            if (attachments != null && attachments.Length == 1)
+            {
+                return true;
+            }
+
+            Console.WriteLine("Error with Attachements");
+            return false;
+        }
+
+        void ShowFile(string filePath, string application)
+        {
+            NSDictionary dictionary = new NSDictionary();
+            dictionary.SetValueForKey(new NSString("kApplicationIDKey"), new NSString(application));
+            dictionary.SetValueForKey(new NSString("kFilePathKey"), new NSString(filePath));
+
+            NSNotificationCenter.DefaultCenter.PostNotificationName(
+                "kShowServiceAlert", (NSObject)this);
         }
     }
 }
