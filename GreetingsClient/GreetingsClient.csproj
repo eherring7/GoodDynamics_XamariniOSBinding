@@ -23,7 +23,7 @@
     <MtouchLink>Full</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchExtraArgs>-cxx --registrar:static --linkskip=Xamarin.iOS --linkskip=System.Core --linkskip=System --linkskip=mscorelib --gcc_flags="-stdlib=libstdc++ -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/i386.sdk/bin"</MtouchExtraArgs>
+    <MtouchExtraArgs>--registrar:static --linkskip=Xamarin.iOS --linkskip=System.Core --linkskip=System --linkskip=mscorelib --gcc_flags="-B /'Good Technology'/Good.platform/FIPS_module/i386.sdk/bin"</MtouchExtraArgs>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchI18n>
     </MtouchI18n>
