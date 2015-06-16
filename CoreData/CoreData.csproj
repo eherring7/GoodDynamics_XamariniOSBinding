@@ -48,7 +48,11 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>i386</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>Full</MtouchLink>
+    <MtouchExtraArgs>-cxx --registrar:static --linkskip=Xamarin.iOS --linkskip=System.Core --linkskip=System --linkskip=mscorelib --gcc_flags="-stdlib=libstdc++ -framework QuickLook  -framework LocalAuthentication -framework SystemConfiguration -framework Security -framework MobileCoreServices -framework QuartzCore -framework CoreTelephony -framework MessageUI -framework AdSupport -B /'Good Technology'/Good.platform/FIPS_module/i386.sdk/bin"</MtouchExtraArgs>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
