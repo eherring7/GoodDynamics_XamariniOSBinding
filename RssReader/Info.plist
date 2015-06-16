@@ -2,29 +2,77 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GDConsoleLogger</key>
+	<string>GDFilterNone</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>RssReader</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>Good Logo 40x40</string>
+				<string>Good Logo 29x29</string>
+				<string>Good Logo 120x120</string>
+				<string>Good Logo 57x57</string>
+				<string>icon</string>
+				<string>Good Logo 57x57.png</string>
+				<string>Good Logo 114x114.png</string>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
+				<string>Good Logo 72x72.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Good Logo 144x144.png</string>
+				<string>Default-Portrait~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Landscape~ipad.png</string>
+				<string>Default-Landscape@2x~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Default.png</string>
+				<string>Default@2x.png</string>
+				<string>icon.png</string>
+				<string>icon@2x.png</string>
+				<string>icon-72.png</string>
+				<string>icon-144.png</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>UILaunchImageFile</key>
+	<string>GDAssets.bundle/Splash</string>
+	<key>UILaunchImageFile~ipad</key>
+	<string>GDAssets.bundle/Splash</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.good.gd.example.rssreader</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>com.good.gd.example.rssreader</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>5.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>5.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>MinimumOSVersion</key>
-	<string>8.3</string>
-	<key>UIDeviceFamily</key>
-	<array>
-		<integer>1</integer>
-		<integer>2</integer>
-	</array>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -34,30 +82,27 @@
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>XSAppIconAssets</key>
-	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.good.gd.example.rssreader.sc2</string>
+				<string>com.good.gd.example.rssreader.sc</string>
+				<string>com.good.gd.example.rssreader.sc2.1.0.0.0</string>
+				<string>com.good.gd.discovery</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.good.gd.example.rssreader</string>
+		</dict>
+	</array>
 	<key>GDApplicationID</key>
 	<string>com.good.gd.example.rssreader</string>
 	<key>GDApplicationVersion</key>
 	<string>1.0.0.0</string>
-	<key>URL Types</key>
-	<array>
-		<dict>
-			<key>Document Role</key>
-			<string>Editor</string>
-			<key>URL Identifier</key>
-			<string>com.good.gd.example.rssreader</string>
-			<key>URL Schemes</key>
-			<array>
-				<string>com.good.gd.example.rssreader.sc</string>
-				<string>com.good.gd.example.rssreader.sc2</string>
-				<string>com.good.gd.example.rssreader.sc2.1.0.0.0</string>
-				<string>com.good.gd.discovery</string>
-			</array>
-		</dict>
-	</array>
 </dict>
 </plist>

@@ -7,80 +7,80 @@ using System.IO;
 
 namespace SecureStore.File
 {
-	public class FileManager
-	{
-		public string SyncDocFolder { get; private set; }
+    public class FileManager
+    {
+        public string SyncDocFolder { get; private set; }
 
-		public FileManager ()
-		{
-			SyncDocFolder = GetSyncDocFolder ();
-		}
+        public FileManager()
+        {
+            SyncDocFolder = GetSyncDocFolder();
+        }
 
-		public IList<string> FindSecureDocsAtPath (string currentPath)
-		{
-			NSError error;
-			var files = GDFileSystem.ContentsOfDirectoryAtPath(currentPath, out error)
+        public IList<string> FindSecureDocsAtPath(string currentPath)
+        {
+            NSError error;
+            var files = GDFileSystem.ContentsOfDirectoryAtPath(currentPath, out error)
 				.Select(r => new NSString(r.ToString())).ToList();
 
-			if (files.Count > 0)
-			{
-				return files.Select (str => str.ToString ()).OrderBy (str => str).ToList ();
-			}
-			else
-			{
-				if (error != null)
-				{
-					Console.WriteLine("FindSecureDocsAtPath error domain={0} code={1:d} userinfo={2}", error.Domain,
-						(long)error.Code, error.UserInfo.Description);
-				}
-			}
+            if (files.Count > 0)
+            {
+                return files.Select(str => str.ToString()).OrderBy(str => str).ToList();
+            }
+            else
+            {
+                if (error != null)
+                {
+                    Console.WriteLine("FindSecureDocsAtPath error domain={0} code={1:d} userinfo={2}", error.Domain,
+                        (long)error.Code, error.UserInfo.Description);
+                }
+            }
 
             return new List<string>();
-		}
+        }
 
-		public FileResult GetFileStat(string filePath)
-		{
-			GDFileStat fileStat = new GDFileStat();
-			NSError error;
+        public FileResult GetFileStat(string filePath)
+        {
+            GDFileStat fileStat = new GDFileStat();
+            NSError error;
 
             if (GDFileSystem.GetFileStat(filePath, ref fileStat, out error))
-			{
-				return new FileResult()
-				{
-					Filename = new NSString(filePath).LastPathComponent,
-					IsFolder = fileStat.isFolder
-				};
-			}
-			else
-			{
-				if (error != null)
-				{
-					Console.WriteLine("GetFileStat error domain={0} code={1:d} userinfo={2}",
-						error.Domain, (long)error.Code,
-						error.UserInfo.Description);
-				}
-			}
+            {
+                return new FileResult()
+                {
+                    Filename = new NSString(filePath).LastPathComponent,
+                    IsFolder = fileStat.isFolder
+                };
+            }
+            else
+            {
+                if (error != null)
+                {
+                    Console.WriteLine("GetFileStat error domain={0} code={1:d} userinfo={2}",
+                        error.Domain, (long)error.Code,
+                        error.UserInfo.Description);
+                }
+            }
 
-			return null;
-		}
+            return null;
+        }
 
-		string GetSyncDocFolder ()
-		{
-			var folderUrl = NSFileManager.DefaultManager.GetUrls (
-				NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User) [0];
+        string GetSyncDocFolder()
+        {
+            var folderUrl = NSFileManager.DefaultManager.GetUrls(
+                                NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User)[0];
 
-			return folderUrl.AbsoluteString;
-		}
+            return folderUrl.AbsoluteString;
+        }
 
-		public bool FileExists(string filePath, bool isDirectory)
-		{
-			return GDFileSystem.FileExistsAtPath(filePath, isDirectory);
-		}
+        public bool FileExists(string filePath, bool isDirectory)
+        {
+            return GDFileSystem.FileExistsAtPath(filePath, isDirectory);
+        }
 
         public bool CreateDirectory(string path, bool withIntermediateDirectories, NSDictionary attributes, NSError error)
-		{
+        {
             return GDFileSystem.CreateDirectoryAtPath(path, withIntermediateDirectories, attributes, out error);
-		}
+        }
 
         public bool CreateFile(string path)
         {
@@ -136,5 +136,5 @@ namespace SecureStore.File
 
             return result;
         }
-	}
+    }
 }

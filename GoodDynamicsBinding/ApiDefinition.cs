@@ -7,7 +7,7 @@ using CoreData;
 
 namespace GoodDynamics
 {
-	/** \defgroup iccerrors Good Inter-Container Communication Errors
+    /** \defgroup iccerrors Good Inter-Container Communication Errors
 	* These constants can be used for handling or generating errors when
 	* using the Good Inter-Container Communication (ICC) sytem.
 	*
@@ -26,18 +26,18 @@ namespace GoodDynamics
 	* principle, temporary.
 	* \{
 	*/
-	/// <summary>
-	/// Good Inter-Container Communication Errors
-	/// </summary>
-	[Static]
-	[BaseType (typeof(NSObject))]
-	public interface ICCErrorConstants
-	{
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorDomain", "__Internal")]
-		NSString GDServicesErrorDomain { get; }
-		/*< The error domain for Good Inter-Container Communication errors.
+    /// <summary>
+    /// Good Inter-Container Communication Errors
+    /// </summary>
+    [Static]
+    [BaseType(typeof(NSObject))]
+    public interface ICCErrorConstants
+    {
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorDomain", "__Internal")]
+        NSString GDServicesErrorDomain { get; }
+        /*< The error domain for Good Inter-Container Communication errors.
 		 * This domain is for service errors in the Good Dynamics
 		 * Inter-Container Communication (ICC) system. Note that this domain is not used
 		 * for errors that are specific to a service or service provider application.
@@ -62,132 +62,132 @@ namespace GoodDynamics
 		 * side.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorGeneral", "__Internal")]
-		int GDServicesErrorGeneral { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorGeneral", "__Internal")]
+        int GDServicesErrorGeneral { get; }
 
-		/**< A general Inter-Container Communication error occurred.*/
+        /**< A general Inter-Container Communication error occurred.*/
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorApplicationNotFound", "__Internal")]
-		int GDServicesErrorApplicationNotFound { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorApplicationNotFound", "__Internal")]
+        int GDServicesErrorApplicationNotFound { get; }
 
-		/**< The service consumer sent a request to an application that could not be
+        /**< The service consumer sent a request to an application that could not be
 		 * found on the device.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorServiceNotFound", "__Internal")]
-		int GDServicesErrorServiceNotFound { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorServiceNotFound", "__Internal")]
+        int GDServicesErrorServiceNotFound { get; }
 
-		/**< The service consumer sent a request that specified a service that is not
+        /**< The service consumer sent a request that specified a service that is not
 		 * supported by the service provider.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorServiceVersionNotFound", "__Internal")]
-		int GDServicesErrorServiceVersionNotFound { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorServiceVersionNotFound", "__Internal")]
+        int GDServicesErrorServiceVersionNotFound { get; }
 
-		/**< The service consumer sent a request that specified a service version that
+        /**< The service consumer sent a request that specified a service version that
 		 * is not supported by the service provider.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorMethodNotFound", "__Internal")]
-		int GDServicesErrorMethodNotFound { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorMethodNotFound", "__Internal")]
+        int GDServicesErrorMethodNotFound { get; }
 
-		/**< The service consumer sent a request that specified a method that is not
+        /**< The service consumer sent a request that specified a method that is not
 		 * supported by the service provider.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorNotAllowed", "__Internal")]
-		int GDServicesErrorNotAllowed { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorNotAllowed", "__Internal")]
+        int GDServicesErrorNotAllowed { get; }
 
-		/**< The service consumer sent a request to an application that could not be
+        /**< The service consumer sent a request to an application that could not be
 		 * unlocked.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorInvalidParams", "__Internal")]
-		int GDServicesErrorInvalidParams { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorInvalidParams", "__Internal")]
+        int GDServicesErrorInvalidParams { get; }
 
-		/**< The application attempted to utilize an unsupported type as a service
+        /**< The application attempted to utilize an unsupported type as a service
 		 * parameter, either in a service request or in a service response.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDServicesErrorCertificateNotFound", "__Internal")]
-		int GDServicesErrorCertificateNotFound { get; }
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDServicesErrorCertificateNotFound", "__Internal")]
+        int GDServicesErrorCertificateNotFound { get; }
 
-		/**< The application attempted to establish a connection but could not find
+        /**< The application attempted to establish a connection but could not find
 		 * a valid X509 certificate.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDServicesMethodDisabled", "__Internal")]
-		int GDServicesMethodDisabled { get; }
+        /// <summary>
+        /// </summary>
+        [Field("MTGDServicesMethodDisabled", "__Internal")]
+        int GDServicesMethodDisabled { get; }
 
-		/**< The service consumer sent a request that specified a method that has been
+        /**< The service consumer sent a request that specified a method that has been
 		 * disabled in the service provider.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDServicesVersionDisabled", "__Internal")]
-		int GDServicesVersionDisabled { get; }
+        /// <summary>
+        /// </summary>
+        [Field("MTGDServicesVersionDisabled", "__Internal")]
+        int GDServicesVersionDisabled { get; }
 
-		/**< The service consumer sent a request that specified a service version that
+        /**< The service consumer sent a request that specified a service version that
 		 * has been disabled in the service provider.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDServicesServiceDisabled", "__Internal")]
-		int GDServicesServiceDisabled { get; }
-		/**< The service consumer sent a request that specified a service that has been
+        /// <summary>
+        /// </summary>
+        [Field("MTGDServicesServiceDisabled", "__Internal")]
+        int GDServicesServiceDisabled { get; }
+        /**< The service consumer sent a request that specified a service that has been
 		 * disabled in the service provider.
 		 */
-	}
+    }
 
-	/** \}
+    /** \}
 	 */
 
-	/**
+    /**
 	* \addtogroup gdfilesystemerrordomain GDFileSystem Error Domain
 	* These constants can be used when handling errors returned by
 	* \ref GDFileSystem, \ref GDCReadStream, and \ref GDCWriteStream functions.
 	*
 	* \{
 	*/
-	/// <summary>
-	/// GDFileSystem Error Domain Constants
-	/// </summary>
-	[Static]
-	[BaseType (typeof(NSObject))]
-	public interface GDFileSystemErrorDomainConstants
-	{
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDFileSystemErrorDomain", "__Internal")]
-		NSString GDFileSystemErrorDomain { get; }
-		/**< The error domain for filesystem errors.
+    /// <summary>
+    /// GDFileSystem Error Domain Constants
+    /// </summary>
+    [Static]
+    [BaseType(typeof(NSObject))]
+    public interface GDFileSystemErrorDomainConstants
+    {
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDFileSystemErrorDomain", "__Internal")]
+        NSString GDFileSystemErrorDomain { get; }
+        /**< The error domain for filesystem errors.
 	 	*/
-	}
+    }
 
-	/** \}
+    /** \}
 	 */
 
-	/** \addtogroup iccconstants Good Inter-Container Communication Miscellaneous Constants
+    /** \addtogroup iccconstants Good Inter-Container Communication Miscellaneous Constants
 	* These miscellaneous constants can be used with the Good Inter-Container
 	* Communication (ICC) sytem.
 	*
@@ -195,40 +195,40 @@ namespace GoodDynamics
 	* 
 	* \{
 	*/
-	/// <summary>
-	/// Good Inter-Container Communication Miscellaneous Constants
-	/// </summary>
-	[Static]
-	[BaseType (typeof(NSObject))]
-	public interface ICCMiscConstants
-	{
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDFrontRequestService", "__Internal")]
-		NSString GDFrontRequestService { get; }
+    /// <summary>
+    /// Good Inter-Container Communication Miscellaneous Constants
+    /// </summary>
+    [Static]
+    [BaseType(typeof(NSObject))]
+    public interface ICCMiscConstants
+    {
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDFrontRequestService", "__Internal")]
+        NSString GDFrontRequestService { get; }
 
-		/**< Good Dynamics service ID for the Front Request API.
+        /**< Good Dynamics service ID for the Front Request API.
 		 * Use this constant when sending or identifying front requests. See under
 		 * Foreground Execution and Front Request API in the   \link GDService GDService class reference\endlink.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Field ("MTGDFrontRequestMethod", "__Internal")]
-		NSString GDFrontRequestMethod { get; }
-		/**< Method name for the Front Request API.
+        /// <summary>
+        /// </summary>
+        [Static, Field("MTGDFrontRequestMethod", "__Internal")]
+        NSString GDFrontRequestMethod { get; }
+        /**< Method name for the Front Request API.
 		 * Use this constant for identifying the front request method. See under
 		 * Foreground Execution and Front Request API in the   \link GDService GDService class reference\endlink.
 		 */
-	}
+    }
 
-	/** \}
+    /** \}
 	 */
 
 	
-	/// <summary>
-	/// </summary>
-	/* Service provider details (deprecated).
+    /// <summary>
+    /// </summary>
+    /* Service provider details (deprecated).
 	* \deprecated This class is deprecated and will be removed in a future release.
 	* This class is used to return information about a service provider in the
 	* deprecated service discovery API. The replacement service discovery API uses
@@ -244,91 +244,91 @@ namespace GoodDynamics
 	* The information returned for a server could be used to establish
 	* HTTP or TCP socket communications with an instance of the server.
 	*/
-	[BaseType (typeof(NSObject))]
-	[Obsolete ("This class is deprecated and will be removed in a future release.", false)]
-	public interface GDAppDetail
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("applicationId", ArgumentSemantic.Retain)]
-		string ApplicationId { get; set; }
+    [BaseType(typeof(NSObject))]
+    [Obsolete("This class is deprecated and will be removed in a future release.", false)]
+    public interface GDAppDetail
+    {
+        /// <summary>
+        /// </summary>
+        [Export("applicationId", ArgumentSemantic.Retain)]
+        string ApplicationId { get; set; }
 
-		/**< Good Dynamics Application ID of the service provider.
+        /**< Good Dynamics Application ID of the service provider.
      	*/
 
-		/// <summary>
-		/// </summary>
-		[Export ("applicationVersion", ArgumentSemantic.Retain)]
-		string ApplicationVersion{ get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("applicationVersion", ArgumentSemantic.Retain)]
+        string ApplicationVersion{ get; set; }
 
-		/**< Good Dynamics Application Version of the service provider.
+        /**< Good Dynamics Application Version of the service provider.
      	*/
 		
-		/// <summary>
-		/// </summary>
-		[Export ("name", ArgumentSemantic.Retain)]
-		string Name { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("name", ArgumentSemantic.Retain)]
+        string Name { get; set; }
 
-		/**< Display name of the service provider.
+        /**< Display name of the service provider.
      	*/
 
-		/// <summary>
-		/// </summary>
-		[Export ("address", ArgumentSemantic.Retain)]
-		string Address { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("address", ArgumentSemantic.Retain)]
+        string Address { get; set; }
 
-		/**< Native application identifier of the service provider, if it is an
+        /**< Native application identifier of the service provider, if it is an
 	     * application.\ This is the value that would be passed as the
 	     * <TT>application</TT> parameter in a call to
 	     *  \link GDServiceClient.SendTo SendTo (GDServiceClient)\endlink.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("versionId", ArgumentSemantic.Retain)]
-		string VersionId { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("versionId", ArgumentSemantic.Retain)]
+        string VersionId { get; set; }
 
-		/**< Version of the service that the application provides.\ Note that
+        /**< Version of the service that the application provides.\ Note that
 	     * services have versions, in the same way that applications have
 	     * versions.\ The details of a service's API, as declared in its schema may
 	     * change from version to version.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("icon", ArgumentSemantic.Retain)]
-		UIImage Icon { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("icon", ArgumentSemantic.Retain)]
+        UIImage Icon { get; set; }
 
-		/**< Application icon of the service provider, if it is an application and 
+        /**< Application icon of the service provider, if it is an application and 
 	     * an icon has been uploaded by the developer.\ Otherwise, <TT>nil</TT>.
 	     */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("providerType", ArgumentSemantic.Retain)]
-		GDServiceProviderType ProviderType { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("providerType", ArgumentSemantic.Retain)]
+        GDServiceProviderType ProviderType { get; set; }
 
-		/**< Indicator of the type of the service provider, either application-based
+        /**< Indicator of the type of the service provider, either application-based
 	      * or server-based.\ This is provided for diagnostic purposes only; the
 	      * original call to the service discovery API will have specified the type
 	      * of service provider.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("serverList", ArgumentSemantic.Retain)]
-		NSMutableArray ServerList { get; set; }
-		/**< Collection of <TT>GDAppServer</TT> objects, each representing an
+        /// <summary>
+        /// </summary>
+        [Export("serverList", ArgumentSemantic.Retain)]
+        NSMutableArray ServerList { get; set; }
+        /**< Collection of <TT>GDAppServer</TT> objects, each representing an
 	     * instance of a server that provides the service.\ If there is more than
 	     * one then the application should use a server selection algorithm, such as
 	     * that outlined under the Application Server Selection heading in the
 	     * \link GDiOS.GetApplicationConfig GetApplicationConfig (GDiOS)\endlink documentation.
 	     */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Service provider details.
+    /// <summary>
+    /// </summary>
+    /** Service provider details.
 	 * This class is used to return information about a service provider. See
 	 *  See  \link GDiOS.GetServiceProviders  GetServiceProviders  (GDiOS)\endlink. An instance of this class either represents an
 	 * application or a server.
@@ -340,61 +340,61 @@ namespace GoodDynamics
 	 * The information returned for a server could be used to establish
 	 * HTTP or TCP socket communications with an instance of the server.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDServiceProvider
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("identifier", ArgumentSemantic.Retain)]
-		string Identifier { get; set; }
+    [BaseType(typeof(NSObject))]
+    public interface GDServiceProvider
+    {
+        /// <summary>
+        /// </summary>
+        [Export("identifier", ArgumentSemantic.Retain)]
+        string Identifier { get; set; }
 
-		/**< Good Dynamics Application ID of the service provider.
+        /**< Good Dynamics Application ID of the service provider.
      	*/
 		 
-		/// <summary>
-		/// </summary>
-		[Export ("version", ArgumentSemantic.Retain)]
-		string Version { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("version", ArgumentSemantic.Retain)]
+        string Version { get; set; }
 
-		/**< Good Dynamics Application Version of the service provider.
+        /**< Good Dynamics Application Version of the service provider.
      	*/
 
-		/// <summary>
-		/// </summary>
-		[Export ("name", ArgumentSemantic.Retain)]
-		string Name { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("name", ArgumentSemantic.Retain)]
+        string Name { get; set; }
 
-		/**< Display name of the service provider.
+        /**< Display name of the service provider.
      	*/
 
-		/// <summary>
-		/// </summary>
-		[Export ("address", ArgumentSemantic.Retain)]
-		string Address { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("address", ArgumentSemantic.Retain)]
+        string Address { get; set; }
 
-		/**< Native application identifier of the service provider, if it is an
+        /**< Native application identifier of the service provider, if it is an
 	     * application.\ This is the value that would be passed as the
 	     * <TT>application</TT> parameter in a call to
 	     *  \link GDServiceClient::sendTo:withService:withVersion:withMethod:withParams:withAttachments:bringServiceToFront:requestID:error: sendTo (GDServiceClient)\endlink.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("icon", ArgumentSemantic.Retain)]
-		UIImage Icon { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("icon", ArgumentSemantic.Retain)]
+        UIImage Icon { get; set; }
 
-		/**< Application icon of the service provider, if it is an application and 
+        /**< Application icon of the service provider, if it is an application and 
 	     * an icon has been uploaded by the developer, and the icon data has been
 	     * retrieved.\ Otherwise, <TT>nil</TT>.\ See also the <TT>iconPending</TT>
 	     * property, below.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("iconPending", ArgumentSemantic.Retain)]
-		bool IconPending { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("iconPending", ArgumentSemantic.Retain)]
+        bool IconPending { get; set; }
 
-		/**< Flag for whether there is an application icon that has not yet been
+        /**< Flag for whether there is an application icon that has not yet been
 	     * retrieved.\ Check this property if the <TT>icon</TT> property is
 	     * <TT>nil</TT>.\ If this property is <TT>YES</TT> then there is an icon for the
 	     * service provider that has not yet been retrieved by the GD Runtime.\ A
@@ -404,66 +404,66 @@ namespace GoodDynamics
 	     * means that there is no application icon.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("serverCluster", ArgumentSemantic.Retain)]
-		NSArray ServerCluster { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("serverCluster", ArgumentSemantic.Retain)]
+        NSArray ServerCluster { get; set; }
 
-		/**< Collection of <TT>GDAppServer</TT> objects, each representing an
+        /**< Collection of <TT>GDAppServer</TT> objects, each representing an
 	     * instance of a server that provides the service.\ If there is more than
 	     * one then the application should use a server selection algorithm, such as
 	     * that outlined under the Application Server Selection heading in the
 	     * \link GDiOS::getApplicationConfig getApplicationConfig (GDiOS)\endlink documentation.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("services", ArgumentSemantic.Retain)]
-		NSArray Services { get; set; }
-		/**< Collection of \link GDServiceDetail GDServiceDetail\endlink objects, each representing a
+        /// <summary>
+        /// </summary>
+        [Export("services", ArgumentSemantic.Retain)]
+        NSArray Services { get; set; }
+        /**< Collection of \link GDServiceDetail GDServiceDetail\endlink objects, each representing a
 	     * provided shared service.
 	     */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Details of a provided service.
+    /// <summary>
+    /// </summary>
+    /** Details of a provided service.
 	 * This class is used to return information about a provided service. The
 	 * <TT>services</TT> property of a \link GDServiceProviderType GDServiceProviderType\endlink object is a
 	 * collection of instances of this class.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDServiceDetail
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("identifier", ArgumentSemantic.Retain)]
-		string Identifier { get; set; }
+    [BaseType(typeof(NSObject))]
+    public interface GDServiceDetail
+    {
+        /// <summary>
+        /// </summary>
+        [Export("identifier", ArgumentSemantic.Retain)]
+        string Identifier { get; set; }
 
-		/**< Good Dynamics Service Identifier.
+        /**< Good Dynamics Service Identifier.
      	*/
 
-		/// <summary>
-		/// </summary>
-		[Export ("version", ArgumentSemantic.Retain)]
-		string Version { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("version", ArgumentSemantic.Retain)]
+        string Version { get; set; }
 
-		/**< Good Dynamics Service Version.
+        /**< Good Dynamics Service Version.
      	*/
 
-		/// <summary>
-		/// </summary>
-		[Export ("type", ArgumentSemantic.Retain)]
-		GDServiceProviderType Type { get; set; }
-		/**< Indicator of the type of the provided service, either application-based
+        /// <summary>
+        /// </summary>
+        [Export("type", ArgumentSemantic.Retain)]
+        GDServiceProviderType Type { get; set; }
+        /**< Indicator of the type of the provided service, either application-based
 	     * or server-based.
 	     */
-	}
+    }
 
-	/// <summary>
-	/// </summary>	
-	public delegate void SendFileSuccessBlock (NSError error);
-	/**< Prototype for a SendFileToApplication or SendFileToGFE success block.
+    /// <summary>
+    /// </summary>	
+	public delegate void SendFileSuccessBlock(NSError error);
+    /**< Prototype for a SendFileToApplication or SendFileToGFE success block.
 	 * A block that conforms to this prototype can be used as the
 	 * <TT>withSuccessBlock</TT> parameter to a Secure Documents API send-file
 	 * function.
@@ -475,49 +475,49 @@ namespace GoodDynamics
 	 * \see \link GDSecureDocs.SendFile SendFile\endlink
 	 */
 
-	/// <summary>
-	/// </summary>
-	/** Application server configuration.
+    /// <summary>
+    /// </summary>
+    /** Application server configuration.
 	 * This class is used to return the details of application server configuration.
 	 * A collection of instances of this class will be in the
 	 * <TT>GDAppConfigKeyServers</TT> value returned by the
 	 * \link GDiOS::getApplicationConfig getApplicationConfig (GDiOS)\endlink function, or in the
 	 * <TT>serverCluster</TT> property of a <TT>GDServiceProvider</TT> object.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDAppServer
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("initWithServer:andPort:andPriority:")]
-		IntPtr Constructor (string server, NSNumber port, NSNumber priority);
+    [BaseType(typeof(NSObject))]
+    public interface GDAppServer
+    {
+        /// <summary>
+        /// </summary>
+        [Export("initWithServer:andPort:andPriority:")]
+        IntPtr Constructor(string server, NSNumber port, NSNumber priority);
 
-		/// <summary>
-		/// </summary>
-		[Export ("server", ArgumentSemantic.Retain)]
-		string Server { get; }
+        /// <summary>
+        /// </summary>
+        [Export("server", ArgumentSemantic.Retain)]
+        string Server { get; }
 
-		/**< Server address. */
+        /**< Server address. */
 
-		/// <summary>
-		/// </summary>
-		[Export ("port", ArgumentSemantic.Retain)]
-		NSNumber Port { get; }
+        /// <summary>
+        /// </summary>
+        [Export("port", ArgumentSemantic.Retain)]
+        NSNumber Port { get; }
 
-		/**< Server port number. */
+        /**< Server port number. */
 
-		/// <summary>
-		/// </summary>
-		[Export ("priority", ArgumentSemantic.Retain)]
-		NSNumber Priority { get; }
-		/**< Server priority.\ Lower numbers represent higher server priority, with 1
+        /// <summary>
+        /// </summary>
+        [Export("priority", ArgumentSemantic.Retain)]
+        NSNumber Priority { get; }
+        /**< Server priority.\ Lower numbers represent higher server priority, with 1
 		 * representing the highest.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** NSInputStream subclass for reading files that are in the secure store.
+    /// <summary>
+    /// </summary>
+    /** NSInputStream subclass for reading files that are in the secure store.
 	 * This class is a subclass of the Foundation <TT>NSInputStream</TT> class
 	 * for use when reading files in the secure store (see \ref GDFileSystem).
 	 * The subclass supports the <TT>read</TT> and <TT>hasBytesAvailable</TT>
@@ -547,36 +547,36 @@ namespace GoodDynamics
 	 * >NSInputStream class reference in the iOS Developer Library on apple.com</A>
 	 * \see \ref GDCWriteStream
 	 */
-	[BaseType (typeof(NSInputStream))]
-	public interface GDCReadStream
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("initWithFile:")]
-		IntPtr Constructor (string filePath);
+    [BaseType(typeof(NSInputStream))]
+    public interface GDCReadStream
+    {
+        /// <summary>
+        /// </summary>
+        [Export("initWithFile:")]
+        IntPtr Constructor(string filePath);
 
-		/// <summary>
-		/// </summary>
-		[Export ("seekToFileOffset:")]
-		bool SeekToFileOffset (ulong offset);
+        /// <summary>
+        /// </summary>
+        [Export("seekToFileOffset:")]
+        bool SeekToFileOffset(ulong offset);
 
-		/// <summary>
-		/// </summary>
-		[Export ("streamError"),]
-		NSError StreamError { get; }
-	}
+        /// <summary>
+        /// </summary>
+        [Export("streamError"),]
+        NSError StreamError { get; }
+    }
 
-	/// <summary>
-	/// </summary>
-	[BaseType (typeof(NSOutputStream))]
-	public interface GDCWriteStream
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("initWithFile:append:")]
-		IntPtr Constructor (string filePath, bool shouldAppend);
+    /// <summary>
+    /// </summary>
+    [BaseType(typeof(NSOutputStream))]
+    public interface GDCWriteStream
+    {
+        /// <summary>
+        /// </summary>
+        [Export("initWithFile:append:")]
+        IntPtr Constructor(string filePath, bool shouldAppend);
 
-		/**< Constructor that opens a file in the secure store, for reading.
+        /**< Constructor that opens a file in the secure store, for reading.
 		 * Call this function to open a file in the secure store for reading.
 		 * Files in the secure store are encrypted on the device; this
 		 * function provides access to decrypted data.
@@ -591,12 +591,12 @@ namespace GoodDynamics
 		 * \returns <TT>null</TT> if the file could not be opened.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("seekToFileOffset:")]
-		bool SeekToFileOffset (UInt64 offset);
+        /// <summary>
+        /// </summary>
+        [Export("seekToFileOffset:")]
+        bool SeekToFileOffset(UInt64 offset);
 
-		/**< Seek in an open file in the secure file system.
+        /**< Seek in an open file in the secure file system.
 		 * Call this function to move the file pointer to a specific offset
 		 * from the start of the stream.
 		 *
@@ -608,21 +608,21 @@ namespace GoodDynamics
 		 * \returns <TT>NO</TT> Otherwise.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("streamError")]
-		NSError StreamError { get; }
-		/**< Get the last error.
+        /// <summary>
+        /// </summary>
+        [Export("streamError")]
+        NSError StreamError { get; }
+        /**< Get the last error.
 		 * Call this function to get the last error associated with the open stream.
 		 *
 		 * \returns Reference to an <TT>NSError</TT> object that describes the error.
 		 * \see \ref gdfilesystemerrordomain
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** NSPersistentStoreCoordinator subclass that supports an encrypted binary
+    /// <summary>
+    /// </summary>
+    /** NSPersistentStoreCoordinator subclass that supports an encrypted binary
 	 * store type in Core Data.
 	 * Good Dynamics applications can store Core Data objects in the Secure Store.
 	 *
@@ -694,49 +694,49 @@ namespace GoodDynamics
 	 * \endcode
 	 *
      */
-	[BaseType (typeof(NSPersistentStoreCoordinator))]
-	public interface GDPersistentStoreCoordinator
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("initWithManagedObjectModel:")]
-		IntPtr Constructor (NSManagedObjectModel managedObjectModel);
+    [BaseType(typeof(NSPersistentStoreCoordinator))]
+    public interface GDPersistentStoreCoordinator
+    {
+        /// <summary>
+        /// </summary>
+        [Export("initWithManagedObjectModel:")]
+        IntPtr Constructor(NSManagedObjectModel managedObjectModel);
 
-		/// <summary>
-		/// </summary>
-		[Field ("GDEncryptedBinaryStoreType", "__Internal")]
-		NSString GDEncryptedBinaryStoreType { get; }
+        /// <summary>
+        /// </summary>
+        [Field("GDEncryptedBinaryStoreType", "__Internal")]
+        NSString GDEncryptedBinaryStoreType { get; }
 
-		/**< Specify the encrypted binary store type.
+        /**< Specify the encrypted binary store type.
          */
 		
-		/// <summary>
-		/// </summary>
-		[Field ("GDEncryptedBinaryStoreErrorDomain", "__Internal")]
-		NSString GDEncryptedBinaryStoreErrorDomain { get; }
+        /// <summary>
+        /// </summary>
+        [Field("GDEncryptedBinaryStoreErrorDomain", "__Internal")]
+        NSString GDEncryptedBinaryStoreErrorDomain { get; }
 
-		/**< Specify the encrypted binary store type error domain.
+        /**< Specify the encrypted binary store type error domain.
  		 */
 		
-		/// <summary>
-		/// </summary>
-		[Field ("GDEncryptedIncrementalStoreType", "__Internal")]
-		NSString GDEncryptedIncrementalStoreType { get; }
+        /// <summary>
+        /// </summary>
+        [Field("GDEncryptedIncrementalStoreType", "__Internal")]
+        NSString GDEncryptedIncrementalStoreType { get; }
 
-		/**< Specify the encrypted incremental store type.
+        /**< Specify the encrypted incremental store type.
  		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("GDEncryptedIncrementalStoreErrorDomain", "__Internal")]
-		NSString GDEncryptedIncrementalStoreErrorDomain { get; }
-		/**< Specify the encrypted incremental store type error domain.
+        /// <summary>
+        /// </summary>
+        [Field("GDEncryptedIncrementalStoreErrorDomain", "__Internal")]
+        NSString GDEncryptedIncrementalStoreErrorDomain { get; }
+        /**< Specify the encrypted incremental store type error domain.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Secure File System.
+    /// <summary>
+    /// </summary>
+    /** Secure File System.
 	 * The secure file system is part of the Good Dynamics Secure Storage
 	 * feature.
 	 *
@@ -904,21 +904,21 @@ namespace GoodDynamics
 	* by using the <TT>writeToFile</TT> function. This is shown in the Create
 	* Directory and File snippet, above.
 	*/
-	[BaseType (typeof(NSObject))]
-	public interface GDFileSystem
-	{
+    [BaseType(typeof(NSObject))]
+    public interface GDFileSystem
+    {
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("moveFileToSecureContainer:error:")]
-		bool MoveFileToSecureContainer (string absoluteFilenameWithPath, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("moveFileToSecureContainer:error:")]
+        bool MoveFileToSecureContainer(string absoluteFilenameWithPath, out NSError error);
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("getFileStat:to:error:")]
-		bool GetFileStat (string filePath, ref GDFileStat filestat, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("getFileStat:to:error:")]
+        bool GetFileStat(string filePath, ref GDFileStat filestat, out NSError error);
 
-		/**< Get statistics for a file or directory in the secure store.
+        /**< Get statistics for a file or directory in the secure store.
 		 * Call this function to get information about a file or
 		 * directory in the secure store.
 		 * The information returned is: length of the file, last modified time, and a
@@ -941,12 +941,12 @@ namespace GoodDynamics
 		 * \see \link GDFileSystem.FileExistsAtPath FileExistsAtPath\endlink
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("removeItemAtPath:error:")]
-		bool RemoveItemAtPath (string filePath, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("removeItemAtPath:error:")]
+        bool RemoveItemAtPath(string filePath, out NSError error);
 
-		/**< Delete a file or directory from the secure store.
+        /**< Delete a file or directory from the secure store.
 		 * Call this function to delete a file or directory from the secure store.
 		 * If the item is a directory then all its contents, files and sub-directories,
 		 * will also be deleted.
@@ -959,12 +959,12 @@ namespace GoodDynamics
 		 * \return <TT>false</TT> otherwise.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("getReadStream:error:")]
-		GDCReadStream GetReadStream (string filePath, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("getReadStream:error:")]
+        GDCReadStream GetReadStream(string filePath, out NSError error);
 
-		/**< Open a file that is in the secure store, for reading.
+        /**< Open a file that is in the secure store, for reading.
 		 * Call this function to open a file in the secure store for reading.
 		 * Files in the secure store are encrypted on the device; this
 		 * function provides access to decrypted data.
@@ -979,12 +979,12 @@ namespace GoodDynamics
 		 * \see \ref ReadFromFile
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("getWriteStream:appendmode:error:")]
-		GDCWriteStream GetWriteStream (string filePath, bool appendmode, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("getWriteStream:appendmode:error:")]
+        GDCWriteStream GetWriteStream(string filePath, bool appendmode, out NSError error);
 
-		/**< Open a file in the secure store, for writing.
+        /**< Open a file in the secure store, for writing.
 		 * Call this function to create a new file in the secure store,
 		 * or to open an existing file for writing.
 		 * Files in the secure store are encrypted on the device;
@@ -1006,12 +1006,12 @@ namespace GoodDynamics
 		 * \see \ref WriteToFile
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("readFromFile:error:")]
-		NSData ReadFromFile (string name, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("readFromFile:error:")]
+        NSData ReadFromFile(string name, out NSError error);
 
-		/**< Read a file that is in the secure store.
+        /**< Read a file that is in the secure store.
 		 * Call this function to read a file in the secure store.
 		 * Files in the secure store are encrypted on the device; this
 		 * function returns decrypted data.
@@ -1028,12 +1028,12 @@ namespace GoodDynamics
 		 * contents.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("writeToFile:name:error:")]
-		bool WriteToFile (NSData data, string name, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("writeToFile:name:error:")]
+        bool WriteToFile(NSData data, string name, out NSError error);
 
-		/**< Write a file in the secure store.
+        /**< Write a file in the secure store.
 		 * Call this function to write a new file in the secure store,
 		 * or to overwrite an existing file.
 		 * Files in the secure store are encrypted on the device;
@@ -1058,12 +1058,12 @@ namespace GoodDynamics
 		 * not already exist in the secure store.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("writeToFile:name:fromOffset:error:")]
-		bool WriteToFile (NSData data, string name, int offset, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("writeToFile:name:fromOffset:error:")]
+        bool WriteToFile(NSData data, string name, int offset, out NSError error);
 
-		/**< Write into an existing file in the secure store, at an offset into the
+        /**< Write into an existing file in the secure store, at an offset into the
 		 * file.
 		 * Call this function to write into an existing file in the secure store
 		 * at a specified offset inside the file.
@@ -1088,12 +1088,12 @@ namespace GoodDynamics
 		 * offset specified is beyond the file size, or if the input data is empty.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("createDirectoryAtPath:withIntermediateDirectories:attributes:error:")]
-		bool CreateDirectoryAtPath (string path, bool createIntermediates, NSDictionary attributes, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("createDirectoryAtPath:withIntermediateDirectories:attributes:error:")]
+        bool CreateDirectoryAtPath(string path, bool createIntermediates, NSDictionary attributes, out NSError error);
 
-		/**< Create a new directory in the secure store.
+        /**< Create a new directory in the secure store.
 		 * Call this function to create a new directory within the secure
 		 * file system. The function can create the parent directory, and any other
 		 * missing intermediate directories in the path.
@@ -1112,12 +1112,12 @@ namespace GoodDynamics
 		 * does not already exist.
 		 */
 		 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("contentsOfDirectoryAtPath:error:")]
-		NSObject [] ContentsOfDirectoryAtPath (string path, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("contentsOfDirectoryAtPath:error:")]
+        NSObject [] ContentsOfDirectoryAtPath(string path, out NSError error);
 
-		/**< List contents of a secure file system directory.
+        /**< List contents of a secure file system directory.
 		 * This function returns a list of the file and directory names that are in
 		 * a specified directory of the secure file system.
 		 *
@@ -1134,12 +1134,12 @@ namespace GoodDynamics
 		 * file and directory names, or <TT>null</TT> if the path does not exist.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("fileExistsAtPath:isDirectory:")]
-		bool FileExistsAtPath (string path, bool isDirectory);
+        /// <summary>
+        /// </summary>
+        [Static, Export("fileExistsAtPath:isDirectory:")]
+        bool FileExistsAtPath(string path, bool isDirectory);
 
-		/**< Check a path exists in the secure store.
+        /**< Check a path exists in the secure store.
 		 * Call this function to check if a path exists in the secure file system.
 		 * The path could be a plain file or a directory.
 		 *
@@ -1152,12 +1152,12 @@ namespace GoodDynamics
 		 * \return <TT>false</TT> otherwise.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("moveItemAtPath:toPath:error:")]
-		bool MoveItemAtPath (string srcPath, string dstPath, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("moveItemAtPath:toPath:error:")]
+        bool MoveItemAtPath(string srcPath, string dstPath, out NSError error);
 
-		/**< Move or rename a file or directory within the secure file system.
+        /**< Move or rename a file or directory within the secure file system.
 		 * Call this function to move or rename a file or directory within the
 		 * secure file system.
 		 *
@@ -1172,12 +1172,12 @@ namespace GoodDynamics
 		 * \return <TT>false</TT> otherwise.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("truncateFileAtPath:atOffset:error:")]
-		bool TruncateFileAtPath (string filePath, ulong offset, out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("truncateFileAtPath:atOffset:error:")]
+        bool TruncateFileAtPath(string filePath, ulong offset, out NSError error);
 
-		/**< Truncate a file in the secure store.
+        /**< Truncate a file in the secure store.
 		 * Call this function to truncate a file in the secure store.
 		 * The file will be truncated to a length specified in bytes.
 		 *
@@ -1197,12 +1197,12 @@ namespace GoodDynamics
 		 * \return <TT>false</TT> otherwise.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("getAbsoluteEncryptedPath:")]
-		string GetAbsoluteEncryptedPath (string filePath);
+        /// <summary>
+        /// </summary>
+        [Static, Export("getAbsoluteEncryptedPath:")]
+        string GetAbsoluteEncryptedPath(string filePath);
 
-		/**< Get the absolute encrypted path of a file within the secure file system.
+        /**< Get the absolute encrypted path of a file within the secure file system.
 		 * This function returns the encrypted path for a file or directory within the
 		 * secure file system. The principal usage for this function is to provide a
 		 * path that is compatible with the SQL ATTACH command.
@@ -1213,12 +1213,12 @@ namespace GoodDynamics
 		 * \return <TT>string</TT> containing the encrypted path.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("exportLogFileToDocumentsFolder:")]
-		bool ExportLogFileToDocumentsFolder (out NSError error);
+        /// <summary>
+        /// </summary>
+        [Static, Export("exportLogFileToDocumentsFolder:")]
+        bool ExportLogFileToDocumentsFolder(out NSError error);
 
-		/**< Dump Good Dynamics logs out to an accessible folder.
+        /**< Dump Good Dynamics logs out to an accessible folder.
 		 * Call this function to create a dump of Good Dynamics activity logs. The
 		 * logs will be dumped to a file that is outside the secure store, in the
 		 * Documents folder.
@@ -1231,11 +1231,11 @@ namespace GoodDynamics
 		 * \see  \link GDFileSystem.UploadLogs UploadLogs\endlink
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("uploadLogs:")]
-		bool UploadLogs (out NSError error);
-		/**< Upload Good Dynamics logs to Good Technology.
+        /// <summary>
+        /// </summary>
+        [Static, Export("uploadLogs:")]
+        bool UploadLogs(out NSError error);
+        /**< Upload Good Dynamics logs to Good Technology.
 		 * Call this function to upload Good Dynamics activity logs for support
 		 * purposes.
 		 * The logs will be uploaded to a server in the Good Technology Network
@@ -1254,53 +1254,53 @@ namespace GoodDynamics
 		 *
 		 * \see  \link GDFileSystem.ExportLogToDocumentsFolder ExportLogFileToDocumentsFolder\endlink
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Event dispatched from the Good Dynamics Runtime.
+    /// <summary>
+    /// </summary>
+    /** Event dispatched from the Good Dynamics Runtime.
 	 * This class is used to deliver events to the \link GDiOS\endlink event handler
 	 * in the application. See \ref GDiOSDelegate.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDAppEvent
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("message", ArgumentSemantic.Copy)]
-		string Message { get; set; }
+    [BaseType(typeof(NSObject))]
+    public interface GDAppEvent
+    {
+        /// <summary>
+        /// </summary>
+        [Export("message", ArgumentSemantic.Copy)]
+        string Message { get; set; }
 
-		/**< Textual description of the event.
+        /**< Textual description of the event.
 	     * This property contains a textual description of the event.
 	     * The text is suitable for display to the end user, at least for reporting
 	     * diagnostic information for support purposes.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("code")]
-		GDAppResultCode Code { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("code")]
+        GDAppResultCode Code { get; set; }
 
-		/**< Numeric result code.
+        /**< Numeric result code.
 	     * This property contains a numeric result code.
 	     * For success events, the <TT>GDErrorNone</TT> code is used.
 	     * Other values in the \ref GDAppResultCode enumeration are used for errors.
 	     */
 
-		/// <summary>
-		/// </summary>
-		[Export ("type")]
-		GDAppEventType Type { get; set; }
-		/**< Numeric event type.
+        /// <summary>
+        /// </summary>
+        [Export("type")]
+        GDAppEventType Type { get; set; }
+        /**< Numeric event type.
 	     * This property contains a numeric type code.
 	     * To determine the type of event being notified, compare this property's
 	     * value to the constants in the \ref GDAppEventType enumeration.
 	     */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Good Dynamics Runtime object interface, including authorization.
+    /// <summary>
+    /// </summary>
+    /** Good Dynamics Runtime object interface, including authorization.
  	* This class represents the application's connection to the Good
  	* Dynamics Runtime on the device, and hence to the wider Good Dynamics platform
  	* infrastructure.
@@ -1872,22 +1872,22 @@ namespace GoodDynamics
 	* The handler calls the application's own <TT>onNotAuthorized</TT> function
 	* whenever a <TT>GDAppEventNotAuthorized</TT> event is received.
 	*/
-	[BaseType (typeof(NSObject), Delegates = new string[] { "WeakDelegate" }, Events = new Type[] { typeof(GDiOSDelegate) })]
-	public interface GDiOS
-	{
+    [BaseType(typeof(NSObject), Delegates = new string[] { "WeakDelegate" }, Events = new Type[] { typeof(GDiOSDelegate) })]
+    public interface GDiOS
+    {
 
-		/// <summary>
-		/// </summary>
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		NSObject WeakDelegate { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("delegate", ArgumentSemantic.Assign)]
+        NSObject WeakDelegate { get; set; }
 
-		/// <summary>
-		/// </summary>
-		[Wrap ("WeakDelegate")]
-		[NullAllowed]
-		GDiOSDelegate Delegate { get; set; }
+        /// <summary>
+        /// </summary>
+        [Wrap("WeakDelegate")]
+        [NullAllowed]
+        GDiOSDelegate Delegate { get; set; }
 
-		/**< Delegated event-handling.
+        /**< Delegated event-handling.
 		 * When authorization processing completes, or a Good Dynamics Runtime object
 		 * event occurs, an event is generated by the runtime, and passed to a callback
 		 * function in the application code.
@@ -1897,12 +1897,12 @@ namespace GoodDynamics
 		 * the GDiOSDelegate protocol.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("initializeWithClassNameConformingToUIApplicationDelegate:")]
-		void InitializeWithClassNameConformingToUIApplicationDelegate (string applicationDelegate);
+        /// <summary>
+        /// </summary>
+        [Static, Export("initializeWithClassNameConformingToUIApplicationDelegate:")]
+        void InitializeWithClassNameConformingToUIApplicationDelegate(string applicationDelegate);
 
-		/**< Enable early authorization by specifying a class name.
+        /**< Enable early authorization by specifying a class name.
 		 * Call this function to enable early authorization.
 		 *
 		 * Early authorization means authorization prior to the
@@ -1930,12 +1930,12 @@ namespace GoodDynamics
 		 * xamarin.com
 		 */
 		
-		/// <summary> 
-		/// </summary>
-		[Export ("launchOptions", ArgumentSemantic.Retain)]
-		NSDictionary LaunchOptions { get; set; }
+        /// <summary> 
+        /// </summary>
+        [Export("launchOptions", ArgumentSemantic.Retain)]
+        NSDictionary LaunchOptions { get; set; }
 
-		/**< Application launch options.
+        /**< Application launch options.
 		 * Access this property to obtain the options with which the Good Dynamics
 		 * application was launched. The property is a reference to an object with the
 		 * same semantics as the <TT>options</TT> parameter to the
@@ -1950,12 +1950,12 @@ namespace GoodDynamics
 		 * Documentation on xamarin.com for details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("initializeWithClassConformingToUIApplicationDelegate:")]
-		void InitializeWithClassConformingToUIApplicationDelegate (Class applicationDelegate);
+        /// <summary>
+        /// </summary>
+        [Static, Export("initializeWithClassConformingToUIApplicationDelegate:")]
+        void InitializeWithClassConformingToUIApplicationDelegate(Class applicationDelegate);
 
-		/**< Enable early authorization by specifying a class.
+        /**< Enable early authorization by specifying a class.
 		 * Call this function to enable early authorization. See \ref
 		 * InitializeWithClassNameConformingToUIApplicationDelegate
 		 * "InitializeWithClassNameConformingToUIApplicationDelegate" for details.
@@ -1964,12 +1964,12 @@ namespace GoodDynamics
 		 * <TT>UIApplicationDelegate</TT>.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Static, Export ("isUsingDataPlan")]
-		bool IsUsingDataPlan ();
+        /// <summary>
+        /// </summary>
+        [Static, Export("isUsingDataPlan")]
+        bool IsUsingDataPlan();
 
-		/**< Check whether the application is using a data plan for split billing.
+        /**< Check whether the application is using a data plan for split billing.
 		 * Call this function to check the current data plan state of the
 		 * running application.
 		 * 
@@ -1984,11 +1984,11 @@ namespace GoodDynamics
 		 * Plan split billing product, when available.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Static, Export ("isInitialized")]
-		bool IsInitialized ();
-		/*< Get the Good Dynamics interface object's initialization status.
+        /// <summary>
+        /// </summary>
+        [Static, Export("isInitialized")]
+        bool IsInitialized();
+        /*< Get the Good Dynamics interface object's initialization status.
 		 * This function returns the current initialization status of the Good
 		 * Dynamics interface object.
 		 *
@@ -2001,12 +2001,12 @@ namespace GoodDynamics
 		 * Initialize function\endlink.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Static, Export ("sharedInstance")]
-		GDiOS SharedInstance ();
+        /// <summary>
+        /// </summary>
+        [Static, Export("sharedInstance")]
+        GDiOS SharedInstance();
 
-		/**< Get a reference to the Good Dynamics interface object.
+        /**< Get a reference to the Good Dynamics interface object.
 		 * This function returns a reference to the Good Dynamics
 		 * interface object.
 		 * This function can be called in the
@@ -2021,12 +2021,12 @@ namespace GoodDynamics
 		 * \return Reference that can be used to call, for example, \link GDiOS.Authorize Authorize (GDiOS)\endlink.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("getWindow")]
-		UIWindow GetWindow ();
+        /// <summary>
+        /// </summary>
+        [Export("getWindow")]
+        UIWindow GetWindow();
 
-		/**< Get the <TT>UIWindow</TT> for the application.
+        /**< Get the <TT>UIWindow</TT> for the application.
 		 * This function returns a reference to the <TT>UIWindow</TT> that contains
 		 * the core logic of the Good Dynamics Runtime. Always use this function
 		 * instead of creating a new <TT>UIWindow</TT> in the application.
@@ -2053,23 +2053,23 @@ namespace GoodDynamics
 		 * >UIWindow class reference</A> in the Xamarin.iOS Developer Documentation on xamarin.com
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("getVersion")]
-		string GetVersion ();
+        /// <summary>
+        /// </summary>
+        [Export("getVersion")]
+        string GetVersion();
 
-		/**< Get the Good Dynamics Runtime library version.
+        /**< Get the Good Dynamics Runtime library version.
 		 * \return <TT>string</TT> containing the Good Dynamics Runtime library
 		 * version in <EM>major</EM><TT>.</TT><EM>minor</EM><TT>.</TT><EM>build</EM>
 		 * format.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("authorize:")]
-		void Authorize (GDiOSDelegate aDelegate);
+        /// <summary>
+        /// </summary>
+        [Export("authorize:")]
+        void Authorize(GDiOSDelegate aDelegate);
 
-		/**< Connect to the Good Dynamics infrastructure.
+        /**< Connect to the Good Dynamics infrastructure.
 		 * Call this function to initiate GD authorization
 		 * processing.
 		 *
@@ -2197,12 +2197,12 @@ namespace GoodDynamics
 		 * purposes, see \ref GC and \ref enterprisesimulation.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("authorize")]
-		void Authorize ();
+        /// <summary>
+        /// </summary>
+        [Export("authorize")]
+        void Authorize();
 
-		/**< Connect to the Good Dynamics infrastructure, without specifying a delegate.
+        /**< Connect to the Good Dynamics infrastructure, without specifying a delegate.
 		 * Call this function to initiate Good Dynamics authorization processing without
 		 * specifying a delegated event handler. This style of call should only be used
 		 * after setting the <TT>delegate</TT> property directly.
@@ -2213,12 +2213,12 @@ namespace GoodDynamics
 		 * See  \link GDiOS.Authorize Authorize (GDiOS)\endlink for details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("programmaticAuthorize:withAccessKey:")]
-		void ProgrammaticAuthorize (string userId, string accessKey);
+        /// <summary>
+        /// </summary>
+        [Export("programmaticAuthorize:withAccessKey:")]
+        void ProgrammaticAuthorize(string userId, string accessKey);
 
-		/**< Initiate programmatic activation.
+        /**< Initiate programmatic activation.
 		 * Call this function to
 		 * initiate programmatic activation.
 		 * Programmatic activation can only be utilized by applications
@@ -2239,12 +2239,12 @@ namespace GoodDynamics
 		 *                  activation credential.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getApplicationConfig")]
-		NSDictionary GetApplicationConfig ();
+        /// <summary>
+        /// </summary>
+        [Export("getApplicationConfig")]
+        NSDictionary GetApplicationConfig();
 
-		/**< Get application configuration and other settings from the enterprise.
+        /**< Get application configuration and other settings from the enterprise.
 		 * This function returns a collection of application configuration
 		 * and other settings. The settings will have been made in the enterprise Good
 		 * Control (GC) server, and retrieved by the Good Dynamics Runtime.
@@ -2406,12 +2406,12 @@ namespace GoodDynamics
 		 * \see The GD-Secure compliance document.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getApplicationPolicy")]
-		NSDictionary GetApplicationPolicy ();
+        /// <summary>
+        /// </summary>
+        [Export("getApplicationPolicy")]
+        NSDictionary GetApplicationPolicy();
 
-		/**< Get application-specific policy settings from the Good Control server, as a
+        /**< Get application-specific policy settings from the Good Control server, as a
 		 * collection.
 		 * 
 		 * This function returns a collection of application-specific policy
@@ -2464,12 +2464,12 @@ namespace GoodDynamics
 		 * \see \link GDiOS.GetApplicationPolicyString (GDiOS)\endlink
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("getApplicationPolicyString")]
-		string GetApplicationPolicyString ();
+        /// <summary>
+        /// </summary>
+        [Export("getApplicationPolicyString")]
+        string GetApplicationPolicyString();
 
-		/**< Get application-specific policy settings from the Good Control server, as
+        /**< Get application-specific policy settings from the Good Control server, as
 		* JSON.
 		*  
 		* This function returns application-specific policy settings in a JSON
@@ -2497,12 +2497,12 @@ namespace GoodDynamics
 		* \see \link GDiOS.GetApplicationPolicy GetApplicationPolicy (GDiOS)\endlink
 		*/
 
-		/// <summary>
-		/// </summary>
-		[Export ("getServiceProviders")]
-		NSArray GetServiceProviders ();
+        /// <summary>
+        /// </summary>
+        [Export("getServiceProviders")]
+        NSArray GetServiceProviders();
 
-		/**< Get providers of shared services.
+        /**< Get providers of shared services.
 		 * This function returns a list of all available providers of
 		 * shared services. The list contains both application-based and server-based
 		 * service providers.
@@ -2583,12 +2583,12 @@ namespace GoodDynamics
 		 * <TT>null</TT>.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("showPreferenceUI:")]
-		bool ShowPreferenceUI ([NullAllowed]UIViewController baseViewController);
+        /// <summary>
+        /// </summary>
+        [Export("showPreferenceUI:")]
+        bool ShowPreferenceUI([NullAllowed]UIViewController baseViewController);
 
-		/**< Open the Good Dynamics preferences user interface.
+        /**< Open the Good Dynamics preferences user interface.
 		 * Call this function to show the Good Dynamics (GD) preferences user
 		 * interface (UI).
 		 * This is the UI in which the end user sets any options that are applied by
@@ -2608,12 +2608,12 @@ namespace GoodDynamics
 		 *                   is delegated to another application.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getServiceProvidersFor:andVersion:andType:")]
-		NSArray GetServiceProviders (string serviceId, string version, GDServiceProviderType type);
+        /// <summary>
+        /// </summary>
+        [Export("getServiceProvidersFor:andVersion:andType:")]
+        NSArray GetServiceProviders(string serviceId, string version, GDServiceProviderType type);
 
-		/**< Discover providers of a specific shared service.
+        /**< Discover providers of a specific shared service.
 		 * This function returns a list of the available providers of a
 		 * specified service.
 		 *
@@ -2645,92 +2645,92 @@ namespace GoodDynamics
 		 * function documentation, above.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDAppConfigKeyServers", "__Internal")]
-		NSString GDAppConfigKeyServers { get; }
+        /// <summary>
+        /// </summary>
+        [Field("MTGDAppConfigKeyServers", "__Internal")]
+        NSString GDAppConfigKeyServers { get; }
 
-		/**< Constant key value for application server configuration.\ See under
+        /**< Constant key value for application server configuration.\ See under
 		 * \ref GDiOS.GetApplicationConfig.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDAppConfigKeyConfig", "__Internal")]
-		NSString GDAppConfigKeyConfig { get; }
+        /// <summary>
+        /// </summary>
+        [Field("MTGDAppConfigKeyConfig", "__Internal")]
+        NSString GDAppConfigKeyConfig { get; }
 
-		/**< Constant key value for application-specific configuration data.\ See under
+        /**< Constant key value for application-specific configuration data.\ See under
 		 * \ref GDiOS.GetApplicationConfig.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDAppConfigKeyCopyPasteOn", "__Internal")]
-		NSString GDAppConfigKeyCopyPasteOn { get; }
+        /// <summary>
+        /// </summary>
+        [Field("MTGDAppConfigKeyCopyPasteOn", "__Internal")]
+        NSString GDAppConfigKeyCopyPasteOn { get; }
 
-		/**< Constant key value for the Data Leakage security policy indicator.\ See
+        /**< Constant key value for the Data Leakage security policy indicator.\ See
  		* under \ref GDiOS.GetApplicationConfig.
  		*/
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDAppConfigKeyDetailedLogsOn", "__Internal")]
-		NSString GDAppConfigKeyDetailedLogsOn { get; }
+        /// <summary>
+        /// </summary>
+        [Field("MTGDAppConfigKeyDetailedLogsOn", "__Internal")]
+        NSString GDAppConfigKeyDetailedLogsOn { get; }
 
-		/**< Constant key value for enabling and disabling detailed diagnostic
+        /**< Constant key value for enabling and disabling detailed diagnostic
 		 * logging.\ See under \ref GDiOS.GetApplicationConfig.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Field ("MTGDAppConfigKeyUserId", "__Internal")]
-		NSString GDAppConfigKeyUserId { get; }
-		/**< Constant key value for the user's enterprise email address.\ See under
+        /// <summary>
+        /// </summary>
+        [Field("MTGDAppConfigKeyUserId", "__Internal")]
+        NSString GDAppConfigKeyUserId { get; }
+        /**< Constant key value for the user's enterprise email address.\ See under
 		 * \ref GDiOS.GetApplicationConfig.
 		 */
 
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Handler for events dispatched from the Good Dynamics Runtime,
+    /// <summary>
+    /// </summary>
+    /** Handler for events dispatched from the Good Dynamics Runtime,
 	 * including authorization events.
 	 * Errors and state changes that occur when using \link GDiOS\endlink
 	 * are handled by creating a class that implements this protocol.
 	 */
-	[Protocol, BaseType (typeof(UIApplicationDelegate)), Model]
-	public interface GDiOSDelegate
-	{
-		/// <summary>
-		/// </summary>
-		[Abstract, Export ("handleEvent:")]
-		void HandleEvent (GDAppEvent anEvent);
-		/**< Callback for all events.
+    [Protocol, BaseType(typeof(UIApplicationDelegate)), Model]
+    public interface GDiOSDelegate
+    {
+        /// <summary>
+        /// </summary>
+        [Abstract, Export("handleEvent:")]
+        void HandleEvent(GDAppEvent anEvent);
+        /**< Callback for all events.
 		 * The callback is invoked whenever a Good Dynamics Runtime object event occurs.
 		 * Runtime object events include authorization results, see  \link GDiOS.Authorize: Authorize (GDiOS)\endlink for
 		 * details.
 		 *
 		 * \param anEvent GDAppEvent populated with details of the event.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Delegate for handling GDSocket state transitions and received data.
+    /// <summary>
+    /// </summary>
+    /** Delegate for handling GDSocket state transitions and received data.
 	 * Errors and state changes that occur when using GDSocket
 	 * are handled by creating a class that implements this protocol.
 	 * The callback for handling received data is also part of this protocol.
 	 */
-	[Protocol, BaseType (typeof(NSObject)), Model]
-	public interface GDSocketDelegate
-	{
+    [Protocol, BaseType(typeof(NSObject)), Model]
+    public interface GDSocketDelegate
+    {
 
-		/// <summary>
-		/// </summary>
-		[Export ("onOpen:")]
-		void OnOpen (GDSocket socket);
+        /// <summary>
+        /// </summary>
+        [Export("onOpen:")]
+        void OnOpen(GDSocket socket);
 
-		/**< Socket opened callback.
+        /**< Socket opened callback.
 		 * This callback is invoked when the delegating socket opens for communication
 		 * with the remote server, see GDSocket::connect.
 		 *
@@ -2740,12 +2740,12 @@ namespace GoodDynamics
 		 * \param socket <TT>GDSocket</TT> object that issued the callback.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("onRead:")]
-		void  OnRead (GDSocket socket);
+        /// <summary>
+        /// </summary>
+        [Export("onRead:")]
+        void  OnRead(GDSocket socket);
 
-		/**< Socket data received callback.
+        /**< Socket data received callback.
 		 * This callback is invoked when data has been received from the remote server,
 		 * and is ready to read.
 		 * The function that is invoked should consume the received data.
@@ -2757,12 +2757,12 @@ namespace GoodDynamics
 		 * \param socket <TT>GDSocket</TT> object that issued the callback.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("onClose:")]
-		void  OnClose (GDSocket socket);
+        /// <summary>
+        /// </summary>
+        [Export("onClose:")]
+        void  OnClose(GDSocket socket);
 
-		/**< Socket closed callback.
+        /**< Socket closed callback.
 		 * This callback is invoked when the delegating socket is closed. This means
 		 * closed by the remote end, or by the device end (see GDSocket::disconnect).
 		 *
@@ -2774,36 +2774,36 @@ namespace GoodDynamics
 		 * \param socket <TT>GDSocket</TT> object that issued the callback.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("onErr:inSocket:")]
-		void InSocket (int error, GDSocket socket);
-		/**< Socket error callback.
+        /// <summary>
+        /// </summary>
+        [Export("onErr:inSocket:")]
+        void InSocket(int error, GDSocket socket);
+        /**< Socket error callback.
 		 * This callback is invoked when a socket error occurs on the delegating socket.
 		 *
 		 * \param error \ref GDSocketErrorType value for the socket error encountered.
 		 * \param socket <TT>GDSocket</TT> object that issued the callback.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Buffer for accessing GDSocket and GDHttpRequest data.
+    /// <summary>
+    /// </summary>
+    /** Buffer for accessing GDSocket and GDHttpRequest data.
 	 * The GD Direct Byte Buffer API is used to access certain in-memory byte
 	 * buffers within the Good Dynamics secure communications features.
 	 * GD Socket uses in-memory byte buffers for reading and writing data.
 	 * GD HTTP Request uses in-memory byte buffers for reading response data.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDDirectByteBuffer
-	{
+    [BaseType(typeof(NSObject))]
+    public interface GDDirectByteBuffer
+    {
 		
-		/// <summary>
-		/// </summary>
-		[Export ("write:")]
-		void Write (IntPtr data);
+        /// <summary>
+        /// </summary>
+        [Export("write:")]
+        void Write(IntPtr data);
 
-		/**< Append null-terminated string to GD Direct Byte buffer.
+        /**< Append null-terminated string to GD Direct Byte buffer.
 		 * Call this function to append data to the buffer. This would be used
 		 * on a GD socket's outbound buffer.
 		 *
@@ -2815,12 +2815,12 @@ namespace GoodDynamics
 		 * The terminating null is not written to the buffer.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("writeData:")]
-		void WriteData (NSData data);
+        /// <summary>
+        /// </summary>
+        [Export("writeData:")]
+        void WriteData(NSData data);
 
-		/**< Append NSData data to GD Direct Byte buffer.
+        /**< Append NSData data to GD Direct Byte buffer.
 		 * Call this function to append data to the buffer. This would be used
 		 * on a GD socket's outbound buffer.
 		 *
@@ -2831,12 +2831,12 @@ namespace GoodDynamics
 		 * \param data <TT>NSData</TT> object containing the data to be appended.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("write:withLength:")]
-		void Write (IntPtr data, int length);
+        /// <summary>
+        /// </summary>
+        [Export("write:withLength:")]
+        void Write(IntPtr data, int length);
 
-		/**< Append length bytes of data to GD Direct Byte buffer.
+        /**< Append length bytes of data to GD Direct Byte buffer.
 		 * Call this function to append data to the buffer. This would be used
 		 * on a GD socket's outbound buffer.
 		 *
@@ -2848,23 +2848,23 @@ namespace GoodDynamics
 		 * \param length Number of bytes to be written from the buffer.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("bytesUnread")]
-		int BytesUnread { get; }
+        /// <summary>
+        /// </summary>
+        [Export("bytesUnread")]
+        int BytesUnread { get; }
 
-		/**< Number of bytes available for reading from a GD Direct Byte buffer.
+        /**< Number of bytes available for reading from a GD Direct Byte buffer.
 		 * This function returns the number of bytes available to
 		 * be read from the buffer.
 		 * \return Number of bytes available.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("read:toMaxLength:")]
-		int Read (IntPtr data, int maxLength);
+        /// <summary>
+        /// </summary>
+        [Export("read:toMaxLength:")]
+        int Read(IntPtr data, int maxLength);
 
-		/**< Consume data from GD Direct Byte buffer into <TT>char</TT> buffer.
+        /**< Consume data from GD Direct Byte buffer into <TT>char</TT> buffer.
 		 * Call this function to read and consume a specified amount of raw data
 		 * from the buffer.
 		 * This would be used on a GD Socket's inbound buffer, or on a GD HTTP
@@ -2891,12 +2891,12 @@ namespace GoodDynamics
 		 * \return Number of bytes actually written to the <TT>char</TT> buffer.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("unreadDataAsString")]
-		string UnreadDataAsString { get; }
+        /// <summary>
+        /// </summary>
+        [Export("unreadDataAsString")]
+        string UnreadDataAsString { get; }
 
-		/**< Consume data from GD Direct Byte buffer into new <TT>NSString</TT> object.
+        /**< Consume data from GD Direct Byte buffer into new <TT>NSString</TT> object.
 		 * Call this function to create an <TT>string</TT> object, populated with
 		 * data consumed from the buffer.
 		 * This would be used on a GD Socket's inbound buffer, or on a GD HTTP
@@ -2916,11 +2916,11 @@ namespace GoodDynamics
 		 * GD Direct Byte buffer.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("unreadData")]
-		NSMutableData UnreadData { get; }
-		/**< Consume data from GD Direct Byte buffer into new <TT>NSData</TT> object.
+        /// <summary>
+        /// </summary>
+        [Export("unreadData")]
+        NSMutableData UnreadData { get; }
+        /**< Consume data from GD Direct Byte buffer into new <TT>NSData</TT> object.
 		 * Call this function to create an <TT>NSData</TT> object, populated with
 		 * data consumed from the buffer.
 		 * This would be used on a GD Socket's inbound buffer, or on a GD HTTP
@@ -2939,16 +2939,16 @@ namespace GoodDynamics
 		 * \return New <TT>NSData</TT> object, populated with data consumed from the
 		 * GD Direct Byte buffer.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/* \page st02gdsocket GD Socket state transition diagram
+    /// <summary>
+    /// </summary>
+    /* \page st02gdsocket GD Socket state transition diagram
 	*  \image html "st02 GD Socket.png" "GD Socket state transition diagram" \image rtf "st02 GD Socket.png" "GD Socket state transition diagram"
 	* \see GDSocket
 	*/
 
-	/** TCP sockets, supporting SSL/TLS and communication across the firewall.
+    /** TCP sockets, supporting SSL/TLS and communication across the firewall.
 	* 
 	* The GD Socket API is for bi-directional data communications
 	* between the mobile application on the device and an application server. The
@@ -3138,16 +3138,16 @@ namespace GoodDynamics
 	* If there is no connection to the proxy infrastructure, this can be initiated
 	* in the normal way. See under GDPushConnection.
 	*/
-	[BaseType (typeof(NSObject))]
-	public interface GDSocket
-	{
+    [BaseType(typeof(NSObject))]
+    public interface GDSocket
+    {
 
-		/// <summary>
-		/// </summary>
-		[Export ("init:onPort:andUseSSL:")]
-		IntPtr Constructor (IntPtr url, int port, bool ssl);
+        /// <summary>
+        /// </summary>
+        [Export("init:onPort:andUseSSL:")]
+        IntPtr Constructor(IntPtr url, int port, bool ssl);
 
-		/**< Constructor that prepares a new socket.
+        /**< Constructor that prepares a new socket.
 		 * Call this function when constructing a new GD Socket object. This
 		 * function does not initiate data communication, compare \ref connect.
 		 *
@@ -3163,12 +3163,12 @@ namespace GoodDynamics
 		 * \see SSL/TLS Security, above
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disableHostVerification")]
-		bool DisableHostVerification { get; }
+        /// <summary>
+        /// </summary>
+        [Export("disableHostVerification")]
+        bool DisableHostVerification { get; }
 
-		/**< Security option: Disable SSL/TLS host name verification.
+        /**< Security option: Disable SSL/TLS host name verification.
 		 * This function disables host name verification, when making an
 		 * SSL/TLS connection. Host name verification is an SSL/TLS security option.
 		 *
@@ -3197,12 +3197,12 @@ namespace GoodDynamics
 		 * \see SSL/TLS Security, above
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disablePeerVerification")]
-		bool DisablePeerVerification { get; }
+        /// <summary>
+        /// </summary>
+        [Export("disablePeerVerification")]
+        bool DisablePeerVerification { get; }
 
-		/**< Security option: Disable SSL/TLS authenticity verification.
+        /**< Security option: Disable SSL/TLS authenticity verification.
 		 * This function disables certificate authenticity verification,
 		 * when making an SSL/TLS connection.
 		 * Authenticity verification is an SSL/TLS security option.
@@ -3232,48 +3232,48 @@ namespace GoodDynamics
 		 * \see SSL/TLS Security, above
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("connect")]
-		void Connect ();
+        /// <summary>
+        /// </summary>
+        [Export("connect")]
+        void Connect();
 
-		/**< Connect the socket.
+        /**< Connect the socket.
 		 * Call this function to open the GD Socket connection.
 		 *
 		 * The connection attempt is asynchronous. If the attempt succeeds, the delegate
 		 * \ref GDSocketDelegate::onOpen: "onOpen" callback is invoked.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("write")]
-		void Write ();
+        /// <summary>
+        /// </summary>
+        [Export("write")]
+        void Write();
 
-		/**< Send data from the writeStream buffer.
+        /**< Send data from the writeStream buffer.
 		 * Call this function to send data through the socket connection.
 		 * The data must previously have been added to the socket's outbound
 		 * buffer, represented by the \ref GDSocket.WriteStream "WriteStream"
 		 * property.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disconnect")]
-		void Disconnect ();
+        /// <summary>
+        /// </summary>
+        [Export("disconnect")]
+        void Disconnect();
 
-		/**< Terminate the socket connection.
+        /**< Terminate the socket connection.
 		 * Call this function to terminate the GD Socket connection.
 		 *
 		 * Disconnection is asynchronous. When disconnection completes, the delegate
 		 * \ref GDSocketDelegate.OnClose: "OnClose" callback is invoked.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		GDSocketDelegate Delegate { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("delegate", ArgumentSemantic.Assign)]
+        GDSocketDelegate Delegate { get; set; }
 
-		/**< Delegated event-handling.
+        /**< Delegated event-handling.
 		 * The GD Socket object works asynchronously. When its state changes, or data is
 		 * received, an event is generated by the Good Dynamics Runtime, and passed to a
 		 * callback function in the application.
@@ -3283,12 +3283,12 @@ namespace GoodDynamics
 		 * the GDSocketDelegate interface.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("writeStream", ArgumentSemantic.Retain)]
-		GDDirectByteBuffer WriteStream { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("writeStream", ArgumentSemantic.Retain)]
+        GDDirectByteBuffer WriteStream { get; set; }
 
-		/**< Outbound buffer.
+        /**< Outbound buffer.
 		 * This property represents the outbound buffer of the socket.
 		 * Data to be sent through the socket is first written to this buffer,
 		 * using the GDDirectByteBuffer API, then sent by calling \ref Write.
@@ -3296,11 +3296,11 @@ namespace GoodDynamics
 		 * The outbound buffer can be accessed whenever this property is not null.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("readStream", ArgumentSemantic.Retain)]
-		GDDirectByteBuffer ReadStream { get; set; }
-		/**< Inbound buffer.
+        /// <summary>
+        /// </summary>
+        [Export("readStream", ArgumentSemantic.Retain)]
+        GDDirectByteBuffer ReadStream { get; set; }
+        /**< Inbound buffer.
 		 * This property represents the inbound buffer of the socket.
 		 * When data is received through the socket, the following takes place:
 		 * - The data is stored in the inbound buffer,
@@ -3313,23 +3313,23 @@ namespace GoodDynamics
 		 * The inbound buffer can be accessed whenever this property is not null.
 		 */
 
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Delegate for handling GDHttpRequest state transitions.
+    /// <summary>
+    /// </summary>
+    /** Delegate for handling GDHttpRequest state transitions.
 	 * Errors and state changes that occur when using GDHttpRequest
 	 * are handled by creating a class that implements this protocol.
 	 */
-	[Protocol, BaseType (typeof(NSObject)), Model]
-	public interface GDHttpRequestDelegate
-	{
+    [Protocol, BaseType(typeof(NSObject)), Model]
+    public interface GDHttpRequestDelegate
+    {
 
-		/// <summary>
-		/// </summary>
-		[Export ("onStatusChange:")]
-		void  OnStatusChange (GDHttpRequest httpRequest);
-		/**< Callback for all state changes.
+        /// <summary>
+        /// </summary>
+        [Export("onStatusChange:")]
+        void  OnStatusChange(GDHttpRequest httpRequest);
+        /**< Callback for all state changes.
 		 * This callback is invoked whenever the delegating
 		 * GDHttpRequest changes state, or when more response data is received.
 		 *
@@ -3343,16 +3343,16 @@ namespace GoodDynamics
 		 * \param httpRequest <TT>GDHttpRequest</TT> object that issued the
 		 * callback.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** \page st03gdhttprequest GD HTTP Request state transition diagram
+    /// <summary>
+    /// </summary>
+    /** \page st03gdhttprequest GD HTTP Request state transition diagram
 	 *  \image html "st03 GD HTTP Request.png" "GD HTTP Request state transition diagram" \image rtf "st03 GD HTTP Request.png" "GD HTTP Request state transition diagram"
 	 * \see GDHttpRequest
 	 */
 
-	/** Standards-based HTTP request, also supporting HTTPS and communication across
+    /** Standards-based HTTP request, also supporting HTTPS and communication across
 	*  the firewall.
 	* The GD HTTP Request API is for sending Hypertext Transfer Protocol (HTTP)
 	* requests, such as GET and POST, from the device to an application server.
@@ -3683,15 +3683,15 @@ namespace GoodDynamics
 	* >NSMutableURLRequest class reference</A> in the iOS Developer Library on
 	* apple.com
 	*/																			
-	[BaseType (typeof(NSObject), Delegates = new string[] { "WeakDelegate" }, Events = new Type[] { typeof(GDHttpRequestDelegate) })]
-	public interface GDHttpRequest
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("open:withUrl:withAsync:withUser:withPass:withAuth:")]
-		bool Open ([PlainString] string method, [PlainString] string url, bool isAsync, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
+    [BaseType(typeof(NSObject), Delegates = new string[] { "WeakDelegate" }, Events = new Type[] { typeof(GDHttpRequestDelegate) })]
+    public interface GDHttpRequest
+    {
+        /// <summary>
+        /// </summary>
+        [Export("open:withUrl:withAsync:withUser:withPass:withAuth:")]
+        bool Open([PlainString] string method, [PlainString] string url, bool isAsync, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
 
-		/**< Open the HTTP request (all parameters).
+        /**< Open the HTTP request (all parameters).
 		 * Call this function to open the HTTP request, and set the main parameters.
 		 *
 		 * This is generally the first function called, after <TT>new GDHttpRequest()</TT>, when
@@ -3743,23 +3743,23 @@ namespace GoodDynamics
 		 * <TT>OnStateChange</TT> callback is invoked.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("open:withUrl:withUser:withPass:withAuth:")]
-		bool Open ([PlainString] string method, [PlainString] string url, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
+        /// <summary>
+        /// </summary>
+        [Export("open:withUrl:withUser:withPass:withAuth:")]
+        bool Open([PlainString] string method, [PlainString] string url, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
 
-		/**< Open the HTTP request with synchronous fetching.
+        /**< Open the HTTP request with synchronous fetching.
 		 * Call with these parameters to open the HTTP request with authentication and synchronous fetching.
 		 * See \ref Open (string method, string url, string user, string password, string auth) "Open" for full
 		 * details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("open:withUrl:withAsync:")]
-		bool Open ([PlainString] string method, [PlainString] string url, bool isAsync);
+        /// <summary>
+        /// </summary>
+        [Export("open:withUrl:withAsync:")]
+        bool Open([PlainString] string method, [PlainString] string url, bool isAsync);
 
-		/**< Open the HTTP request with specified fetching.
+        /**< Open the HTTP request with specified fetching.
 		 * Call with these parameters to open the HTTP request specifying
 		 * synchronous or asynchronous fetching.
 		 * The request will not use any new authentication.
@@ -3772,12 +3772,12 @@ namespace GoodDynamics
 		 * details.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Export ("open:withUrl:")]
-		bool Open ([PlainString] string method, string url);
+        /// <summary>
+        /// </summary>
+        [Export("open:withUrl:")]
+        bool Open([PlainString] string method, string url);
 
-		/**< Open the HTTP request with synchronous fetching.
+        /**< Open the HTTP request with synchronous fetching.
 		 * Call with these parameters to open the HTTP request with synchronous
 		 * fetching.
 		 * The request will not use any new authentication.
@@ -3790,12 +3790,12 @@ namespace GoodDynamics
 		 * details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disableHostVerification")]
-		bool DisableHostVerification { get; }
+        /// <summary>
+        /// </summary>
+        [Export("disableHostVerification")]
+        bool DisableHostVerification { get; }
 
-		/**< Security option: Disable SSL/TLS host name verification.
+        /**< Security option: Disable SSL/TLS host name verification.
 		 * Call this function to disable host name verification, when
 		 * making an HTTPS request.
 		 * Host name verification is an SSL/TLS security option.
@@ -3836,12 +3836,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disablePeerVerification")]
-		bool DisablePeerVerification { get; }
+        /// <summary>
+        /// </summary>
+        [Export("disablePeerVerification")]
+        bool DisablePeerVerification { get; }
 
-		/**< Security option: Disable SSL/TLS authenticity verification.
+        /**< Security option: Disable SSL/TLS authenticity verification.
 		 * Call this function to disable certificate authenticity
 		 * verification, when making an HTTPS request.
 		 * Authenticity verification is an SSL/TLS security option.
@@ -3884,12 +3884,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disableFollowLocation")]
-		bool DisableFollowLocation { get; }
+        /// <summary>
+        /// </summary>
+        [Export("disableFollowLocation")]
+        bool DisableFollowLocation { get; }
 
-		/**< Disable automatic following of redirections.
+        /**< Disable automatic following of redirections.
 		 * Call this function to disable automatic following of redirections.
 		 * When automatic following is disabled, the application must handle redirection
 		 * itself, including handling Location: headers, and HTTP statuses in the 30x
@@ -3913,12 +3913,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disableCookieHandling")]
-		bool DisableCookieHandling { get; }
+        /// <summary>
+        /// </summary>
+        [Export("disableCookieHandling")]
+        bool DisableCookieHandling { get; }
 
-		/**< Disable automatic handling of cookies.
+        /**< Disable automatic handling of cookies.
 		 * Call this function to disable automatic cookie handling.
 		 * When automatic handling is disabled, the application must store and process
 		 * cookies itself.
@@ -3936,12 +3936,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("clearCookies:")]
-		void ClearCookies (bool includePersistentStore);
+        /// <summary>
+        /// </summary>
+        [Export("clearCookies:")]
+        void ClearCookies(bool includePersistentStore);
 
-		/**< Delete automatically stored cookies.
+        /**< Delete automatically stored cookies.
 		 * \deprecated
 		 * This function is deprecated and will be removed in a future release. Cookies
 		 * can be directly cleared by using the native <TT>NSHTTPCookieStorage</TT> API.
@@ -3965,12 +3965,12 @@ namespace GoodDynamics
 		 * <TT>false</TT> to clear cookies from memory only.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("enableHttpProxy:withPort:withUser:withPass:withAuth:")]
-		bool EnableHttpProxy ([PlainString] string host, int port, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
+        /// <summary>
+        /// </summary>
+        [Export("enableHttpProxy:withPort:withUser:withPass:withAuth:")]
+        bool EnableHttpProxy([PlainString] string host, int port, [PlainString] string user, [PlainString] string password, [PlainString] string auth);
 
-		/**< Configure and enable an HTTP proxy (all parameters).
+        /**< Configure and enable an HTTP proxy (all parameters).
 		 * Call this function to configure an HTTP proxy address and credentials,
 		 * and enable connection through the proxy.
 		 *
@@ -4012,12 +4012,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("enableHttpProxy:withPort:")]
-		bool EnableHttpProxy ([PlainString] string host, int port);
+        /// <summary>
+        /// </summary>
+        [Export("enableHttpProxy:withPort:")]
+        bool EnableHttpProxy([PlainString] string host, int port);
 
-		/**< Configure and enable an HTTP proxy without authentication.
+        /**< Configure and enable an HTTP proxy without authentication.
 		 * Call this function to configure an HTTP proxy address and credentials,
 		 * and enable connection through the proxy.
 		 * No authentication scheme will be used when connecting to the proxy.
@@ -4027,12 +4027,12 @@ namespace GoodDynamics
 		 * for full details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disableHttpProxy")]
-		bool DisableHttpProxy { get; }
+        /// <summary>
+        /// </summary>
+        [Export("disableHttpProxy")]
+        bool DisableHttpProxy { get; }
 
-		/**< Disable HTTP proxy.
+        /**< Disable HTTP proxy.
 		 * Call this function to disable connection through an HTTP proxy.
 		 *
 		 * This function should be called before <TT>Send</TT> has been called,
@@ -4045,12 +4045,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
  
-		/// <summary>
-		/// </summary>
-		[Export ("setRequestHeader:withValue:")]
-		bool SetRequestHeader ([PlainString] string header, [PlainString] string value);
+        /// <summary>
+        /// </summary>
+        [Export("setRequestHeader:withValue:")]
+        bool SetRequestHeader([PlainString] string header, [PlainString] string value);
 
-		/**< Add an HTTP Header Field.
+        /**< Add an HTTP Header Field.
 		 * Call this function to add a Header Field to the HTTP request. This is for
 		 * standard HTTP Header Fields such as "Authorization".
 		 * Headers are added after the request is open, and prior to sending.
@@ -4073,12 +4073,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 	
-		/// <summary>
-		/// </summary>
-		[Export ("setPostValue:forKey:")]
-		void SetPostValue ([PlainString] string value, [PlainString] string key);
+        /// <summary>
+        /// </summary>
+        [Export("setPostValue:forKey:")]
+        void SetPostValue([PlainString] string value, [PlainString] string key);
 
-		/**< Add a name/value pair for a "POST" request.
+        /**< Add a name/value pair for a "POST" request.
 		 * Call this function to add a name/value pair to the HTTP request.
 		 * The request method must be "POST".
 		 * Multiple name/value pairs can be added, by calling this function multiple
@@ -4098,12 +4098,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("clearPostValues")]
-		void ClearPostValues ();
+        /// <summary>
+        /// </summary>
+        [Export("clearPostValues")]
+        void ClearPostValues();
 
-		/**< Clear all name/value pairs.
+        /**< Clear all name/value pairs.
 		 * Call this function to remove all name/value pairs from the HTTP request.
 		 * Name/value pairs would have been added with the <TT>setPostValue</TT>
 		 * function, see above.
@@ -4118,12 +4118,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("send:withLength:withTimeout:")]
-		bool Send (IntPtr data, uint len, int timeout_s);
+        /// <summary>
+        /// </summary>
+        [Export("send:withLength:withTimeout:")]
+        bool Send(IntPtr data, uint len, int timeout_s);
 
-		/**< Send the HTTP request (all parameters).
+        /**< Send the HTTP request (all parameters).
 		 * Call this function to send the HTTP request to the server.
 		 *
 		 * This section documents all the parameters that the function supports.
@@ -4181,36 +4181,36 @@ namespace GoodDynamics
 		 * \see \ref SendData (NSData data) "SendData"
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("send:withTimeout:")]
-		bool Send (IntPtr data, int timeout_s);
+        /// <summary>
+        /// </summary>
+        [Export("send:withTimeout:")]
+        bool Send(IntPtr data, int timeout_s);
 
-		/**< Send the HTTP request with null-terminated body and specified time out.
+        /**< Send the HTTP request with null-terminated body and specified time out.
 		 * Call this function to send an HTTP request with body,
 		 * and specified time out. The body must be null-terminated.
 		 *
 		 * See \ref Send (IntPtr data, uint len, int timeout_s) "Send" for details.
 		 */
 		 
-		/// <summary>
-		/// </summary>
-		[Export ("send:")]
-		bool Send (IntPtr data);
+        /// <summary>
+        /// </summary>
+        [Export("send:")]
+        bool Send(IntPtr data);
 
-		/**< Send the HTTP request with null-terminated body.
+        /**< Send the HTTP request with null-terminated body.
 		 * Call this function to send an HTTP request with body,
 		 * and the default time out setting. The body must be null-terminated.
 		 *
 		 * See \ref Send (IntPtr data, uint len, int timeout_s) "Send" for details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("send")]
-		bool Send ();
+        /// <summary>
+        /// </summary>
+        [Export("send")]
+        bool Send();
 
-		/**< Send the HTTP request without body (e.g.\ "GET" method).
+        /**< Send the HTTP request without body (e.g.\ "GET" method).
 		 * Call this function to send an HTTP request that has no body, for
 		 * example a "GET" method request, using the default time out setting.
 		 *
@@ -4221,12 +4221,12 @@ namespace GoodDynamics
 		 * See \ref Send (IntPtr data, uint len, int timeout_s) "Send" for details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("sendData:withTimeout:")]
-		bool SendData (NSData data, int timeout_s);
+        /// <summary>
+        /// </summary>
+        [Export("sendData:withTimeout:")]
+        bool SendData(NSData data, int timeout_s);
 
-		/**< Send the HTTP request with NSData body and specified time out.
+        /**< Send the HTTP request with NSData body and specified time out.
 		 * Call this function to send an HTTP request with body,
 		 * and specified time out.
 		 * The body will be the contents of an <TT>NSData</TT> object.
@@ -4234,12 +4234,12 @@ namespace GoodDynamics
 		 * See \ref Send (IntPtr data, uint len, int timeout_s) "Send" for details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("sendData:")]
-		bool SendData (NSData data);
+        /// <summary>
+        /// </summary>
+        [Export("sendData:")]
+        bool SendData(NSData data);
 
-		/**< Send the HTTP request with NSData body.
+        /**< Send the HTTP request with NSData body.
 		 * Call this function to send an HTTP request with body,
 		 * and the default time out setting.
 		 * The body will be the contents of an <TT>NSData</TT> object.
@@ -4247,12 +4247,12 @@ namespace GoodDynamics
 		 * See \ref Send (IntPtr data, uint len, int timeout_s) "Send" for details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("sendWithFile:withTimeout:")]
-		bool SendWithFile (string pathAndFileName, double timeoutSeconds);
+        /// <summary>
+        /// </summary>
+        [Export("sendWithFile:withTimeout:")]
+        bool SendWithFile(string pathAndFileName, double timeoutSeconds);
 
-		/**< Send the HTTP request with file contents as body, with specified time out.
+        /**< Send the HTTP request with file contents as body, with specified time out.
 		 * Call this function to use the open HTTP request to upload a file. The HTTP
 		 * request's method will be overridden to "PUT" unless it is a custom method. A
 		 * time out can be specified.
@@ -4279,24 +4279,24 @@ namespace GoodDynamics
 		 * how to set the request method.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("sendWithFile:")]
-		bool SendWithFile (string pathAndFileName);
+        /// <summary>
+        /// </summary>
+        [Export("sendWithFile:")]
+        bool SendWithFile(string pathAndFileName);
 
-		/**< Send the HTTP request with file contents as body, with default time out.
+        /**< Send the HTTP request with file contents as body, with default time out.
 		 * Call this function to send the HTTP request, reading the body of the request
 		 * from a file, with the default time out setting.
 		 *
 		 * See \ref SendWithFile (string pathAndFileName, double timeoutSeconds) "SendWithFile" for details.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getState")]
-		GDHttpRequestState GetState { get; }
+        /// <summary>
+        /// </summary>
+        [Export("getState")]
+        GDHttpRequestState GetState { get; }
 
-		/**< Get the ready state of the HTTP request.
+        /**< Get the ready state of the HTTP request.
 		 * This function returns the ready state of the HTTP Request. See the
 		 * <TT>GDHttpRequestState</TT> documentation for a list of values
 		 * and ready states. This function is generally the first function called in
@@ -4309,12 +4309,12 @@ namespace GoodDynamics
 		 * \ref GDHttpRequestState enumerated constants.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getResponseHeader:")]
-		IntPtr GetResponseHeader ([PlainString] string header);
+        /// <summary>
+        /// </summary>
+        [Export("getResponseHeader:")]
+        IntPtr GetResponseHeader([PlainString] string header);
 
-		/**< Get a specified HTTP response header.
+        /**< Get a specified HTTP response header.
 		 * Call this function to obtain a specific HTTP response header. (Compare
 		 * \ref GetAllResponseHeaders.)
 		 * HTTP response headers will be sent by the server as part of its
@@ -4336,12 +4336,12 @@ namespace GoodDynamics
 		 * or if there was an error and the request never reached the server.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getAllResponseHeaders")]
-		IntPtr GetAllResponseHeaders { get; }
+        /// <summary>
+        /// </summary>
+        [Export("getAllResponseHeaders")]
+        IntPtr GetAllResponseHeaders { get; }
 
-		/**< Get all HTTP response headers.
+        /**< Get all HTTP response headers.
 		 * Call this function to obtain all HTTP response headers. (Compare
 		 * \ref GetResponseHeader:.)
 		 * HTTP response headers will be sent by the server as part of its
@@ -4359,12 +4359,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getStatus")]
-		int GetStatus { get; }
+        /// <summary>
+        /// </summary>
+        [Export("getStatus")]
+        int GetStatus { get; }
 
-		/**< Get the numeric HTTP response status, or 0 (zero) if an error occurred.
+        /**< Get the numeric HTTP response status, or 0 (zero) if an error occurred.
 		 * Call this function to determine the success or failure of the HTTP
 		 * request.
 		 * If the request was sent OK, this function returns the status code received
@@ -4419,12 +4419,12 @@ namespace GoodDynamics
 		 * \see \ref GetStatusText
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getStatusText")]
-		[PlainString] string GetStatusText { get; }
+        /// <summary>
+        /// </summary>
+        [Export("getStatusText")]
+        [PlainString] string GetStatusText { get; }
 
-		/**< Get the textual HTTP response status, as sent by the server,
+        /**< Get the textual HTTP response status, as sent by the server,
 		 * or details of error if \ref getStatus returns 0.
 		 * This function returns the status message received from the HTTP
 		 * server, if the request was sent OK.
@@ -4463,12 +4463,12 @@ namespace GoodDynamics
 		 * \see \ref GetStatus
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("getReceiveBuffer")]
-		GDDirectByteBuffer GetReceiveBuffer { get; }
+        /// <summary>
+        /// </summary>
+        [Export("getReceiveBuffer")]
+        GDDirectByteBuffer GetReceiveBuffer { get; }
 
-		/**< Get HTTP response data.
+        /**< Get HTTP response data.
 		 * Call this function to obtain the response data, i.e. the body of the HTTP
 		 * response.
 		 * Response data will be sent by the server as part of its
@@ -4499,12 +4499,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("close")]
-		bool Close { get; }
+        /// <summary>
+        /// </summary>
+        [Export("close")]
+        bool Close { get; }
 
-		/**< Close connection and reset disabled options.
+        /**< Close connection and reset disabled options.
 		 * Call this function to force closure of all connections that were used by the
 		 * HTTP request, after the request has completed.
 		 * If any options were disabled then these will be re-enabled when
@@ -4535,12 +4535,12 @@ namespace GoodDynamics
 		 * This function does not affect the ready state.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("abort")]
-		bool Abort ();
+        /// <summary>
+        /// </summary>
+        [Export("abort")]
+        bool Abort();
 
-		/**< Cancel the request.
+        /**< Cancel the request.
 		 * Call this function to cancel the HTTP request.
 		 * Any response data that had been received will be discarded.
 		 * Any HTTP request headers that were set will be cleared.
@@ -4562,12 +4562,12 @@ namespace GoodDynamics
 		 * had already completed.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("enablePipelining")]
-		bool EnablePipelining { get; set; }
+        /// <summary>
+        /// </summary>
+        [Export("enablePipelining")]
+        bool EnablePipelining { get; set; }
 
-		/**< Enable and disable HTTP pipelining of the request.
+        /**< Enable and disable HTTP pipelining of the request.
 		 * Set this property to enable and disable HTTP pipelining on the associated
 		 * request.
 		 *
@@ -4584,12 +4584,12 @@ namespace GoodDynamics
 		 * disable HTTP pipelining. By default, HTTP pipelining is enabled.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Wrap ("WeakDelegate")]
-		GDHttpRequestDelegate Delegate { get; set; }
+        /// <summary>
+        /// </summary>
+        [Wrap("WeakDelegate")]
+        GDHttpRequestDelegate Delegate { get; set; }
 
-		/**< Delegated event-handling.
+        /**< Delegated event-handling.
 		 * The GD HTTP Request object can work asynchronously, at the option of the
 		 * application. See <TT>isAsync</TT> under the <TT>Open</TT> function, above.
 		 *
@@ -4602,15 +4602,15 @@ namespace GoodDynamics
 		 * the GDHttpRequestDelegate protocol.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		NSObject WeakDelegate { get; set; }
-	}
+        /// <summary>
+        /// </summary>
+        [Export("delegate", ArgumentSemantic.Assign)]
+        NSObject WeakDelegate { get; set; }
+    }
 
-	/// <summary>
-	/// </summary>
-	/** NSURLCache category with additional features.
+    /// <summary>
+    /// </summary>
+    /** NSURLCache category with additional features.
 	 * This class is a category of the native <TT>NSURLCache</TT> class that adds
 	 * the functions documented below to the API. The additional functions can
 	 * be used when the Good Dynamics proxy infrastructure is enabled in the URL
@@ -4629,15 +4629,15 @@ namespace GoodDynamics
 	 *     target="_blank"
 	 * >NSURLCache class reference</A> in the iOS Developer Library on apple.com
 	 */
-	[Category, BaseType (typeof(NSUrlCache))]
-	public interface GDURLCache_NSURLCache
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("setMaxCacheFileAge:")]
-		void MaxCacheFileAge (double age);
+    [Category, BaseType(typeof(NSUrlCache))]
+    public interface GDURLCache_NSURLCache
+    {
+        /// <summary>
+        /// </summary>
+        [Export("setMaxCacheFileAge:")]
+        void MaxCacheFileAge(double age);
 
-		/**< Set the default maximum age of cached files.
+        /**< Set the default maximum age of cached files.
 		 * Call this function to set a default maximum age for cached files.
 		 * The default maximum age will be used where it is less than the maximum age
 		 * specified in the server cache directive, if any.
@@ -4649,12 +4649,12 @@ namespace GoodDynamics
 		 *            seconds.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("setMaxCacheFileSize:")]
-		void MaxCacheFileSize (int fileSize);
+        /// <summary>
+        /// </summary>
+        [Export("setMaxCacheFileSize:")]
+        void MaxCacheFileSize(int fileSize);
 
-		/**< Set the maximum permitted size of a cached file.
+        /**< Set the maximum permitted size of a cached file.
 		 * Call this function to set the maximum permitted size of a cached file.
 		 * If not set, a default maximum of 1 megabyte will be used.
 		 *
@@ -4674,9 +4674,9 @@ namespace GoodDynamics
 		 *                 bytes.
 		 */
 		 
-		[Export ("maxCacheFileSize")]
-		int MaxCacheFileSize ();
-		/**< Get the maximum permitted size of a cached file.
+        [Export("maxCacheFileSize")]
+        int MaxCacheFileSize();
+        /**< Get the maximum permitted size of a cached file.
 		 * Call this function to get the maximum permitted size of a cached file.
 		 *
 		 * This function returns the limit for a single file, not for the size of the
@@ -4693,11 +4693,11 @@ namespace GoodDynamics
 		 *
 		 * \returns <TT>int</TT> representing the maximum file size in bytes.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Manage access across the firewall via the URL Loading System.
+    /// <summary>
+    /// </summary>
+    /** Manage access across the firewall via the URL Loading System.
 	 * Good Dynamics applications can utilize the native URL Loading System to
 	 * communicate with servers that are behind the enterprise firewall.
 	 * This is an alternative approach to using GDHttpRequest.
@@ -4873,15 +4873,15 @@ namespace GoodDynamics
 	 * >NSMutableURLRequest class reference</A> in the iOS Developer Library on
 	 * apple.com
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDURLLoadingSystem
-	{
-		/// <summary>
-		/// </summary>
-		[Static, Export ("enableSecureCommunication")]
-		void EnableSecureCommunication ();
+    [BaseType(typeof(NSObject))]
+    public interface GDURLLoadingSystem
+    {
+        /// <summary>
+        /// </summary>
+        [Static, Export("enableSecureCommunication")]
+        void EnableSecureCommunication();
 
-		/**< Enable access across the enterprise firewall via the URL Loading System.
+        /**< Enable access across the enterprise firewall via the URL Loading System.
 		 * Call this function to enable, or re-enable, access across the enterprise
 		 * firewall via the URL Loading System.
 		 *
@@ -4897,12 +4897,12 @@ namespace GoodDynamics
 		 * \ref disableSecureCommunication function, below.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("disableSecureCommunication")]
-		void DisableSecureCommunication ();
+        /// <summary>
+        /// </summary>
+        [Static, Export("disableSecureCommunication")]
+        void DisableSecureCommunication();
 
-		/**< Disable access across the enterprise firewall via the URL Loading System.
+        /**< Disable access across the enterprise firewall via the URL Loading System.
 		 * Call this function to disable access across the enterprise firewall via the
 		 * URL Loading System.
 		 *
@@ -4914,11 +4914,11 @@ namespace GoodDynamics
 		 * \ref GDHttpRequest.
 		 */
 		 
-		/// <summary>
-		/// </summary>
-		[Static, Export ("isSecureCommunicationEnabled")]
-		bool IsSecureCommunicationEnabled ();
-		/**< Check whether access across the enterprise firewall via the URL Loading
+        /// <summary>
+        /// </summary>
+        [Static, Export("isSecureCommunicationEnabled")]
+        bool IsSecureCommunicationEnabled();
+        /**< Check whether access across the enterprise firewall via the URL Loading
 		 *   System is enabled.
 		 * Call this function to check whether access across the enterprise firewall via
 		 * the URL Loading System is enabled.
@@ -4933,11 +4933,11 @@ namespace GoodDynamics
 		 * \return <TT>true</TT> if access is enabled.
 		 * \return <TT>false</TT> otherwise.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Control the secure authentication cache.
+    /// <summary>
+    /// </summary>
+    /** Control the secure authentication cache.
 	 * Use this class to control the secure authentication caches of the
 	 * \ref GDURLLoadingSystem and \ref GDHttpRequest classes. (Currently, there are
 	 * only two controls.)
@@ -4949,15 +4949,15 @@ namespace GoodDynamics
 	 * >Stores tickets for Kerberos authentication.</DD
 	 * ></DL>
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDCacheController
-	{
-		/// <summary>
-		/// </summary>
-		[Static, Export ("clearCredentialsForMethod:")]
-		void ClearCredentialsForMethod (string method);
+    [BaseType(typeof(NSObject))]
+    public interface GDCacheController
+    {
+        /// <summary>
+        /// </summary>
+        [Static, Export("clearCredentialsForMethod:")]
+        void ClearCredentialsForMethod(string method);
 
-		/**< Clear cached authentication credentials.
+        /**< Clear cached authentication credentials.
 		 * Call this function to clear the cached credentials for a particular
 		 * authentication method, or to clear for all methods.
 		 * Calling this function clears the session cache, and the permanent cache if
@@ -4981,9 +4981,9 @@ namespace GoodDynamics
 		 * clears all of the above.
 		 */
 
-		[Static, Export ("kerberosAllowDelegation:")]
-		void KerberosAllowDelegation (bool allow);
-		/**< Allow or disallow Kerberos delegation.
+        [Static, Export("kerberosAllowDelegation:")]
+        void KerberosAllowDelegation(bool allow);
+        /**< Allow or disallow Kerberos delegation.
 		 * Call this function to allow or disallow Kerberos delegation within
 		 * Good Dynamics secure communications. By default, Kerberos delegation is not
 		 * allowed.
@@ -5019,11 +5019,11 @@ namespace GoodDynamics
 		 * \param allow <TT>bool</TT> for the setting: <TT>true</TT> to allow delegation,
 		 *              <TT>false</TT> to disallow.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Delegate for handling GDPushConnection state transition.
+    /// <summary>
+    /// </summary>
+    /** Delegate for handling GDPushConnection state transition.
 	 * Errors and state changes that occur when using
 	 * \link GDPushConnection GDPushConnection\endlink are handled by creating a class that implements
 	 * this protocol.
@@ -5057,14 +5057,14 @@ namespace GoodDynamics
 	 * The above snippet shows how the above handler could be associated with the
 	 * Push Connection.
 	 */
-	[Model, BaseType (typeof(NSObject))]
-	public interface GDPushConnectionDelegate
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("onStatus:")]
-		void OnStatus (int status);
-		/**< Callback for all status changes.
+    [Model, BaseType(typeof(NSObject))]
+    public interface GDPushConnectionDelegate
+    {
+        /// <summary>
+        /// </summary>
+        [Export("onStatus:")]
+        void OnStatus(int status);
+        /**< Callback for all status changes.
 		 * The callback is invoked when the Push Connection changes state, or
 		 * when an error occurs.
 		 *
@@ -5100,11 +5100,11 @@ namespace GoodDynamics
 		 * network coverage and other losses of data connection, as well as the
 		 * subsequent automatic re-establishment of the connection.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Manage Push Channel connection.
+    /// <summary>
+    /// </summary>
+    /** Manage Push Channel connection.
 	 * This API is part of the Good Dynamics Push Channel feature.
 	 * For an overall description of how to use the feature, see under
 	 * \link GDPushChannel GDPushChannel\endlink.
@@ -5194,15 +5194,15 @@ namespace GoodDynamics
 	 * callback would be invoked, with <TT>IsConnected</TT> returning <TT>YES</TT>,
 	 * when the attempt succeeds (not shown). See  \link GDPushConnectionDelegate GDPushConnectionDelegate\endlink.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDPushConnection
-	{
-		/// <summary>
-		/// </summary>
-		[Static, Export ("sharedConnection")]
-		NSObject SharedConnection { get; }
+    [BaseType(typeof(NSObject))]
+    public interface GDPushConnection
+    {
+        /// <summary>
+        /// </summary>
+        [Static, Export("sharedConnection")]
+        NSObject SharedConnection { get; }
 
-		/**< Get a reference to the Push Connection object.
+        /**< Get a reference to the Push Connection object.
 		 * This function returns a reference to the Push Connection object.
 		 *
 		 * The Push Connection object is a "singleton class".
@@ -5211,12 +5211,12 @@ namespace GoodDynamics
 		 * the <TT>IsConnected</TT> function.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("connect")]
-		void Connect ();
+        /// <summary>
+        /// </summary>
+        [Export("connect")]
+        void Connect();
 
-		/**< Initiate connection to the overall Push Channel service.
+        /**< Initiate connection to the overall Push Channel service.
 		 * Call this function to establish, or re-establish, the Push
 		 * Channel connection with the Good Dynamics proxy infrastructure Network
 		 * Operation Center (NOC).
@@ -5235,12 +5235,12 @@ namespace GoodDynamics
 		 * 
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("disconnect")]
-		void Disconnect ();
+        /// <summary>
+        /// </summary>
+        [Export("disconnect")]
+        void Disconnect();
 
-		/**< Terminate the connection to the Push Channel service.
+        /**< Terminate the connection to the Push Channel service.
 		 * Call this function to terminate the Push Channel connection with
 		 * the Good Dynamics proxy infrastructure Network Operation Center (NOC).
 		 *
@@ -5250,12 +5250,12 @@ namespace GoodDynamics
 		 * 
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("isConnected")]
-		bool IsConnected { get; }
+        /// <summary>
+        /// </summary>
+        [Export("isConnected")]
+        bool IsConnected { get; }
 
-		/**< Get state of the connection to the Push Channel service.
+        /**< Get state of the connection to the Push Channel service.
 		 * This function returns the current status of the Push
 		 * Channel connection.
 		 * \return <TT>true</TT> if the Push Channel connection is open and operating, and
@@ -5264,11 +5264,11 @@ namespace GoodDynamics
 		 * 
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		GDPushConnectionDelegate Delegate { get; set; }
-		/**< Delegated event-handling.
+        /// <summary>
+        /// </summary>
+        [Export("delegate", ArgumentSemantic.Assign)]
+        GDPushConnectionDelegate Delegate { get; set; }
+        /**< Delegated event-handling.
 		 * The Push Connection object works asynchronously.
 		 * When its state changes, an event is generated by the Good Dynamics Runtime,
 		 * and passed to a callback function in the application.
@@ -5277,11 +5277,11 @@ namespace GoodDynamics
 		 * required callback function, i.e. a class that implements the
 		 *  \link GDPushConnectionDelegate GDPushConnectionDelegate\endlink protocol.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Delegate for handling GDPushChannel state transitions and received Push Channel notifications.
+    /// <summary>
+    /// </summary>
+    /** Delegate for handling GDPushChannel state transitions and received Push Channel notifications.
 	 * State changes that occur when using \link GDPushChannel GDPushChannel\endlink
 	 * are handled by creating a class that implements this protocol.
 	 * The callback for handling received Push Channel notifications is also part
@@ -5411,15 +5411,15 @@ namespace GoodDynamics
 	 * The <TT>ResendPushToken</TT> function should expect that the server is
 	 * not immediately available, perhaps employing a retry policy.
 	 */
-	[Protocol, Model, BaseType (typeof(NSObject))]
-	public interface GDPushChannelDelegate
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("onChannelOpen:")]
-		void OnChannelOpen (string token);
+    [Protocol, Model, BaseType(typeof(NSObject))]
+    public interface GDPushChannelDelegate
+    {
+        /// <summary>
+        /// </summary>
+        [Export("onChannelOpen:")]
+        void OnChannelOpen(string token);
 
-		/**< Channel opened callback.
+        /**< Channel opened callback.
 		 * This callback will be invoked when the associated Push Channel is
 		 * opened in the Good Dynamics proxy infrastructure. See 
 		 * \link GDPushChannel.Connect Connect\endlink. At this point, a Push
@@ -5442,12 +5442,12 @@ namespace GoodDynamics
 		 * Push Channel token issued by the NOC.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("onChannelMessage:")]
-		void OnChannelMessage (string data);
+        /// <summary>
+        /// </summary>
+        [Export("onChannelMessage:")]
+        void OnChannelMessage(string data);
 
-		/**< Push Channel notification callback.
+        /**< Push Channel notification callback.
 		 * This callback will be invoked when a Push Channel notification is
 		 * received on the associated Push Channel. The message will have been sent by the
 		 * application server, using the Push Channel notify service, which is hosted
@@ -5479,12 +5479,12 @@ namespace GoodDynamics
 		 * \see \ref GNP
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("onChannelClose:")]
-		void OnChannelClose (string data);
+        /// <summary>
+        /// </summary>
+        [Export("onChannelClose:")]
+        void OnChannelClose(string data);
 
-		/**< Channel closed callback.
+        /**< Channel closed callback.
 		 * This callback will be invoked when the associated Push Channel is
 		 * closed.
 		 * This means closed by the remote end, or by the application having
@@ -5513,12 +5513,12 @@ namespace GoodDynamics
 		 * by the GD Push Connection event handler. See  \link GDPushConnectionDelegate GDPushConnectionDelegate\endlink.
 		 */
 
-		/// <summary>
-		/// </summary>
-		[Export ("onChannelError:")]
-		void OnChannelError (int error);
+        /// <summary>
+        /// </summary>
+        [Export("onChannelError:")]
+        void OnChannelError(int error);
 
-		/**< Generic channel error callback.
+        /**< Generic channel error callback.
 		 * This callback is invoked when a permanent error condition is encountered on
 		 * the associated Push Channel.
 		 *
@@ -5553,11 +5553,11 @@ namespace GoodDynamics
 		 * ></TABLE>
 		 */
  
-		/// <summary>
-		/// </summary>
-		[Export ("onChannelPingFail:")]
-		void OnChannelPingFail (int error);
-		/**< Specific Ping Failure callback.
+        /// <summary>
+        /// </summary>
+        [Export("onChannelPingFail:")]
+        void OnChannelPingFail(int error);
+        /**< Specific Ping Failure callback.
 		 * This callback is invoked when Ping Failure is encountered on
 		 * the associated Push Channel.
 		 *
@@ -5620,11 +5620,11 @@ namespace GoodDynamics
 		 * Note that only error 605 means that the token has been lost and must be
 		 * resent.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Manage Push Channel tokens and notifications.
+    /// <summary>
+    /// </summary>
+    /** Manage Push Channel tokens and notifications.
 	 * The Push Channel framework is a Good Dynamics (GD) feature
 	 * used to receive notifications from an application server.
 	 *
@@ -5824,15 +5824,15 @@ namespace GoodDynamics
 	 *  \link GDPushChannelDelegate.OnChannelClose OnChannelClose\endlink
 	 * callback being invoked when the attempt succeeds (not shown).
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDPushChannel
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("connect")]
-		void Connect ();
+    [BaseType(typeof(NSObject))]
+    public interface GDPushChannel
+    {
+        /// <summary>
+        /// </summary>
+        [Export("connect")]
+        void Connect();
 
-		/**< Connect Push Channel.
+        /**< Connect Push Channel.
 		 * Call this function to open the Push Channel.
 		 * This function can only be called when the channel is not open.
 		 *
@@ -5856,10 +5856,10 @@ namespace GoodDynamics
 		 * 
 		 */
 
-		[Export ("disconnect")]
-		void Disconnect ();
+        [Export("disconnect")]
+        void Disconnect();
 
-		/**< Disconnect Push Channel.
+        /**< Disconnect Push Channel.
 		 * Call this function to initiate permanent disconnection of the
 		 * Push Channel. This function can only be called when the channel is open.
 		 *
@@ -5884,9 +5884,9 @@ namespace GoodDynamics
 		 * 
 		 */
 
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		GDPushChannelDelegate Delegate { get; set; }
-		/**< Delegated event-handling.
+        [Export("delegate", ArgumentSemantic.Assign)]
+        GDPushChannelDelegate Delegate { get; set; }
+        /**< Delegated event-handling.
 		 * The Push Channel object works asynchronously. When its state changes, or a
 		 * Push Channel notification is received, an event is generated by the Good
 		 * Dynamics Runtime, and passed to a callback function in the application code.
@@ -5895,11 +5895,11 @@ namespace GoodDynamics
 		 * required callback functions, i.e. a class that implements
 		 * the  \link GDPushChannelDelegate GDPushChannelDelegate\endlink protocol.
 		 */
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Securely exchange data with the Good for Enterprise&tm; email and PIM
+    /// <summary>
+    /// </summary>
+    /** Securely exchange data with the Good for Enterprise&tm; email and PIM
 	 * application (deprecated).
 	 * \deprecated
 	 * This class is deprecated and will be removed in a future release.
@@ -6124,15 +6124,15 @@ namespace GoodDynamics
 	 * \endcode
 	 */
 
-	[BaseType (typeof(NSObject))]
-	public interface GDSecureDocs
-	{
-		/// <summary>
-		/// </summary>
-		[Static, Export ("canSendFileToGFE")]
-		bool CanSendFileToGFE { get; }
+    [BaseType(typeof(NSObject))]
+    public interface GDSecureDocs
+    {
+        /// <summary>
+        /// </summary>
+        [Static, Export("canSendFileToGFE")]
+        bool CanSendFileToGFE { get; }
 
-		/**< Check possibility of sending files to Good for Enterprise.
+        /**< Check possibility of sending files to Good for Enterprise.
 		 * Call this function to check if it is currently possible to send files to
 		 * the Good for Enterprise email and PIM application.
 		 *
@@ -6145,10 +6145,10 @@ namespace GoodDynamics
 		 * \return <TT>false</TT> otherwise.
 		 */
 
-		[Static, Export ("canSendFileToApplication:")]
-		bool CanSendFileToApplication (string application);
+        [Static, Export("canSendFileToApplication:")]
+        bool CanSendFileToApplication(string application);
 
-		/**< Check possibility of sending files to Good for Enterprise, specified as an
+        /**< Check possibility of sending files to Good for Enterprise, specified as an
 		 * application.
 		 * Call this function to check if it is currently possible to send files to
 		 * a specified other application.
@@ -6170,10 +6170,10 @@ namespace GoodDynamics
 		 * \return <TT>false</TT> otherwise.
 		 */
 
-		[Static, Export ("sendFileToGFE:withSuccessBlock:")]
-		bool SendFileToGFE (string relativeSecureFile, SendFileSuccessBlock block);
+        [Static, Export("sendFileToGFE:withSuccessBlock:")]
+        bool SendFileToGFE(string relativeSecureFile, SendFileSuccessBlock block);
 
-		/**< Send a file to Good for Enterprise.
+        /**< Send a file to Good for Enterprise.
 		 * Call this function to send a file to the Good for Enterprise (GFE) email
 		 * and PIM application using the Secure Documents API.
 		 * The file must be in the GD secure store, see \ref GDFileSystem.
@@ -6195,10 +6195,10 @@ namespace GoodDynamics
 		 * will not be executed.
 		 */
 
-		[Static, Export ("sendFile:toApplication:withSuccessBlock:")]
-		bool SendFile (string relativeSecureFile, string application, SendFileSuccessBlock block);
+        [Static, Export("sendFile:toApplication:withSuccessBlock:")]
+        bool SendFile(string relativeSecureFile, string application, SendFileSuccessBlock block);
 
-		/**< Send a file to Good for Enterprise by specifying the application.
+        /**< Send a file to Good for Enterprise by specifying the application.
 		 * Call this function to send a file to a specified application, using the
 		 * Secure Documents API.
 		 * The file must be in the GD secure store, see \ref GDFileSystem.
@@ -6226,18 +6226,18 @@ namespace GoodDynamics
 		 * will not be executed.
 		 */
 		
-		/// <summary>
-		/// </summary>
-		[Field ("kGDSecureDocsScheme", "__Internal")]
-		NSString GDSecureDocsScheme { get; set; }
-		/**< URL scheme for the Secure Documents API, for use with openURL.
+        /// <summary>
+        /// </summary>
+        [Field("kGDSecureDocsScheme", "__Internal")]
+        NSString GDSecureDocsScheme { get; set; }
+        /**< URL scheme for the Secure Documents API, for use with openURL.
 		 * In the openURL handler, compare the scheme of the incoming URL to this value
 		 * to verify that the calling application is using the Secure Documents API.
 		 * \see \ref GDSecureDocs
 		 */
-	}
+    }
 
-	/** Handler for Good Inter-Container Communication consumer events.
+    /** Handler for Good Inter-Container Communication consumer events.
 	 * Responses to service requests within the Good Inter-Container
 	 * Communication (ICC) system are handled by creating a class that implements
 	 * this protocol.
@@ -6253,14 +6253,14 @@ namespace GoodDynamics
 	 * This class also includes a callback that is invoked whenever transmission of
 	 * a service request completes.
 	 */
-	[Protocol, Model, BaseType (typeof(NSObject))]
-	public interface GDServiceClientDelegate
-	{
+    [Protocol, Model, BaseType(typeof(NSObject))]
+    public interface GDServiceClientDelegate
+    {
 
-		[Export ("GDServiceClientDidReceiveFrom:withParams:withAttachments:correspondingToRequestID:")]
-		void DidRecieveFrom (string application, NSObject parameters, NSObject[] attachments, string requestID);
+        [Export("GDServiceClientDidReceiveFrom:withParams:withAttachments:correspondingToRequestID:")]
+        void DidRecieveFrom(string application, NSObject parameters, NSObject[] attachments, string requestID);
 
-		/**< Good Inter-Container Communication service response callback.
+        /**< Good Inter-Container Communication service response callback.
 		 * This callback is invoked when a response is received to a service
 		 * request that was sent within the Good Inter-Container Communication (ICC)
 		 * system.
@@ -6314,10 +6314,10 @@ namespace GoodDynamics
 		 *  \link GDServiceClient.SendTo SendTo (GDServiceClient)\endlink was originally called.
 		 */
 
-		[Export ("GDServiceClientDidStartSendingTo:withFilename:correspondingToRequestID:")]
-		void DidStartSendingTo (string application, string filename, string requestID);
+        [Export("GDServiceClientDidStartSendingTo:withFilename:correspondingToRequestID:")]
+        void DidStartSendingTo(string application, string filename, string requestID);
 
-		/**< Good Inter-Container Communication service request file attachment
+        /**< Good Inter-Container Communication service request file attachment
 		 *   transmission start callback.
 		 * This callback is invoked whenever the delivery of a service request
 		 * file attachment via the Good Inter-Container Communication (ICC) system
@@ -6344,9 +6344,9 @@ namespace GoodDynamics
 		 *                  to which the file is attached.
 		 */
 
-		[Export ("GDServiceClientDidFinishSendingTo:withAttachments:withParams:correspondingToRequestID:")]
-		void DidFinishSendingTo (string application, NSObject[] attachments, NSObject parameters, string requestID);
-		/**< Good Inter-Container Communication service request transmission complete
+        [Export("GDServiceClientDidFinishSendingTo:withAttachments:withParams:correspondingToRequestID:")]
+        void DidFinishSendingTo(string application, NSObject[] attachments, NSObject parameters, string requestID);
+        /**< Good Inter-Container Communication service request transmission complete
 		 *   callback.
 		 * This callback is invoked whenever the delivery of a service request
 		 * via the Good Inter-Container Communication (ICC) system completes.
@@ -6375,9 +6375,9 @@ namespace GoodDynamics
 		 * \param application <TT>string</TT> containing the native application identifier of
 		 * the application to which the service request was sent.
 		 */
-	}
+    }
 
-	/** Good Inter-Container Communication service consumer.
+    /** Good Inter-Container Communication service consumer.
 	 * This class is mandatory for service consumer applications within the
 	 * Good Inter-Container Communication (ICC) system.
 	 * This class also includes the specific API for sending ICC service requests.
@@ -6410,14 +6410,14 @@ namespace GoodDynamics
 	 * The delegate of the object handles responses from
 	 * all the services that the application consumes.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDServiceClient
-	{
+    [BaseType(typeof(NSObject))]
+    public interface GDServiceClient
+    {
 
-		[Static, Export ("sendTo:withService:withVersion:withMethod:withParams:withAttachments:bringServiceToFront:requestID:error:")]
-		bool SendTo ([NullAllowed] string application, string service, string version, string method, [NullAllowed] NSObject parameters, [NullAllowed] NSObject[] attachments, GDTForegroundOption option, out string requestID, out NSError error);
+        [Static, Export("sendTo:withService:withVersion:withMethod:withParams:withAttachments:bringServiceToFront:requestID:error:")]
+        bool SendTo([NullAllowed] string application, string service, string version, string method, [NullAllowed] NSObject parameters, [NullAllowed] NSObject[] attachments, GDTForegroundOption option, out string requestID, out NSError error);
 
-		/**< Send a Good Inter-Container Communication service request.
+        /**< Send a Good Inter-Container Communication service request.
 		 * Call this function to send a service request to a service
 		 * provider application in the Good Inter-Container Communication (ICC)
 		 * system.
@@ -6484,10 +6484,10 @@ namespace GoodDynamics
 		 * condition.
 		 */
 
-		[Static, Export ("cancelRequest:toApplication:")]
-		bool CancelRequest (string requestID, string application);
+        [Static, Export("cancelRequest:toApplication:")]
+        bool CancelRequest(string requestID, string application);
 
-		/**< Cancel a Good Inter-Container Communication service request.
+        /**< Cancel a Good Inter-Container Communication service request.
 		 * Call this function to cancel service requests in the Good
 		 * Inter-Container Communication (ICC) system. The application can only cancel
 		 * requests that it sent, not requests sent by other applications.
@@ -6522,10 +6522,10 @@ namespace GoodDynamics
 		 *                   none of the requests that match could be cancelled.
 		 */
 
-		[Static, Export ("bringToFront:error:")]
-		bool BringToFront (string application, out NSError error);
+        [Static, Export("bringToFront:error:")]
+        bool BringToFront(string application, out NSError error);
 
-		/**< Bring another application to the foreground.
+        /**< Bring another application to the foreground.
 		 * Call this function to bring another application to the
 		 * foreground. This would typically be used when a service provider application
 		 * has requested foreground execution to process a request that has already been
@@ -6544,9 +6544,9 @@ namespace GoodDynamics
 		 * \return <TT>NO</TT> otherwise.
 		 */
 
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		GDServiceClientDelegate Delegate { [Bind ("getDelegate")] get; set; }
-		/**< Handler for responses to service requests.
+        [Export("delegate", ArgumentSemantic.Assign)]
+        GDServiceClientDelegate Delegate { [Bind ("getDelegate")] get; set; }
+        /**< Handler for responses to service requests.
 		 * When a response to an ICC service request is received, the Good
 		 * Dynamics Runtime dispatches an event to a callback function within the
 		 * application.
@@ -6563,9 +6563,9 @@ namespace GoodDynamics
 		 *
 		 */
 
-	}
+    }
 
-	/** Good Inter-Container Communication service provider implementation.
+    /** Good Inter-Container Communication service provider implementation.
 	 * Service requests received within the Good Inter-Container
 	 * Communication (ICC) system are handled by creating a class that implements
 	 * this protocol.
@@ -6577,14 +6577,14 @@ namespace GoodDynamics
 	 * This class also includes a callback that is invoked whenever transmission of
 	 * a service response completes.
 	 */
-	[Protocol, Model, BaseType (typeof(NSObject))]
-	public interface GDServiceDelegate
-	{
+    [Protocol, Model, BaseType(typeof(NSObject))]
+    public interface GDServiceDelegate
+    {
 
-		[Export ("GDServiceDidReceiveFrom:forService:withVersion:forMethod:withParams:withAttachments:forRequestID:")]
-		void DidReceiveFrom (string application, string service, string version, string method, NSObject parameters, NSObject[] attachments, string requestID);
+        [Export("GDServiceDidReceiveFrom:forService:withVersion:forMethod:withParams:withAttachments:forRequestID:")]
+        void DidReceiveFrom(string application, string service, string version, string method, NSObject parameters, NSObject[] attachments, string requestID);
 
-		/**< Good Inter-Container Communication service request callback.
+        /**< Good Inter-Container Communication service request callback.
 		 * This callback is invoked when a service request is sent to the
 		 * application within the Good Inter-Container Communication (ICC) system.
 		 * The parameters with which this function is called give the details of
@@ -6650,10 +6650,10 @@ namespace GoodDynamics
 		 * the  \link GDService.ReplyTo ReplyTo (GDService)\endlink call if it responds to the request.
 		 */
 
-		[Export ("GDServiceDidStartSendingTo:withFilename:correspondingToRequestID:")]
-		void DidStartSendingTo (string application, string filename, string requestID);
+        [Export("GDServiceDidStartSendingTo:withFilename:correspondingToRequestID:")]
+        void DidStartSendingTo(string application, string filename, string requestID);
 
-		/**< Good Inter-Container Communication service response file attachment
+        /**< Good Inter-Container Communication service response file attachment
 		 *   transmission start callback.
 		 * This callback is invoked whenever the delivery of a service response
 		 * file attachment via the Good Inter-Container Communication (ICC) system
@@ -6680,9 +6680,9 @@ namespace GoodDynamics
 		 *                  request, the response to which the file is attached.
 		 */
 
-		[Export ("GDServiceDidFinishSendingTo:withAttachments:withParams:correspondingToRequestID:")]
-		void DidFinishSendingTo (string application, NSObject[] attachments, NSObject parameters, string requestID);
-		/**< Good Inter-Container Communication service response transmission complete callback.
+        [Export("GDServiceDidFinishSendingTo:withAttachments:withParams:correspondingToRequestID:")]
+        void DidFinishSendingTo(string application, NSObject[] attachments, NSObject parameters, string requestID);
+        /**< Good Inter-Container Communication service response transmission complete callback.
 		 * This callback is invoked whenever the delivery of a service response
 		 * via the Good Inter-Container Communication (ICC) system completes.
 		 *
@@ -6710,9 +6710,9 @@ namespace GoodDynamics
 		 * \param application <TT>string</TT> containing the native application identifier of
 		 * the application to which the service response was sent.
 		 */
-	}
+    }
 
-	/** Good Inter-Container Communication service provider.
+    /** Good Inter-Container Communication service provider.
 	 * This class is mandatory for service provider applications within the
 	 * Good Inter-Container Communication (ICC) system.
 	 * This class also includes the specific API for sending ICC service responses.
@@ -7125,14 +7125,14 @@ namespace GoodDynamics
 	 * 
 	 * \see  \link GDiOS.GetServiceProviders GetServiceProvidersFor:  (GDiOS)\endlink for details of the service discovery API.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDService
-	{
+    [BaseType(typeof(NSObject))]
+    public interface GDService
+    {
 
-		[Static, Export ("replyTo:withParams:bringClientToFront:withAttachments:requestID:error:")]
-		bool ReplyTo (string application, [NullAllowed] NSObject parameters, GDTForegroundOption option, [NullAllowed] NSObject[] attachments, string requestID, out NSError error);
+        [Static, Export("replyTo:withParams:bringClientToFront:withAttachments:requestID:error:")]
+        bool ReplyTo(string application, [NullAllowed] NSObject parameters, GDTForegroundOption option, [NullAllowed] NSObject[] attachments, string requestID, out NSError error);
 
-		/**< Send a Good Inter-Container Communication response or error message.
+        /**< Send a Good Inter-Container Communication response or error message.
 		 * Call this function to respond to a consumer application from which a
 		 * service request has been received in the Good Inter-Container Communication
 		 * (ICC) system. The response can include a results object and file attachments
@@ -7187,10 +7187,10 @@ namespace GoodDynamics
 		 */
 
 
-		[Static, Export ("bringToFront:error:")]
-		bool BringToFront (string application, out NSError error);
+        [Static, Export("bringToFront:error:")]
+        bool BringToFront(string application, out NSError error);
 
-		/**< Bring another application to the foreground.
+        /**< Bring another application to the foreground.
 		 * Call this function to bring another application to the
 		 * foreground. This could be used when the application is a service provider, to
 		 * bring the service consumer back to the foreground without sending a response.
@@ -7208,9 +7208,9 @@ namespace GoodDynamics
 		 * \return <TT>NO</TT> otherwise.
 		 */
 
-		[Export ("delegate", ArgumentSemantic.Assign)]
-		GDServiceDelegate Delegate { [Bind ("getDelegate")] get; set; }
-		/**< Handler that implements the services provided by the application.
+        [Export("delegate", ArgumentSemantic.Assign)]
+        GDServiceDelegate Delegate { [Bind ("getDelegate")] get; set; }
+        /**< Handler that implements the services provided by the application.
 		 * When an ICC service request is received, the Good Dynamics Runtime
 		 * dispatches an event to a callback function within the application.
 		 * 
@@ -7229,11 +7229,11 @@ namespace GoodDynamics
 		 */
 
 
-	}
+    }
 
-	/// <summary>
-	/// </summary>
-	/** Delegate for handling the results of Good Dynamics Authentication Token
+    /// <summary>
+    /// </summary>
+    /** Delegate for handling the results of Good Dynamics Authentication Token
 	 * requests.
 	 * The results of Good Dynamics Authentication Token requests are
 	 * handled by creating a class that implements this protocol.
@@ -7244,15 +7244,15 @@ namespace GoodDynamics
 	 * For the token request API, and general information about the GD Auth
 	 * mechanism, see the \link GDUtility GDUtility\endlink class reference.
 	 */
-	[Protocol, Model, BaseType (typeof(NSObject))]
-	public interface GDAuthTokenDelegate
-	{
-		/// <summary>
-		/// </summary>
-		[Export ("onGDAuthTokenSuccess:")]
-		void OnGDAuthTokenSuccess (string gdAuthToken);
+    [Protocol, Model, BaseType(typeof(NSObject))]
+    public interface GDAuthTokenDelegate
+    {
+        /// <summary>
+        /// </summary>
+        [Export("onGDAuthTokenSuccess:")]
+        void OnGDAuthTokenSuccess(string gdAuthToken);
 
-		/**< Successful token request callback.
+        /**< Successful token request callback.
 		 * This callback will be invoked when a new GD Auth token has been
 		 * generated. Token generation is always in response to a call to the
 		 * \link GDUtility.GetGDAuthToken: GetGDAuthToken\endlink function.
@@ -7263,9 +7263,9 @@ namespace GoodDynamics
 		 * \param gdAuthToken <TT>string</TT> containing the GD Auth token.
 		 */
 
-		[Export ("onGDAuthTokenFailure:")]
-		void OnGDAuthTokenFailure (NSError authTokenError);
-		/**< Failed token request callback.
+        [Export("onGDAuthTokenFailure:")]
+        void OnGDAuthTokenFailure(NSError authTokenError);
+        /**< Failed token request callback.
 		 * This callback will be invoked when a request for a GD Auth token has
 		 * failed. Information about the error condition is passed in
 		 * a parameter.
@@ -7286,9 +7286,9 @@ namespace GoodDynamics
 		 *
 		 * \see \ref gdauthtokendomain
 		 */
-	}
+    }
 
-	/** Good Dynamics Authentication Token request.
+    /** Good Dynamics Authentication Token request.
 	 * The Good Dynamics Authentication Token mechanism enables
 	 * applications to utilize the user identification that takes place during Good
 	 * Dynamics authorization processing. This allows the user to be authenticated
@@ -7385,14 +7385,14 @@ namespace GoodDynamics
 	 * safely. All letters and numerals that lie in the ASCII range 32 to 126 can be
 	 * utilized safely. Use of other characters is not supported.
 	 */
-	[BaseType (typeof(NSObject))]
-	public interface GDUtility
-	{
+    [BaseType(typeof(NSObject))]
+    public interface GDUtility
+    {
 
-		[Export ("getGDAuthToken:serverName:")]
-		void GetGDAuthToken (string challenge, string serverName);
+        [Export("getGDAuthToken:serverName:")]
+        void GetGDAuthToken(string challenge, string serverName);
 
-		/**< Good Dynamics Authentication Token request.
+        /**< Good Dynamics Authentication Token request.
 		 * Call this function to request a new GD Auth token. Pass the
 		 * challenge string and server name as parameters.
 		 *
@@ -7422,10 +7422,10 @@ namespace GoodDynamics
 		 *
 		 */
 
-		[Export ("gdAuthDelegate", ArgumentSemantic.Assign)]
-		GDAuthTokenDelegate GdAuthDelegate { [Bind ("getGDAuthDelegate")] get; [Bind ("setGDAuthDelegate:")] set; }
+        [Export("gdAuthDelegate", ArgumentSemantic.Assign)]
+        GDAuthTokenDelegate GdAuthDelegate { [Bind ("getGDAuthDelegate")] get; [Bind ("setGDAuthDelegate:")] set; }
 
-		/**< Delegated event-handling.
+        /**< Delegated event-handling.
 		 * GD Auth token requests are asynchronous. When a request succeeds or fails, a
 		 * callback in the application code is invoked by the Good Dynamics Runtime.
 		 * 
@@ -7434,26 +7434,26 @@ namespace GoodDynamics
 		 * the GDAuthTokenDelegate protocol.
 		 */
 		
-		[Field ("GDAuthTokenDomain", "__Internal")]
-		NSString GDAuthTokenDomain { get; }
-		/**< The error domain for Good Dynamics Authentication Token errors.
+        [Field("GDAuthTokenDomain", "__Internal")]
+        NSString GDAuthTokenDomain { get; }
+        /**< The error domain for Good Dynamics Authentication Token errors.
 		 */
-	}
+    }
 
-	[Category, BaseType (typeof(NSMutableUrlRequest))]
-	public partial interface GDNET_NSMutableURLRequest
-	{
+    [Category, BaseType(typeof(NSMutableUrlRequest))]
+    public partial interface GDNET_NSMutableURLRequest
+    {
 
-		[Export ("failOnAuthorizationChallenge")]
-		bool FailOnAuthorizationChallenge ();
+        [Export("failOnAuthorizationChallenge")]
+        bool FailOnAuthorizationChallenge();
 
-		[Export ("setAuthorizationCredentials:withProtectionSpace:")]
-		bool SetAuthorizationCredentials (NSUrlCredential credentials, NSUrlProtectionSpace space);
+        [Export("setAuthorizationCredentials:withProtectionSpace:")]
+        bool SetAuthorizationCredentials(NSUrlCredential credentials, NSUrlProtectionSpace space);
 
-		[Export ("disableHostVerification")]
-		bool DisableHostVerification ();
+        [Export("disableHostVerification")]
+        bool DisableHostVerification();
 
-		[Export ("disablePeerVerification")]
-		bool DisablePeerVerification ();
-	}
+        [Export("disablePeerVerification")]
+        bool DisablePeerVerification();
+    }
 }
